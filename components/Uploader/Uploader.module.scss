@@ -1,0 +1,41 @@
+.photo {
+  width: 120px;
+  height: 140px;
+}
+
+.uploader {
+  border-radius: 52px;
+  padding: 55px 35px 16px;
+
+  &Blue {
+    background-color: #c8e4ff;
+    border: 1px solid #154bd5;
+
+    .photo {
+      border: 4px dashed #154bd5;
+    }
+  }
+
+  &Pink {
+    background-color: #ffd3e5;
+    border: 1px solid #d61cb8;
+
+    .photo {
+      border: 4px dashed #d61cb8;
+    }
+  }
+}
+
+.uploadButton {
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  display: block;
+  margin: 0 auto;
+}
+
+.photos {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}

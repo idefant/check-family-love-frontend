@@ -1,0 +1,16 @@
+.section {
+  margin-bottom: 100px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 100px 1fr;
+  gap: 65px;
+  margin: 120px 0 105px;
+}
+
+.wrongPhotosButton {
+  width: 400px;
+  margin: 0 auto;
+  display: block;
+}

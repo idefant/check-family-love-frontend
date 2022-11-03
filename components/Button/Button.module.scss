@@ -1,0 +1,60 @@
+.button {
+  padding: 25px 50px;
+  text-align: center;
+  border-radius: 40px;
+  font-size: 32px;
+  transition: ease-in 0.2s;
+  cursor: pointer;
+}
+
+.blue {
+  border: 5px solid #005f82;
+}
+
+.pink {
+  border: 5px solid #f2297b;
+}
+
+.outline {
+  background-color: transparent;
+
+  &.blue {
+    color: #005f82;
+
+    &:hover {
+      background-color: #005f82;
+      color: #fff;
+    }
+  }
+
+  &.pink {
+    color: #f2297b;
+
+    &:hover {
+      background-color: #f2297b;
+      color: #fff;
+    }
+  }
+}
+
+.fill {
+  &.blue {
+    background-color: #005f82;
+    color: #fff;
+
+    &:hover {
+      color: #005f82;
+      background-color: #fff;
+    }
+  }
+
+  &.pink {
+    background-color: #f2297b;
+    color: #fff;
+
+    &:hover {
+      color: #f2297b;
+      background-color: #fff;
+    }
+  }
+}

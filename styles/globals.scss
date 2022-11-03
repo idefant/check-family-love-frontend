@@ -1,0 +1,37 @@
+@import "~normalize.css/normalize.css";
+
+@font-face {
+  font-family: Roboto;
+  src: url("../public/fonts/Roboto-Light.ttf") format("woff");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: Roboto;
+  src: url("../public/fonts/Roboto-Regular.ttf") format("woff");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: Roboto;
+  src: url("../public/fonts/Roboto-Medium.ttf") format("woff");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: Roboto;
+  src: url("../public/fonts/Roboto-Bold.ttf") format("woff");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+* {
+  font-family: Roboto, sans-serif;
+}
