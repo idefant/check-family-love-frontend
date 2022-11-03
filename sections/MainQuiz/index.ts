@@ -1,3 +1,3 @@
-import MainQuiz from "./MainQuiz";
+import MainQuiz from './MainQuiz';
 
 export default MainQuiz;

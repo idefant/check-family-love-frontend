@@ -1,9 +1,11 @@
-import { FC } from "react";
-import Button from "../../components/Button";
-import Container from "../../components/Container";
-import QuizCard from "../../components/QuizCard";
-import SectionTitle from "../../components/SectionTitle";
-import style from "./MainQuiz.module.scss";
+import { FC } from 'react';
+
+import Button from '../../components/Button';
+import Container from '../../components/Container';
+import QuizCard from '../../components/QuizCard';
+import SectionTitle from '../../components/SectionTitle';
+
+import style from './MainQuiz.module.scss';
 
 const MainQuiz: FC = () => (
   <section>

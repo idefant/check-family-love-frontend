@@ -1,7 +1,9 @@
-import { FC } from "react";
-import Container from "../../components/Container";
-import SectionTitle from "../../components/SectionTitle";
-import style from "./MainAlgo.module.scss";
+import { FC } from 'react';
+
+import Container from '../../components/Container';
+import SectionTitle from '../../components/SectionTitle';
+
+import style from './MainAlgo.module.scss';
 
 const MainAlgo: FC = () => (
   <section>

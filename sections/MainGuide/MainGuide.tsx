@@ -1,11 +1,13 @@
-import { FC } from "react";
-import Image from "next/image";
-import Container from "../../components/Container";
-import style from "./MainGuide.module.scss";
-import uploadImg from "../../public/img/guide/1.png";
-import answerImg from "../../public/img/guide/2.png";
-import paymentImg from "../../public/img/guide/3.png";
-import resultImg from "../../public/img/guide/4.png";
+import Image from 'next/image';
+import { FC } from 'react';
+
+import Container from '../../components/Container';
+import uploadImg from '../../public/img/guide/1.png';
+import answerImg from '../../public/img/guide/2.png';
+import paymentImg from '../../public/img/guide/3.png';
+import resultImg from '../../public/img/guide/4.png';
+
+import style from './MainGuide.module.scss';
 
 const MainGuide: FC = () => (
   <section className={style.section}>

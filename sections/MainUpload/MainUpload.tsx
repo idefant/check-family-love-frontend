@@ -1,9 +1,11 @@
-import { FC } from "react";
-import Button from "../../components/Button";
-import Container from "../../components/Container";
-import SectionTitle from "../../components/SectionTitle";
-import Uploader from "../../components/Uploader";
-import style from "./MainUpload.module.scss";
+import { FC } from 'react';
+
+import Button from '../../components/Button';
+import Container from '../../components/Container';
+import SectionTitle from '../../components/SectionTitle';
+import Uploader from '../../components/Uploader';
+
+import style from './MainUpload.module.scss';
 
 const MainUpload: FC = () => (
   <section className={style.section}>
@@ -11,7 +13,7 @@ const MainUpload: FC = () => (
     <Container>
       <div className={style.grid}>
         <Uploader theme="blue" />
-        <div className={style.spinner}></div>
+        <div className={style.spinner} />
         <Uploader theme="pink" />
       </div>
 

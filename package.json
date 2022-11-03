@@ -8,6 +8,8 @@
     "start": "next start",
     "lint": "next lint",
     "lint:fix": "next lint --fix",
+    "eslint": "eslint -c .eslintrc.json --ext .js,.jsx,.ts,.tsx .",
+    "eslint:fix": "npm run lint -- --fix",
     "lint:css": "npx stylelint \"**/*.scss\"",
     "lint:css:fix": "npm run lint:css -- --fix"
   },

@@ -1,3 +1,3 @@
-import MainGuide from "./MainGuide";
+import MainGuide from './MainGuide';
 
 export default MainGuide;
