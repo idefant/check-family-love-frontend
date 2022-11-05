@@ -1,21 +1,32 @@
-import Link from 'next/link';
+import { useRouter } from 'next/router';
 import { FC } from 'react';
+import { scroller } from 'react-scroll';
 
 import style from './Header.module.scss';
 
-const links = [
-  { title: 'Как это работает', url: '#' },
-  { title: 'Начать работу', url: '#' },
-];
+const Header: FC = () => {
+  const router = useRouter();
 
-const Header: FC = () => (
-  <header className={style.header}>
-    {links.map((link) => (
-      <Link href={link.url} className={style.link} key={link.title}>
-        {link.title}
-      </Link>
-    ))}
-  </header>
-);
+  const scroll = (sectionName: string) => {
+    if (router.pathname !== '/') {
+      router.push(`/#${sectionName}`);
+      return;
+    }
+
+    scroller.scrollTo(sectionName, {
+      duration: 1000,
+      delay: 100,
+      smooth: true,
+      offset: -70,
+    });
+  };
+
+  return (
+    <header className={style.header}>
+      <span className={style.link} onClick={() => scroll('algo')}>Как это работает</span>
+      <span className={style.link} onClick={() => scroll('start')}>Начать работу</span>
+    </header>
+  );
+};
 
 export default Header;

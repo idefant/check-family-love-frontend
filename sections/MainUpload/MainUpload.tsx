@@ -1,4 +1,5 @@
 import { FC } from 'react';
+import { Element } from 'react-scroll';
 
 import Button from '../../components/Button';
 import Container from '../../components/Container';
@@ -13,7 +14,7 @@ const MainUpload: FC = () => {
   const helpModal = useModal();
 
   return (
-    <>
+    <Element name="start">
       <section className={style.section}>
         <SectionTitle>Загрузите 3 фото в фас</SectionTitle>
         <Container>
@@ -30,7 +31,7 @@ const MainUpload: FC = () => {
       </section>
 
       <WrongPhotosModal modal={helpModal} />
-    </>
+    </Element>
   );
 };
 
