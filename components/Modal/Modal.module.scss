@@ -5,6 +5,7 @@
   overflow: auto;
   transition: 0.15s ease-in-out;
   opacity: 0;
+  z-index: 2;
 }
 
 .modal {
