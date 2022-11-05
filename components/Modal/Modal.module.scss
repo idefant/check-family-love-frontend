@@ -1,0 +1,62 @@
+.wrapper {
+  position: fixed;
+  inset: 0;
+  background-color: #222a;
+  overflow: auto;
+  transition: 0.15s ease-in-out;
+  opacity: 0;
+}
+
+.modal {
+  &Opening {
+    opacity: 1 !important;
+  }
+
+  &Opened {
+    opacity: 1 !important;
+  }
+
+  &Exiting {
+    opacity: 0 !important;
+  }
+}
+
+.body {
+  width: 925px;
+  margin: 50px auto;
+  background-color: #fff;
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.title {
+  font-size: 33px;
+  font-weight: 700;
+  text-align: center;
+  padding: 18px 80px;
+  background-color: #005f82;
+  color: #fff;
+  position: relative;
+}
+
+.closeButton {
+  background-color: transparent;
+  border: none;
+  line-height: 0;
+  margin: 0;
+  position: absolute;
+  padding: 17px 20px;
+  top: 0;
+  right: 0;
+  cursor: pointer;
+
+  svg {
+    stroke: #fff;
+    width: 40px;
+    height: 40px;
+  }
+}
+
+.content {
+  padding: 25px;
+}

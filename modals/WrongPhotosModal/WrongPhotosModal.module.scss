@@ -1,0 +1,21 @@
+.content {
+  display: flex;
+  justify-content: space-between;
+  gap: 18px;
+}
+
+.text {
+  font-size: 25px;
+  color: #005f82;
+
+  ul {
+    padding-left: 30px;
+  }
+}
+
+.photos {
+  line-height: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 17px 12px;
+}
