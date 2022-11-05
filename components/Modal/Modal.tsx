@@ -16,6 +16,17 @@ interface ModalProps {
 const Modal: FC<ModalProps> = ({ title, children, modal }) => {
   const { isOpen, close } = modal;
 
+  const hiddenScroll = () => {
+    const scrollWidth = window.innerWidth - document.body.clientWidth;
+    document.body.className = 'noScroll';
+    document.body.style.paddingRight = `${scrollWidth}px`;
+  };
+
+  const showScroll = () => {
+    document.body.className = '';
+    document.body.style.paddingRight = '';
+  };
+
   if (typeof window !== 'object') return null;
 
   return createPortal(
@@ -29,6 +40,8 @@ const Modal: FC<ModalProps> = ({ title, children, modal }) => {
         enterDone: style.modalOpened,
         exitActive: style.modalExiting,
       }}
+      onEnter={hiddenScroll}
+      onExited={showScroll}
     >
       <div className={style.wrapper} onClick={close}>
         <div className={style.body} onClick={(e) => e.stopPropagation()}>
