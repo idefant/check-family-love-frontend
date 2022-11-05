@@ -1,0 +1,132 @@
+.section {
+  padding: 12px 0 40px;
+}
+
+.title {
+  text-align: center;
+  font-weight: 900;
+  font-size: 40px;
+}
+
+.compatibility {
+  display: flex;
+  font-size: 32px;
+  font-weight: 700;
+  align-items: center;
+  gap: 60px;
+  justify-content: center;
+  margin-bottom: 20px;
+
+  &Label {
+    color: #f2297b;
+    width: 400px;
+  }
+
+  &Dash {
+    color: #f2297b;
+  }
+
+  &Percent {
+    color: #005f82;
+    padding: 9px 14px;
+    border: 1px solid #f2297b;
+    border-radius: 15px;
+    width: 90px;
+    text-align: center;
+  }
+}
+
+.characters {
+  display: flex;
+  align-items: center;
+  margin: 40px 0 38px;
+}
+
+.card {
+  padding: 29px 60px 70px;
+  flex: 1;
+  border-radius: 30px;
+  margin: 0 40px;
+
+  &Title {
+    font-weight: 700;
+    font-size: 22px;
+    text-align: center;
+    margin-bottom: 39px;
+  }
+
+  &Body {
+    font-size: 22px;
+    font-weight: 500;
+
+    div {
+      margin-bottom: 16px;
+    }
+  }
+
+  &Man {
+    background-color: #c8e4ff;
+    border: 1px solid #154bd5;
+
+    .cardBody {
+      color: #e22671;
+    }
+  }
+
+  &Women {
+    background-color: #ffd3e5;
+    border: 1px solid #d61cb8;
+
+    .cardBody {
+      color: #005f82;
+    }
+  }
+}
+
+.copy {
+  &Button {
+    text-align: center;
+    font-size: 19px;
+    padding: 12px 15px;
+    border-radius: 20px;
+    font-weight: 500;
+    margin: 0 auto 14px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+
+    svg path {
+      transition: 0.2s;
+    }
+
+    &:hover {
+      svg path {
+        stroke: #005f82;
+      }
+    }
+  }
+
+  &Explanation {
+    width: 370px;
+    font-size: 14px;
+    text-align: center;
+    margin: 0 auto 40px;
+    color: #4a4a4a;
+  }
+}
+
+.goMain {
+  &Link {
+    text-decoration: none;
+  }
+
+  &Button {
+    margin: 0 auto;
+    display: block;
+    font-size: 20px;
+    padding: 18px 24px;
+    border-radius: 20px;
+    font-weight: 500;
+    border-width: 3px;
+  }
+}
