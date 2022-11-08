@@ -2,7 +2,36 @@
   border: 8px solid #005f82;
   text-align: center;
   font-weight: 700;
+}
+
+.wrapper {
+  transition: 0.6s height;
   margin: 50px 0;
+
+  &StartOpening {
+    height: 0;
+    overflow: hidden;
+
+    .card {
+      opacity: 0;
+    }
+  }
+
+  &Opening {
+    .card {
+      opacity: 1;
+      transition: 0.6s opacity ease-in;
+    }
+  }
+
+  &Opened {
+    height: auto;
+    overflow: auto;
+
+    .card {
+      opacity: 1;
+    }
+  }
 }
 
 .number {
