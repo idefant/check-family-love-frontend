@@ -3,6 +3,7 @@ import { Element } from 'react-scroll';
 
 import Button from '../../components/Button';
 import Container from '../../components/Container';
+import Row from '../../components/Row';
 import SectionTitle from '../../components/SectionTitle';
 import Uploader from '../../components/Uploader';
 import useModal from '../../hooks/useModal';
@@ -22,14 +23,18 @@ const MainUpload: FC = () => {
       <section className={style.section}>
         <SectionTitle>Загрузите 3 фото в фас</SectionTitle>
         <Container>
-          <div className={style.grid}>
-            <Uploader theme="blue" imageUrls={manImageUrls} setImageUrls={setManImageUrls} />
-            <Uploader theme="pink" imageUrls={womanImageUrls} setImageUrls={setWomanImageUrls} />
-          </div>
+          <Row>
+            <div className={style.content}>
+              <div className={style.grid}>
+                <Uploader theme="blue" imageUrls={manImageUrls} setImageUrls={setManImageUrls} />
+                <Uploader theme="pink" imageUrls={womanImageUrls} setImageUrls={setWomanImageUrls} />
+              </div>
 
-          <Button className={style.wrongPhotosButton} theme="pink" outline onClick={helpModal.open}>
-            Какие фотографии не подойдут
-          </Button>
+              <Button className={style.wrongPhotosButton} theme="pink" outline onClick={helpModal.open}>
+                Какие фотографии не подойдут
+              </Button>
+            </div>
+          </Row>
         </Container>
       </section>
 

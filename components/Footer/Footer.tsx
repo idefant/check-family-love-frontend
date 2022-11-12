@@ -9,20 +9,22 @@ import Container from '../Container';
 
 import style from './Footer.module.scss';
 
+const social = [
+  { url: 'https://web.whatsapp.com/', icon: <Image src={waImg} alt="WhatsApp" /> },
+  { url: 'https://telegram.org/', icon: <Image src={tgImg} alt="Telegram" /> },
+  { url: 'https://vk.com/', icon: <Image src={vkImg} alt="VK" /> },
+];
+
 const Footer: FC = () => (
   <footer className={style.footer}>
     <Container>
       <div className={style.title}>Обратная связь:</div>
       <div className={style.icons}>
-        <Link href="https://web.whatsapp.com/">
-          <Image src={waImg} alt="WhatsApp" />
-        </Link>
-        <Link href="https://telegram.org/">
-          <Image src={tgImg} alt="Telegram" />
-        </Link>
-        <Link href="https://vk.com/">
-          <Image src={vkImg} alt="VK" />
-        </Link>
+        {social.map((link, i) => (
+          <Link href={link.url} target="_blank" rel="noopener" key={i}>
+            {link.icon}
+          </Link>
+        ))}
       </div>
     </Container>
   </footer>

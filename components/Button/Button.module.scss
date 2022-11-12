@@ -1,18 +1,21 @@
 .button {
-  padding: 25px 50px;
+  padding: 20px 26px;
   text-align: center;
-  border-radius: 40px;
-  font-size: 32px;
-  transition: ease-in 0.2s;
+  border-radius: 24px;
+  font-size: 22px;
+  font-weight: 500;
+  transition: ease-in 0.15s;
   cursor: pointer;
+  border-width: 4px;
+  border-style: solid;
 }
 
 .blue {
-  border: 5px solid #005f82;
+  border-color: #005f82;
 }
 
 .pink {
-  border: 5px solid #f2297b;
+  border-color: #f2297b;
 }
 
 .outline {

@@ -1,0 +1,42 @@
+.label {
+  padding: 11px 18px 9px;
+  font-size: 18px;
+  border-radius: 14px;
+  border: 3px solid #005f82;
+  display: flex;
+  gap: 14px;
+  transition: 0.3s ease-in-out;
+
+  &WithError {
+    border-color: #d22121;
+    box-shadow: 0 0 7px 1px #f53737;
+  }
+}
+
+.description {
+  margin-bottom: 2px;
+  font-size: 22px;
+  font-weight: 500;
+  color: #005f82;
+}
+
+.input {
+  outline: none;
+  padding: 0 14px 1px;
+  border: none;
+  border-bottom: 2px solid #005f82;
+  background-color: transparent;
+  width: 80px;
+  text-align: right;
+
+  &::placeholder {
+    color: #555;
+  }
+}
+
+.units {
+  margin-bottom: 2px;
+  font-size: 22px;
+  font-weight: 500;
+  color: #005f82;
+}

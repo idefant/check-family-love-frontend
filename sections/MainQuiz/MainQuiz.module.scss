@@ -1,12 +1,16 @@
-.submitButton {
-  width: 366px;
-  font-weight: 700;
-  margin: 0 auto;
-  display: block;
-  padding: 24px 20px;
-  margin-bottom: 70px;
+@import "/styles/grid";
+
+.section {
+  padding-bottom: 70px;
 }
 
-.inputError {
-  box-shadow: 0 0 2px 2px red;
+.content {
+  @include col(8);
+
+  margin: 0 auto;
+}
+
+.submitButton {
+  margin: 0 auto;
+  display: block;
 }

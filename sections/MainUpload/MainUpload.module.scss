@@ -1,16 +1,24 @@
+@import "/styles/grid";
+
 .section {
-  margin-bottom: 100px;
+  margin-bottom: 60px;
+}
+
+.content {
+  @include col(11);
+
+  margin: 0 auto;
 }
 
 .grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 65px;
-  margin: 120px 0 105px;
+  margin: 55px 0 35px;
 }
 
 .wrongPhotosButton {
-  width: 400px;
+  width: 280px;
   margin: 0 auto;
   display: block;
 }

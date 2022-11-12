@@ -49,8 +49,10 @@ const QuizCard: FC<QuizCardProps> = ({
             {number}
             /12
           </div>
-          <div className={style.question}>{question}</div>
-          <div className={style.control}>{children}</div>
+          <div className={style.data}>
+            <div className={style.dataQuestion}>{question}</div>
+            <div className={style.dataControl}>{children}</div>
+          </div>
         </div>
       </div>
     </CSSTransition>

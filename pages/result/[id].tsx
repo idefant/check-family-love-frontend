@@ -17,7 +17,9 @@ const Result = () => {
   const router = useRouter();
 
   const copyUrl = () => {
-    navigator.clipboard.writeText(new URL(`result/${router.query.id}`, process.env.NEXT_PUBLIC_FRONTEND_URL).toString());
+    navigator.clipboard.writeText(
+      new URL(`result/${router.query.id}`, process.env.NEXT_PUBLIC_FRONTEND_URL).toString(),
+    );
     copyButtonText.set('Скопировано!!!');
     setTimeout(copyButtonText.reset, 20_000);
   };
@@ -30,13 +32,13 @@ const Result = () => {
           <h2 className={style.title}>Совместимость пары:</h2>
 
           <div className={style.compatibility}>
-            <span className={style.compatibilityLabel}>как деловых отношений</span>
+            <span className={style.compatibilityLabel}>в деловых отношениях</span>
             <span className={style.compatibilityDash}>–</span>
             <span className={style.compatibilityPercent}>100 %</span>
           </div>
 
           <div className={style.compatibility}>
-            <span className={style.compatibilityLabel}>как семейных отношений</span>
+            <span className={style.compatibilityLabel}>в семейных отношениях</span>
             <span className={style.compatibilityDash}>–</span>
             <span className={style.compatibilityPercent}>1 %</span>
           </div>

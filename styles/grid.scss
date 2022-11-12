@@ -1,0 +1,11 @@
+@mixin col($size) {
+  flex-basis: calc(100% * $size / 12);
+  max-width: calc(100% * $size / 12);
+  padding-right: var(--col-half-gap);
+  padding-left: var(--col-half-gap);
+  box-sizing: border-box;
+}
+
+@mixin col-offset($size) {
+  margin-left: calc(100% * $size / 12);
+}

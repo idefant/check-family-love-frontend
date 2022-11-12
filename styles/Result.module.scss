@@ -1,25 +1,25 @@
 .section {
-  padding: 12px 0 40px;
+  padding: 5px 0 40px;
 }
 
 .title {
   text-align: center;
   font-weight: 900;
-  font-size: 40px;
+  font-size: 32px;
 }
 
 .compatibility {
   display: flex;
-  font-size: 32px;
+  font-size: 26px;
   font-weight: 700;
   align-items: center;
   gap: 60px;
   justify-content: center;
-  margin-bottom: 20px;
+  margin-bottom: 14px;
 
   &Label {
     color: #f2297b;
-    width: 400px;
+    width: 320px;
   }
 
   &Dash {
@@ -28,10 +28,10 @@
 
   &Percent {
     color: #005f82;
-    padding: 9px 14px;
-    border: 1px solid #f2297b;
+    padding: 9px 10px;
+    border: 2px solid #f2297b;
     border-radius: 15px;
-    width: 90px;
+    width: 80px;
     text-align: center;
   }
 }

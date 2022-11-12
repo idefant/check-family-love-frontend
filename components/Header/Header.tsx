@@ -17,7 +17,7 @@ const Header: FC = () => {
       duration: 1000,
       delay: 100,
       smooth: true,
-      offset: -70,
+      offset: -63,
     });
   };
 

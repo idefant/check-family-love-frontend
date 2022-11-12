@@ -27,7 +27,7 @@ const Layout: FC<LayoutProps> = ({
       duration: 0,
       delay: 0,
       smooth: true,
-      offset: -70,
+      offset: -63,
     });
   }, [router.asPath]);
 

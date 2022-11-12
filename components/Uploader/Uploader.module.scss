@@ -44,8 +44,8 @@
 }
 
 .uploader {
-  border-radius: 52px;
-  padding: 55px 35px 16px;
+  border-radius: 35px;
+  padding: 36px 35px 16px;
 
   &Blue {
     background-color: #c8e4ff;
@@ -84,6 +84,13 @@
   padding: 0;
   display: block;
   margin: 0 auto;
+  cursor: pointer;
+
+  img {
+    width: 60px;
+    height: auto;
+    padding: 0 30px;
+  }
 
   &:disabled {
     img {

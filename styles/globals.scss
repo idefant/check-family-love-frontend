@@ -1,4 +1,6 @@
 @import "~normalize.css/normalize.css";
+@import "./media";
+@import "./grid";
 
 @font-face {
   font-family: Roboto;
@@ -46,4 +48,12 @@
 
 .noScroll {
   overflow: hidden;
+}
+
+:root {
+  --col-half-gap: 10px;
+
+  @include media-1200 {
+    --col-half-gap: 9px;
+  }
 }

@@ -1,10 +1,10 @@
-import classNames from 'classnames';
 import { FC, useEffect, useState } from 'react';
 import { FieldValues, useForm } from 'react-hook-form';
 
 import Button from '../../components/Button';
 import Container from '../../components/Container';
-import QuizCard from '../../components/QuizCard';
+import Quiz from '../../components/Quiz';
+import Row from '../../components/Row';
 import SectionTitle from '../../components/SectionTitle';
 import { resolvePath } from '../../helpers/pathResolver';
 
@@ -43,281 +43,230 @@ const MainQuiz: FC = () => {
   const onSubmit = (data: FieldValues) => console.log(data);
 
   return (
-    <section>
+    <section className={style.section}>
       <SectionTitle>Ответьте на 12 вопросов:</SectionTitle>
       <Container>
-        <form onSubmit={handleSubmit(onSubmit)}>
-          <QuizCard number={1} question="Разница в росте (Рм-Рж)">
-            <div>
-              <input
-                type="text"
-                className={classNames(errors.height_difference && style.inputError)}
-                {...register('height_difference', { required: true, pattern: /^[0-9 ]+$/ })}
-              />
-              см
-            </div>
-          </QuizCard>
+        <Row>
+          <div className={style.content}>
+            <form onSubmit={handleSubmit(onSubmit)}>
+              <Quiz.Card number={1} question="Разница в росте (Рм-Рж)">
+                <Quiz.Input
+                  withError={!!errors.height_difference}
+                  units="см"
+                  formData={register('height_difference', { required: true, pattern: /^[0-9 ]+$/ })}
+                  placeholder="12"
+                />
+              </Quiz.Card>
 
-          <QuizCard
-            number={2}
-            question="Разница в весе (Вм-Вж)"
-            actualQuestionNumber={actualQuestionNumber}
-          >
-            <div>
-              <input
-                type="text"
-                className={classNames(errors.weight_difference && style.inputError)}
-                {...register('weight_difference', { required: true, pattern: /^[0-9 ]+$/ })}
-              />
-              кг
-            </div>
-          </QuizCard>
+              <Quiz.Card
+                number={2}
+                question="Разница в весе (Вм-Вж)"
+                actualQuestionNumber={actualQuestionNumber}
+              >
+                <Quiz.Input
+                  withError={!!errors.weight_difference}
+                  units="кг"
+                  formData={register('weight_difference', { required: true, pattern: /^[0-9 ]+$/ })}
+                  placeholder="12"
+                />
+              </Quiz.Card>
 
-          <QuizCard
-            number={3}
-            question="Разница в возрасте (Вм-Вж)"
-            actualQuestionNumber={actualQuestionNumber}
-          >
-            <div>
-              <input
-                type="text"
-                className={classNames(errors.age_difference && style.inputError)}
-                {...register('age_difference', { required: true, pattern: /^[0-9 ]+$/ })}
-              />
-              Лет
-            </div>
-          </QuizCard>
+              <Quiz.Card
+                number={3}
+                question="Разница в возрасте (Вм-Вж)"
+                actualQuestionNumber={actualQuestionNumber}
+              >
+                <Quiz.Input
+                  withError={!!errors.age_difference}
+                  units="лет"
+                  formData={register('age_difference', { required: true, pattern: /^[0-9 ]+$/ })}
+                  placeholder="12"
+                />
+              </Quiz.Card>
 
-          <QuizCard
-            number={4}
-            question="Склонность к алкоголизму у кого-то одного"
-            actualQuestionNumber={actualQuestionNumber}
-          >
-            <label>
-              <input type="radio" {...register('alcoholism', { required: true })} value="yes" />
-              Есть
-            </label>
-            <label>
-              <input type="radio" {...register('alcoholism', { required: true })} value="no" />
-              Нет
-            </label>
-          </QuizCard>
+              <Quiz.Card
+                number={4}
+                question="Склонность к алкоголизму у кого-то одного"
+                actualQuestionNumber={actualQuestionNumber}
+              >
+                <Quiz.Radio
+                  text="Есть"
+                  value="yes"
+                  formData={register('alcoholism', { required: true })}
+                />
+                <Quiz.Radio
+                  text="Нет"
+                  value="no"
+                  formData={register('alcoholism', { required: true })}
+                />
+              </Quiz.Card>
 
-          <QuizCard
-            number={5}
-            question="Разница в политических взглядах"
-            actualQuestionNumber={actualQuestionNumber}
-          >
-            <label>
-              <input
-                type="radio"
-                {...register('political_views_difference', { required: true })}
-                value="yes"
-              />
-              Есть
-            </label>
-            <label>
-              <input
-                type="radio"
-                {...register('political_views_difference', { required: true })}
-                value="no"
-              />
-              Нет
-            </label>
-          </QuizCard>
+              <Quiz.Card
+                number={5}
+                question="Разница в политических взглядах"
+                actualQuestionNumber={actualQuestionNumber}
+              >
+                <Quiz.Radio
+                  text="Есть"
+                  value="yes"
+                  formData={register('political_views_difference', { required: true })}
+                />
+                <Quiz.Radio
+                  text="Нет"
+                  value="no"
+                  formData={register('political_views_difference', { required: true })}
+                />
+              </Quiz.Card>
 
-          <QuizCard
-            number={6}
-            question="Предпочтения в досуге"
-            actualQuestionNumber={actualQuestionNumber}
-          >
-            <label>
-              <input
-                type="radio"
-                {...register('leisure_preferences_coincide', { required: true })}
-                value="match"
-              />
-              Совпадают
-            </label>
-            <label>
-              <input
-                type="radio"
-                {...register('leisure_preferences_coincide', { required: true })}
-                value="medium"
-              />
-              50/50
-            </label>
-            <label>
-              <input
-                type="radio"
-                {...register('leisure_preferences_coincide', { required: true })}
-                value="no_match"
-              />
-              Не совпадают
-            </label>
-          </QuizCard>
+              <Quiz.Card
+                number={6}
+                question="Предпочтения в досуге"
+                actualQuestionNumber={actualQuestionNumber}
+              >
+                <Quiz.Radio
+                  text="Совпадают"
+                  value="match"
+                  formData={register('leisure_preferences_coincide', { required: true })}
+                />
+                <Quiz.Radio
+                  text="50/50"
+                  value="medium"
+                  formData={register('leisure_preferences_coincide', { required: true })}
+                />
+                <Quiz.Radio
+                  text="Не совпадают"
+                  value="no_match"
+                  formData={register('leisure_preferences_coincide', { required: true })}
+                />
+              </Quiz.Card>
 
-          <QuizCard
-            number={7}
-            question="Уровень образования (среднее, бакалавр, магистр)"
-            actualQuestionNumber={actualQuestionNumber}
-          >
-            <label>
-              <input
-                type="radio"
-                {...register('education_level', { required: true })}
-                value="match"
-              />
-              Совпадают
-            </label>
-            <label>
-              <input
-                type="radio"
-                {...register('education_level', { required: true })}
-                value="no_match"
-              />
-              Не совпадают
-            </label>
-          </QuizCard>
+              <Quiz.Card
+                number={7}
+                question="Уровень образования (среднее, бакалавр, магистр)"
+                actualQuestionNumber={actualQuestionNumber}
+              >
+                <Quiz.Radio
+                  text="Совпадают"
+                  value="match"
+                  formData={register('education_level', { required: true })}
+                />
+                <Quiz.Radio
+                  text="Не совпадают"
+                  value="no_match"
+                  formData={register('education_level', { required: true })}
+                />
+              </Quiz.Card>
 
-          <QuizCard
-            number={8}
-            question="Уровень зарплаты ($м, $ж)"
-            actualQuestionNumber={actualQuestionNumber}
-          >
-            <div>
-              <input
-                type="text"
-                className={classNames((errors.salary as any)?.male && style.inputError)}
-                {...register('salary.male', {
-                  required: true,
-                  pattern: /^[0-9 ]+$/,
-                })}
-              />
-              Рублей(М)
-            </div>
+              <Quiz.Card
+                number={8}
+                question="Уровень зарплаты ($м, $ж)"
+                actualQuestionNumber={actualQuestionNumber}
+              >
+                <Quiz.Input
+                  withError={!!(errors.salary as any)?.male}
+                  units="₽"
+                  formData={register('salary.male', { required: true, pattern: /^[0-9 ]+$/ })}
+                  placeholder="50 000"
+                  description="М:"
+                />
+                <Quiz.Input
+                  withError={!!(errors.salary as any)?.female}
+                  units="₽"
+                  formData={register('salary.female', { required: true, pattern: /^[0-9 ]+$/ })}
+                  placeholder="50 000"
+                  description="Ж:"
+                />
+              </Quiz.Card>
 
-            <div>
-              <input
-                type="text"
-                className={classNames((errors.salary as any)?.female && style.inputError)}
-                {...register('salary.female', {
-                  required: true,
-                  pattern: /^[0-9 ]+$/,
-                })}
-              />
-              Рублей(Ж)
-            </div>
-          </QuizCard>
+              <Quiz.Card
+                number={9}
+                question="Квартира"
+                actualQuestionNumber={actualQuestionNumber}
+              >
+                <Quiz.Radio
+                  text="Своя"
+                  value="own"
+                  formData={register('housing', { required: true })}
+                />
+                <Quiz.Radio
+                  text="Не своя"
+                  value="not_own"
+                  formData={register('housing', { required: true })}
+                />
+                <Quiz.Radio
+                  text="Ипотека"
+                  value="mortgage"
+                  formData={register('housing', { required: true })}
+                />
+              </Quiz.Card>
 
-          <QuizCard
-            number={9}
-            question="Квартира"
-            actualQuestionNumber={actualQuestionNumber}
-          >
-            <label>
-              <input type="radio" {...register('housing', { required: true })} value="own" />
-              Своя
-            </label>
-            <label>
-              <input type="radio" {...register('housing', { required: true })} value="not_own" />
-              Не своя
-            </label>
-            <label>
-              <input type="radio" {...register('housing', { required: true })} value="mortgage" />
-              Ипотека
-            </label>
-          </QuizCard>
+              <Quiz.Card
+                number={10}
+                question="Узнаете что-то новое вместе"
+                actualQuestionNumber={actualQuestionNumber}
+              >
+                <Quiz.Radio
+                  text="Всегда"
+                  value="always"
+                  formData={register('explore_together', { required: true })}
+                />
+                <Quiz.Radio
+                  text="Иногда"
+                  value="sometimes"
+                  formData={register('explore_together', { required: true })}
+                />
+                <Quiz.Radio
+                  text="Никогда"
+                  value="never"
+                  formData={register('explore_together', { required: true })}
+                />
+              </Quiz.Card>
 
-          <QuizCard
-            number={10}
-            question="Узнаете что-то новое вместе"
-            actualQuestionNumber={actualQuestionNumber}
-          >
-            <label>
-              <input
-                type="radio"
-                {...register('explore_together', { required: true })}
-                value="always"
-              />
-              Всегда
-            </label>
-            <label>
-              <input
-                type="radio"
-                {...register('explore_together', { required: true })}
-                value="sometimes"
-              />
-              Иногда
-            </label>
-            <label>
-              <input
-                type="radio"
-                {...register('explore_together', { required: true })}
-                value="never"
-              />
-              Никогда
-            </label>
-          </QuizCard>
+              <Quiz.Card
+                number={11}
+                question="Обмениваетесь идеями"
+                actualQuestionNumber={actualQuestionNumber}
+              >
+                <Quiz.Radio
+                  text="Всегда"
+                  value="always"
+                  formData={register('exchange_ideas', { required: true })}
+                />
+                <Quiz.Radio
+                  text="Иногда"
+                  value="sometimes"
+                  formData={register('exchange_ideas', { required: true })}
+                />
+                <Quiz.Radio
+                  text="Никогда"
+                  value="never"
+                  formData={register('exchange_ideas', { required: true })}
+                />
+              </Quiz.Card>
 
-          <QuizCard
-            number={11}
-            question="Обмениваетесь идеями"
-            actualQuestionNumber={actualQuestionNumber}
-          >
-            <label>
-              <input
-                type="radio"
-                {...register('exchange_ideas', { required: true })}
-                value="always"
-              />
-              Всегда
-            </label>
-            <label>
-              <input
-                type="radio"
-                {...register('exchange_ideas', { required: true })}
-                value="sometimes"
-              />
-              Иногда
-            </label>
-            <label>
-              <input
-                type="radio"
-                {...register('exchange_ideas', { required: true })}
-                value="never"
-              />
-              Никогда
-            </label>
-          </QuizCard>
+              <Quiz.Card
+                number={12}
+                question="Приоритетная для обоих отрасль экономики совпадает (строительство, туризм, медицина и т.д.)"
+                actualQuestionNumber={actualQuestionNumber}
+              >
+                <Quiz.Radio
+                  text="Да"
+                  value="yes"
+                  formData={register('economy_branch_coincide', { required: true })}
+                />
+                <Quiz.Radio
+                  text="Нет"
+                  value="no"
+                  formData={register('economy_branch_coincide', { required: true })}
+                />
+              </Quiz.Card>
 
-          <QuizCard
-            number={12}
-            question="Приоритетная для обоих отрасль экономики совпадает (строительство, туризм, медицина и т.д.)"
-            actualQuestionNumber={actualQuestionNumber}
-          >
-            <label>
-              <input
-                type="radio"
-                {...register('economy_branch_coincide', { required: true })}
-                value="yes"
-              />
-              Да
-            </label>
-            <label>
-              <input
-                type="radio"
-                {...register('economy_branch_coincide', { required: true })}
-                value="no"
-              />
-              Нет
-            </label>
-          </QuizCard>
-
-          <Button theme="pink" className={style.submitButton} type="submit">
-            Запустить анализ фотографий
-          </Button>
-        </form>
+              <Button theme="pink" className={style.submitButton} type="submit">
+                Запустить анализ фотографий
+              </Button>
+            </form>
+          </div>
+        </Row>
       </Container>
     </section>
   );
