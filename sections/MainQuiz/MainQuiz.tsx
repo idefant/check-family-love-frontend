@@ -263,8 +263,16 @@ const MainQuiz: FC = () => {
                 />
               </Quiz.Card>
 
-              <div className={style.sendMail}>
-                <Checkbox align="center" formData={register('is_need_send_mail')}>
+              <div className={style.additionalForm}>
+                <Checkbox formData={register('processing_personal_data')}>
+                  Я даю согласие на обработку персональных данных
+                </Checkbox>
+
+                <Checkbox formData={register('service_terms')}>
+                  Я согласен с условиями предоставления услуг
+                </Checkbox>
+
+                <Checkbox formData={register('is_need_send_mail')}>
                   Отправить результат на почту
                 </Checkbox>
 
