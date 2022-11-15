@@ -2,10 +2,12 @@ import { FC, useEffect, useState } from 'react';
 import { FieldValues, useForm } from 'react-hook-form';
 
 import Button from '../../components/Button';
+import Checkbox from '../../components/Checkbox';
 import Container from '../../components/Container';
 import Quiz from '../../components/Quiz';
 import Row from '../../components/Row';
 import SectionTitle from '../../components/SectionTitle';
+import TextInput from '../../components/TextInput';
 import { resolvePath } from '../../helpers/pathResolver';
 
 import style from './MainQuiz.module.scss';
@@ -260,6 +262,24 @@ const MainQuiz: FC = () => {
                   formData={register('economy_branch_coincide', { required: true })}
                 />
               </Quiz.Card>
+
+              <div className={style.sendMail}>
+                <Checkbox align="center" formData={register('is_need_send_mail')}>
+                  Отправить результат на почту
+                </Checkbox>
+
+                <TextInput
+                  id="send_email"
+                  disabled={!watch().is_need_send_mail}
+                  label="Email"
+                  placeholder="Email"
+                  formData={register('email', {
+                    required: watch().is_need_send_mail,
+                    pattern: watch().is_need_send_mail ? /\S+@\S+\.\S+/ : undefined,
+                  })}
+                  withError={!!errors.email}
+                />
+              </div>
 
               <Button theme="pink" className={style.submitButton} type="submit">
                 Запустить анализ фотографий
