@@ -1,3 +1,5 @@
+@import "/styles/media";
+
 .pseudoRadio {
   width: 22px;
   min-width: 22px;
@@ -9,20 +11,52 @@
   align-items: center;
   justify-content: center;
 
+  @include media-1200 {
+    width: 20px;
+    min-width: 20px;
+    height: 20px;
+    min-height: 20px;
+  }
+
+  @include media-1200 {
+    width: 19px;
+    min-width: 19px;
+    height: 19px;
+    min-height: 19px;
+  }
+
   &Point {
     width: 9px;
     height: 9px;
     background-color: #fff;
     border-radius: 50%;
+
+    @include media-1200 {
+      width: 8px;
+      height: 8px;
+    }
   }
 }
 
 .radio {
   display: flex;
   align-items: center;
-  font-size: 22px;
+  font-size: 21px;
   gap: 16px;
   margin-bottom: 10px;
+
+  @include media-1200 {
+    font-size: 20px;
+  }
+
+  @include media-992 {
+    font-size: 18px;
+  }
+
+  @include media-768 {
+    font-size: 17px;
+    gap: 12px;
+  }
 
   input {
     opacity: 0;
@@ -31,6 +65,10 @@
     &:focus {
       ~ .pseudoRadio {
         box-shadow: 0 0 0 4px rgb(0 123 255 / 25%);
+
+        @include media-992 {
+          box-shadow: 0 0 0 3px rgb(0 123 255 / 25%);
+        }
       }
     }
 
