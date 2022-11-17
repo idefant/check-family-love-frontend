@@ -1,13 +1,37 @@
+@import "/styles/media";
+
 .footer {
   text-align: center;
   border-top: 1px solid #005f82;
   padding: 28px 0 27px;
+
+  @include media-576 {
+    padding: 20px 0;
+  }
 }
 
 .title {
   font-size: 24px;
   font-weight: 500;
   margin-bottom: 18px;
+
+  @include media-992 {
+    font-size: 22px;
+  }
+
+  @include media-768 {
+    font-size: 21px;
+  }
+
+  @include media-576 {
+    font-size: 18px;
+    margin-bottom: 16px;
+  }
+
+  @include media-450 {
+    font-size: 17px;
+    margin-bottom: 14px;
+  }
 }
 
 .icons {
@@ -16,8 +40,40 @@
   width: 400px;
   margin: 0 auto;
 
+  @include media-992 {
+    width: 340px;
+  }
+
+  @include media-768 {
+    width: 280px;
+  }
+
+  @include media-576 {
+    width: 230px;
+  }
+
+  @include media-450 {
+    width: 200px;
+  }
+
   img {
     width: 60px;
     height: auto;
+
+    @include media-992 {
+      width: 52px;
+    }
+
+    @include media-768 {
+      width: 46px;
+    }
+
+    @include media-576 {
+      width: 40px;
+    }
+
+    @include media-450 {
+      width: 36px;
+    }
   }
 }

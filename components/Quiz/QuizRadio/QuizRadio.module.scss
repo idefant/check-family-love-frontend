@@ -1,3 +1,5 @@
+@import "/styles/media";
+
 .label {
   padding: 11px 18px;
   border: 3px solid #005f82;
@@ -11,6 +13,22 @@
   user-select: none;
   min-width: 100px;
   box-sizing: border-box;
+
+  @include media-992 {
+    padding: 10px 16px;
+    border-radius: 12px;
+    font-size: 18px;
+  }
+
+  @include media-768 {
+    font-size: 17px;
+    padding: 8px 14px;
+    min-width: 85px;
+  }
+
+  @include media-576 {
+    border-width: 2px;
+  }
 }
 
 .input {

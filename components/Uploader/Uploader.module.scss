@@ -1,18 +1,29 @@
+@import "/styles/media";
+
+@mixin photo {
+  width: 100%;
+  aspect-ratio: 12 / 14;
+  height: auto;
+  border-width: 4px;
+
+  @include media-992 {
+    border-width: 3px;
+  }
+}
+
 .photo {
   &Container {
     position: relative;
     line-height: 0;
-    width: 120px;
-    height: 140px;
-    border-width: 4px;
     border-style: solid;
+
+    @include photo;
   }
 
   &Placeholder {
-    width: 120px;
-    height: 140px;
-    border-width: 4px;
     border-style: dashed;
+
+    @include photo;
   }
 
   &Image {
@@ -35,10 +46,32 @@
     cursor: pointer;
     transition: 0.2s;
 
+    @include media-1200 {
+      top: -14px;
+      right: -14px;
+    }
+
+    @include media-992 {
+      top: -12px;
+      right: -12px;
+    }
+
     &:hover {
       border: 1px solid #000;
       color: #000;
       box-shadow: 0 0 1px #555;
+    }
+
+    svg {
+      height: auto;
+
+      @include media-1200 {
+        width: 22px;
+      }
+
+      @include media-992 {
+        width: 19px;
+      }
     }
   }
 }
@@ -46,6 +79,19 @@
 .uploader {
   border-radius: 35px;
   padding: 36px 35px 16px;
+
+  @include media-1200 {
+    padding: 32px 30px 16px;
+  }
+
+  @include media-992 {
+    border-radius: 30px;
+    padding: 25px 22px 12px;
+  }
+
+  @include media-768 {
+    padding: 25px 25px 12px;
+  }
 
   &Blue {
     background-color: #c8e4ff;
@@ -76,6 +122,24 @@
   display: flex;
   justify-content: space-between;
   margin-bottom: 20px;
+  gap: 20px;
+
+  @include media-1200 {
+    gap: 16px;
+  }
+
+  @include media-992 {
+    margin-bottom: 16px;
+    gap: 14px;
+  }
+
+  @include media-576 {
+    gap: 12px;
+  }
+
+  @include media-450 {
+    gap: 10px;
+  }
 }
 
 .uploadButton {
@@ -90,6 +154,14 @@
     width: 60px;
     height: auto;
     padding: 0 30px;
+
+    @include media-1200 {
+      width: 55px;
+    }
+
+    @include media-1200 {
+      width: 50px;
+    }
   }
 
   &:disabled {

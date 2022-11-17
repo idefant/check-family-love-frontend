@@ -1,12 +1,22 @@
+@import "/styles/media";
+
 .container {
   display: flex;
-  align-items: center;
   font-size: 18px;
   gap: 16px;
   margin-bottom: 10px;
 
-  &Center {
-    justify-content: center;
+  @include media-1200 {
+    font-size: 17px;
+  }
+
+  @include media-992 {
+    font-size: 16px;
+  }
+
+  @include media-768 {
+    font-size: 15px;
+    gap: 12px;
   }
 }
 
@@ -19,12 +29,31 @@
   border-radius: 5px;
   position: relative;
 
+  @include media-1200 {
+    width: 20px;
+    min-width: 20px;
+    height: 20px;
+    min-height: 20px;
+  }
+
+  @include media-992 {
+    width: 19px;
+    min-width: 19px;
+    height: 19px;
+    min-height: 19px;
+  }
+
+  @include media-992 {
+    width: 18px;
+    min-width: 18px;
+    height: 18px;
+    min-height: 18px;
+  }
+
   &::before {
     content: "";
     width: 5px;
-    min-width: 5px;
     height: 11px;
-    min-height: 11px;
     display: block;
     transform: rotate(45deg);
     position: absolute;
@@ -32,6 +61,23 @@
     left: 8px;
     border-bottom: 3px solid #fff;
     border-right: 3px solid #fff;
+
+    @include media-1200 {
+      height: 10px;
+      top: 2px;
+      left: 7px;
+    }
+
+    @include media-992 {
+      width: 4px;
+      height: 9px;
+      top: 3px;
+    }
+
+    @include media-768 {
+      top: 2px;
+      left: 6px;
+    }
   }
 }
 
@@ -49,6 +95,18 @@
   &:focus {
     & ~ .pseudoCheckbox {
       box-shadow: 0 0 0 4px rgb(0 123 255 / 25%);
+
+      @include media-992 {
+        box-shadow: 0 0 0 3px rgb(0 123 255 / 25%);
+      }
     }
+  }
+}
+
+.text {
+  margin-top: 3px;
+
+  @include media-1200 {
+    margin-top: 2px;
   }
 }

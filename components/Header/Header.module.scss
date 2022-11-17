@@ -1,12 +1,30 @@
+@import "/styles/media";
+
 .header {
-  display: flex;
-  justify-content: center;
-  gap: 270px;
   position: sticky;
   top: 0;
   box-shadow: 0 4px 16px rgb(0 0 0 / 25%);
   background-color: #fff;
   z-index: 1;
+
+  &Inner {
+    gap: 270px;
+    display: flex;
+    justify-content: center;
+
+    @include media-992 {
+      gap: 180px;
+    }
+
+    @include media-768 {
+      gap: 100px;
+    }
+
+    @include media-576 {
+      justify-content: space-around;
+      gap: unset;
+    }
+  }
 }
 
 .link {
@@ -16,4 +34,18 @@
   font-weight: 500;
   cursor: pointer;
   padding: 20px 5px;
+
+  @include media-992 {
+    font-size: 19px;
+    padding: 18px 5px;
+  }
+
+  @include media-768 {
+    font-size: 18px;
+    padding: 17px 5px;
+  }
+
+  @include media-576 {
+    font-size: 16px;
+  }
 }

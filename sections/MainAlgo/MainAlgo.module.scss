@@ -1,17 +1,61 @@
 @import "/styles/grid";
+@import "/styles/media";
 
 .content {
   @include col(11);
 
   margin: 0 auto;
+
+  @include media-450 {
+    @include col(12);
+  }
 }
 
 .networkImg {
   float: right;
   margin: 20px 20px 25px 30px;
+
+  @include media-992 {
+    width: 140px;
+    height: auto;
+    margin: 36px 12px 16px 16px;
+  }
+
+  @include media-768 {
+    width: 120px;
+    margin: 30px 9px 12px 12px;
+  }
+
+  @include media-576 {
+    width: 100px;
+    margin: 20px 8px 12px 12px;
+  }
 }
 
 .text {
   font-size: 22px;
   margin: 50px 0 85px;
+
+  @include media-1200 {
+    font-size: 21px;
+  }
+
+  @include media-992 {
+    font-size: 19px;
+    margin: 30px 0 65px;
+  }
+
+  @include media-768 {
+    font-size: 18px;
+    margin: 28px 0 40px;
+  }
+
+  @include media-576 {
+    font-size: 17px;
+    margin: 24px 0 30px;
+  }
+
+  @include media-450 {
+    font-size: 16px;
+  }
 }

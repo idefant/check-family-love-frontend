@@ -1,13 +1,44 @@
+@import "/styles/media";
+
 .button {
   padding: 20px 26px;
   text-align: center;
-  border-radius: 24px;
+  border-radius: 22px;
   font-size: 22px;
   font-weight: 500;
   transition: ease-in 0.15s;
   cursor: pointer;
   border-width: 4px;
   border-style: solid;
+
+  @include media-1200 {
+    border-radius: 20px;
+    border-width: 3px;
+    font-size: 21px;
+    padding: 18px 22px;
+  }
+
+  @include media-992 {
+    border-radius: 18px;
+    font-size: 19px;
+    padding: 14px 18px;
+  }
+
+  @include media-768 {
+    font-size: 18px;
+    padding: 13px 16px;
+  }
+
+  @include media-576 {
+    font-size: 17px;
+    padding: 12px 15px;
+    border-radius: 15px;
+  }
+
+  @include media-450 {
+    font-size: 16px;
+    padding: 11px 14px;
+  }
 }
 
 .blue {

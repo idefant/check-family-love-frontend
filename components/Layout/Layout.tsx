@@ -23,11 +23,13 @@ const Layout: FC<LayoutProps> = ({
     const sectionName = router.asPath.split('#')[1];
     if (!sectionName) return;
 
+    const headerElement = document.getElementsByTagName('header')[0]?.clientHeight;
+
     scroller.scrollTo(sectionName, {
       duration: 0,
       delay: 0,
       smooth: true,
-      offset: -63,
+      offset: headerElement ? -headerElement : 0,
     });
   }, [router.asPath]);
 
