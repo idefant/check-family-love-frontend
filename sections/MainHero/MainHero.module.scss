@@ -19,6 +19,10 @@
   }
 }
 
+.heroInner {
+  position: relative;
+}
+
 .title {
   font-size: 45px;
   font-weight: 700;
@@ -83,5 +87,52 @@
   @include media-450 {
     font-size: 16px;
     margin: 0 8px;
+  }
+}
+
+.femaleIcon {
+  position: absolute;
+  top: -30px;
+  left: 40px;
+  height: auto;
+
+  @include media-1200 {
+    top: -35px;
+    left: 20px;
+  }
+
+  @include media-768 {
+    width: 64px;
+    left: -10px;
+  }
+
+  @include media-576 {
+    display: none;
+  }
+}
+
+.maleIcon {
+  position: absolute;
+  top: 60px;
+  right: 100px;
+  height: auto;
+
+  @include media-1200 {
+    right: 40px;
+    top: 40px;
+  }
+
+  @include media-992 {
+    top: 60px;
+  }
+
+  @include media-768 {
+    width: 64px;
+    top: 70px;
+    right: 20px;
+  }
+
+  @include media-576 {
+    display: none;
   }
 }
