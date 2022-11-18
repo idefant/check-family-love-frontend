@@ -1,7 +1,22 @@
+@import "/styles/media";
+
 .content {
   display: flex;
   justify-content: space-between;
   gap: 18px;
+  align-items: flex-start;
+
+  @include media-992 {
+    gap: 12px;
+  }
+
+  @include media-768 {
+    flex-direction: column;
+  }
+
+  @include media-576 {
+    gap: 4px;
+  }
 }
 
 .text {
@@ -9,8 +24,42 @@
   color: #005f82;
   margin-top: 10px;
 
+  @include media-1200 {
+    font-size: 21px;
+  }
+
+  @include media-992 {
+    font-size: 19px;
+    margin-top: 0;
+  }
+
+  @include media-768 {
+    font-size: 18px;
+  }
+
+  @include media-576 {
+    font-size: 17px;
+  }
+
+  @include media-450 {
+    font-size: 16px;
+  }
+
   ul {
     padding-left: 30px;
+
+    @include media-992 {
+      padding-left: 24px;
+    }
+
+    @include media-768 {
+      padding-left: 30px;
+      margin-top: 0;
+    }
+
+    @include media-450 {
+      padding-left: 24px;
+    }
   }
 }
 
@@ -19,4 +68,43 @@
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   gap: 17px 12px;
+
+  @include media-1200 {
+    gap: 12px;
+  }
+
+  @include media-992 {
+    gap: 10px;
+  }
+
+  @include media-768 {
+    width: 100%;
+    padding: 0 60px;
+    box-sizing: border-box;
+    gap: 16px;
+  }
+
+  @include media-576 {
+    padding: unset;
+    max-width: 320px;
+    margin: 0 auto;
+    gap: 8px;
+  }
+
+  img {
+    height: auto;
+    aspect-ratio: 27 / 41;
+
+    @include media-1200 {
+      width: 115px;
+    }
+
+    @include media-992 {
+      width: 100px;
+    }
+
+    @include media-768 {
+      width: 100%;
+    }
+  }
 }
