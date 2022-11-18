@@ -17,7 +17,7 @@ const MainGuide: FC = () => (
         <div className={style.item}>
           <Image src={uploadImg} alt="" />
           <div className={classNames(style.itemText, style.itemTextPink)}>
-            <span>Шаг 1. </span>
+            <span className={style.itemTextStep}>Шаг 1. </span>
             Загрузите по 3 фото в фас парня и девушки
           </div>
         </div>
@@ -25,7 +25,7 @@ const MainGuide: FC = () => (
         <div className={style.item}>
           <Image src={answerImg} alt="" />
           <div className={classNames(style.itemText, style.itemTextBlue)}>
-            <span>Шаг 2. </span>
+            <span className={style.itemTextStep}>Шаг 2. </span>
             Ответьте на несколько вопросов
           </div>
         </div>
@@ -33,7 +33,7 @@ const MainGuide: FC = () => (
         <div className={style.item}>
           <Image src={resultImg} alt="" />
           <div className={classNames(style.itemText, style.itemTextBlue)}>
-            <span>Шаг 4. </span>
+            <span className={style.itemTextStep}>Шаг 4. </span>
             Получите результат
           </div>
         </div>
@@ -41,7 +41,7 @@ const MainGuide: FC = () => (
         <div className={style.item}>
           <Image src={paymentImg} alt="" />
           <div className={classNames(style.itemText, style.itemTextPink)}>
-            <span>Шаг 3. </span>
+            <span className={style.itemTextStep}>Шаг 3. </span>
             Заплатите 199 руб.
           </div>
         </div>

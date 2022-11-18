@@ -83,6 +83,14 @@
       color: #f11b73;
       flex: 1;
     }
+
+    &Step {
+      display: none;
+
+      @include media-768 {
+        display: inline;
+      }
+    }
   }
 
   img {
