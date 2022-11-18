@@ -1,13 +1,13 @@
 import Image from 'next/image';
 
-import Button from '../components/Button';
-import Container from '../components/Container';
-import Layout from '../components/Layout';
-import Radio from '../components/Radio';
-import Row from '../components/Row';
-import creditCardImg from '../public/img/payment/credit_card.png';
-import qiwiImg from '../public/img/payment/qiwi.png';
-import style from '../styles/Pay.module.scss';
+import Button from '../../components/Button';
+import Container from '../../components/Container';
+import Layout from '../../components/Layout';
+import Radio from '../../components/Radio';
+import Row from '../../components/Row';
+import creditCardImg from '../../public/img/payment/credit_card.png';
+import qiwiImg from '../../public/img/payment/qiwi.png';
+import style from '../../styles/Pay.module.scss';
 
 const Pay = () => (
   <Layout>
