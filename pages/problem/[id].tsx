@@ -9,13 +9,13 @@ import Uploader from '../../components/Uploader';
 import useModal from '../../hooks/useModal';
 import WrongPhotosModal from '../../modals/WrongPhotosModal';
 import style from '../../styles/Problem.module.scss';
-import { TAttachedPhoto } from '../../types/photoType';
+import { TAttachedImage } from '../../types/imageType';
 
 const Problem = () => {
   const helpModal = useModal();
 
-  const [manImageUrls, setManImageUrls] = useState<TAttachedPhoto[]>([]);
-  const [womanImageUrls, setWomanImageUrls] = useState<TAttachedPhoto[]>([]);
+  const [manImageUrls, setManImageUrls] = useState<TAttachedImage[]>([]);
+  const [womanImageUrls, setWomanImageUrls] = useState<TAttachedImage[]>([]);
 
   return (
     <Layout>

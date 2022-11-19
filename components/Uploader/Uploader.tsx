@@ -4,36 +4,43 @@ import {
   ChangeEvent, Dispatch, FC, SetStateAction, useEffect, useRef, useState,
 } from 'react';
 
+import toBase64 from '../../helpers/imageConverter';
 import { genId } from '../../helpers/random';
 import uploadImg from '../../public/img/upload.png';
-import { TAttachedPhoto } from '../../types/photoType';
+import { TAttachedImage } from '../../types/imageType';
 import Icon from '../Icons';
 
 import style from './Uploader.module.scss';
 
 interface UploaderProps {
   theme: 'blue' | 'pink';
-  imageUrls: TAttachedPhoto[];
-  setImageUrls: Dispatch<SetStateAction<TAttachedPhoto[]>>;
+  imageUrls: TAttachedImage[];
+  setImageUrls: Dispatch<SetStateAction<TAttachedImage[]>>;
 }
 
 const Uploader: FC<UploaderProps> = ({ theme, imageUrls, setImageUrls }) => {
-  const [images, setImages] = useState<File[]>([]);
+  const [files, setFiles] = useState<File[]>([]);
   const needImagesCount = 3 - imageUrls.length;
   const inputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
-    if (!images.length) return;
+    if (!files.length) return;
 
-    const newImageUrls = images.slice(0, needImagesCount)
-      .map((image) => ({ id: genId(), url: URL.createObjectURL(image) }));
-    setImageUrls([...imageUrls, ...newImageUrls]);
-    setImages([]);
-  }, [imageUrls, images, needImagesCount, setImageUrls]);
+    (async () => {
+      const newImageUrls = await Promise.all(
+        files.map(async (file) => (
+          { id: genId(), url: URL.createObjectURL(file), base64: await toBase64(file) }
+        )),
+      );
+
+      setImageUrls([...imageUrls, ...newImageUrls as TAttachedImage[]]);
+      setFiles([]);
+    })();
+  }, [imageUrls, files, needImagesCount, setImageUrls]);
 
   const onImageChange = (e: ChangeEvent<HTMLInputElement>) => {
     if (!e.target.files) return;
-    setImages(Array.from(e.target.files));
+    setFiles(Array.from(e.target.files));
   };
 
   const clickToInput = () => inputRef.current?.click();

@@ -1,22 +1,21 @@
-import { FC, useState } from 'react';
+import { FC, useContext } from 'react';
 import { Element } from 'react-scroll';
 
 import Button from '../../components/Button';
 import Container from '../../components/Container';
 import Row from '../../components/Row';
 import SectionTitle from '../../components/SectionTitle';
-import Uploader from '../../components/Uploader';
+import Uploader, { UploaderContext } from '../../components/Uploader';
 import useModal from '../../hooks/useModal';
 import WrongPhotosModal from '../../modals/WrongPhotosModal';
-import { TAttachedPhoto } from '../../types/photoType';
 
 import style from './MainUpload.module.scss';
 
 const MainUpload: FC = () => {
   const helpModal = useModal();
-
-  const [manImageUrls, setManImageUrls] = useState<TAttachedPhoto[]>([]);
-  const [womanImageUrls, setWomanImageUrls] = useState<TAttachedPhoto[]>([]);
+  const {
+    maleImages, femaleImages, setMaleImages, setFemaleImages,
+  } = useContext(UploaderContext);
 
   return (
     <Element name="start">
@@ -26,8 +25,8 @@ const MainUpload: FC = () => {
           <Row>
             <div className={style.content}>
               <div className={style.grid}>
-                <Uploader theme="blue" imageUrls={manImageUrls} setImageUrls={setManImageUrls} />
-                <Uploader theme="pink" imageUrls={womanImageUrls} setImageUrls={setWomanImageUrls} />
+                <Uploader theme="blue" imageUrls={maleImages} setImageUrls={setMaleImages} />
+                <Uploader theme="pink" imageUrls={femaleImages} setImageUrls={setFemaleImages} />
               </div>
 
               <Button className={style.wrongPhotosButton} theme="pink" outline onClick={helpModal.open}>

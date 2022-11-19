@@ -1,4 +1,6 @@
-import { FC, useEffect, useState } from 'react';
+import {
+  FC, useContext, useEffect, useState,
+} from 'react';
 import { FieldValues, useForm } from 'react-hook-form';
 
 import Button from '../../components/Button';
@@ -8,6 +10,7 @@ import Quiz from '../../components/Quiz';
 import Row from '../../components/Row';
 import SectionTitle from '../../components/SectionTitle';
 import TextInput from '../../components/TextInput';
+import { UploaderContext } from '../../components/Uploader';
 import { resolvePath } from '../../helpers/pathResolver';
 
 import style from './MainQuiz.module.scss';
@@ -31,6 +34,7 @@ const MainQuiz: FC = () => {
     register, handleSubmit, watch, formState: { errors },
   } = useForm();
   const [actualQuestionNumber, setActualQuestionNumber] = useState(1);
+  const { maleImages, femaleImages } = useContext(UploaderContext);
 
   useEffect(() => {
     const subscription = watch((value) => {
@@ -42,7 +46,27 @@ const MainQuiz: FC = () => {
     return () => subscription.unsubscribe();
   }, [actualQuestionNumber, watch]);
 
-  const onSubmit = (data: FieldValues) => console.log(data);
+  const onSubmit = (data: FieldValues) => {
+    console.log({
+      quiz: {
+        ...data,
+        age_difference: +data.age_difference,
+        height_difference: +data.height_difference,
+        weight_difference: +data.weight_difference,
+        salary: {
+          male: +data.salary.male,
+          female: +data.salary.female,
+        },
+        is_need_send_mail: undefined,
+        processing_personal_data: undefined,
+        service_terms: undefined,
+      },
+      photos: {
+        male: maleImages.map((image) => image.base64),
+        female: femaleImages.map((image) => image.base64),
+      },
+    });
+  };
 
   return (
     <section className={style.section}>
