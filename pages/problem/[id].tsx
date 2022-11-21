@@ -14,8 +14,8 @@ import { TAttachedImage } from '../../types/imageType';
 const Problem = () => {
   const helpModal = useModal();
 
-  const [manImageUrls, setManImageUrls] = useState<TAttachedImage[]>([]);
-  const [womanImageUrls, setWomanImageUrls] = useState<TAttachedImage[]>([]);
+  const [maleImageUrls, setMaleImageUrls] = useState<TAttachedImage[]>([]);
+  const [femaleImageUrls, setFemaleImageUrls] = useState<TAttachedImage[]>([]);
 
   return (
     <Layout>
@@ -25,8 +25,8 @@ const Problem = () => {
           <Row>
             <div className={style.content}>
               <div className={style.grid}>
-                <Uploader theme="blue" imageUrls={manImageUrls} setImageUrls={setManImageUrls} />
-                <Uploader theme="pink" imageUrls={womanImageUrls} setImageUrls={setWomanImageUrls} />
+                <Uploader theme="blue" imageUrls={maleImageUrls} setImageUrls={setMaleImageUrls} />
+                <Uploader theme="pink" imageUrls={femaleImageUrls} setImageUrls={setFemaleImageUrls} />
               </div>
 
               <Button className={style.wrongPhotosButton} theme="pink" outline onClick={helpModal.open}>

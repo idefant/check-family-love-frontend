@@ -47,7 +47,7 @@ const Result = () => {
               </div>
 
               <div className={style.characters}>
-                <div className={classNames(style.card, style.cardMan)}>
+                <div className={classNames(style.card, style.cardMale)}>
                   <div className={style.cardTitle}>Характеристика мужчины:</div>
                   <div className={style.cardBody}>
                     <div>Тип личности: истерический</div>
@@ -57,7 +57,7 @@ const Result = () => {
 
                 <Image src={loveHandsImg} alt="Совместимость" className={style.cardHandsImg} />
 
-                <div className={classNames(style.card, style.cardWomen)}>
+                <div className={classNames(style.card, style.cardFemale)}>
                   <div className={style.cardTitle}>Характеристика женщины:</div>
                   <div className={style.cardBody}>
                     <div>Тип личности: истерический</div>
