@@ -6,6 +6,7 @@ import {
 
 import toBase64 from '../../helpers/imageConverter';
 import { genId } from '../../helpers/random';
+import convertSize from '../../helpers/sizeConverter';
 import uploadImg from '../../public/img/upload.png';
 import { TAttachedImage } from '../../types/imageType';
 import Icon from '../Icons';
@@ -27,8 +28,15 @@ const Uploader: FC<UploaderProps> = ({ theme, imageUrls, setImageUrls }) => {
     if (!files.length) return;
 
     (async () => {
+      const filteredFiles = files
+        .filter((file) => {
+          const size = convertSize(file.size);
+          return size.to('kb') > 50 && size.to('mb') < 5;
+        })
+        .slice(0, needImagesCount);
+
       const newImageUrls = await Promise.all(
-        files.map(async (file) => (
+        filteredFiles.map(async (file) => (
           { id: genId(), url: URL.createObjectURL(file), base64: await toBase64(file) }
         )),
       );
@@ -88,7 +96,7 @@ const Uploader: FC<UploaderProps> = ({ theme, imageUrls, setImageUrls }) => {
         type="file"
         className={style.hiddenFileInput}
         multiple
-        accept="image/*"
+        accept="image/png, image/jpeg"
         onChange={onImageChange}
         ref={inputRef}
       />
