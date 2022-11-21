@@ -56,4 +56,16 @@
   @include media-1200 {
     --col-half-gap: 9px;
   }
+
+  @include media-992 {
+    --col-half-gap: 7px;
+  }
+
+  @include media-768 {
+    --col-half-gap: 6px;
+  }
+
+  @include media-576 {
+    --col-half-gap: 5px;
+  }
 }
