@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-html-link-for-pages, jsx-a11y/anchor-is-valid */
 import { useRouter } from 'next/router';
 import { FC } from 'react';
 import { scroller } from 'react-scroll';
@@ -9,7 +10,11 @@ import style from './Header.module.scss';
 const Header: FC = () => {
   const router = useRouter();
 
-  const scroll = (sectionName: string) => {
+  const scroll = (
+    e: React.FormEvent<HTMLFormElement> | React.MouseEvent<HTMLAnchorElement, MouseEvent>,
+    sectionName: string,
+  ) => {
+    e.preventDefault();
     if (router.pathname !== '/') {
       router.push(`/#${sectionName}`);
       return;
@@ -29,8 +34,8 @@ const Header: FC = () => {
     <header className={style.header}>
       <Container>
         <div className={style.headerInner}>
-          <span className={style.link} onClick={() => scroll('algo')}>Как это работает</span>
-          <span className={style.link} onClick={() => scroll('start')}>Начать работу</span>
+          <a className={style.link} onClick={(e) => scroll(e, 'algo')} href="/#algo">Как это работает</a>
+          <a className={style.link} onClick={(e) => scroll(e, 'start')} href="/#start">Начать работу</a>
         </div>
       </Container>
     </header>
