@@ -1,15 +1,15 @@
 import { useState } from 'react';
 
-import Button from '../../components/Button';
-import Container from '../../components/Container';
-import Layout from '../../components/Layout';
-import Row from '../../components/Row';
-import SectionTitle from '../../components/SectionTitle';
-import Uploader from '../../components/Uploader';
-import useModal from '../../hooks/useModal';
-import WrongPhotosModal from '../../modals/WrongPhotosModal';
-import style from '../../styles/Problem.module.scss';
-import { TAttachedImage } from '../../types/imageType';
+import Button from '../../../components/Button';
+import Container from '../../../components/Container';
+import Layout from '../../../components/Layout';
+import Row from '../../../components/Row';
+import SectionTitle from '../../../components/SectionTitle';
+import Uploader from '../../../components/Uploader';
+import useModal from '../../../hooks/useModal';
+import WrongPhotosModal from '../../../modals/WrongPhotosModal';
+import style from '../../../styles/Problem.module.scss';
+import { TAttachedImage } from '../../../types/imageType';
 
 const Problem = () => {
   const helpModal = useModal();

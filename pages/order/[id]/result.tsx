@@ -3,15 +3,15 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 
-import Button from '../../components/Button';
-import Container from '../../components/Container';
-import Icon from '../../components/Icons';
-import Layout from '../../components/Layout';
-import Row from '../../components/Row';
-import SectionTitle from '../../components/SectionTitle';
-import useResettableState from '../../hooks/useResettableState';
-import loveHandsImg from '../../public/img/love_hands.png';
-import style from '../../styles/Result.module.scss';
+import Button from '../../../components/Button';
+import Container from '../../../components/Container';
+import Icon from '../../../components/Icons';
+import Layout from '../../../components/Layout';
+import Row from '../../../components/Row';
+import SectionTitle from '../../../components/SectionTitle';
+import useResettableState from '../../../hooks/useResettableState';
+import loveHandsImg from '../../../public/img/love_hands.png';
+import style from '../../../styles/Result.module.scss';
 
 const Result = () => {
   const copyButtonText = useResettableState('Скопировать ссылку');
