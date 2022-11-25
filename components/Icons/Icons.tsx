@@ -15,3 +15,19 @@ export const XIcon: IconFC = (props) => (
     <line x1="6" y1="6" x2="18" y2="18" />
   </svg>
 );
+
+export const ArrowIcon: IconFC = (props) => (
+  <svg width="248" height="42" viewBox="0 0 248 42" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
+    <path d="M245.979 35.6774V35.6774C231.642 27.6617 219.185 16.4108 209.7 2.99998V2.99998" stroke="black" strokeWidth="3" strokeLinecap="round" />
+    <path d="M189.481 40.4034V40.4034C207.615 35.1553 226.781 33.5055 245.552 35.5077V35.5077" stroke="black" strokeWidth="3" strokeLinecap="round" />
+    <path d="M2 36L22.5788 29.9523C89.1082 10.4009 159.868 10.4796 226.354 30.179L246 36" stroke="black" strokeWidth="3" strokeLinecap="round" />
+  </svg>
+);
+
+export const ArrowSmallIcon: IconFC = (props) => (
+  <svg width="157" height="36" viewBox="0 0 157 36" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
+    <path d="M156.317 30.3911V30.3911C141.335 23.6555 127.946 13.5331 117.328 0.999983V0.999983" stroke="black" strokeWidth="3" strokeLinecap="round" />
+    <path d="M99.4809 34.4034V34.4034C117.615 29.1553 136.781 27.5055 155.552 29.5077V29.5077" stroke="black" strokeWidth="3" strokeLinecap="round" />
+    <path d="M1 30V30C51.2205 13.8659 105.818 13.7457 156 30V30" stroke="black" strokeWidth="3" strokeLinecap="round" />
+  </svg>
+);

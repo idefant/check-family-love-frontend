@@ -11,7 +11,8 @@
 .grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 140px;
+  gap: 160px 140px;
+  position: relative;
 
   @include media-1200 {
     gap: 100px 60px;
@@ -119,5 +120,81 @@
     @include media-450 {
       width: 85px;
     }
+  }
+}
+
+@mixin arrow {
+  position: absolute;
+  height: auto;
+
+  @include media-768 {
+    display: none;
+  }
+
+  path {
+    stroke: #005f82;
+    stroke-width: 4px;
+  }
+}
+
+.arrow_1 {
+  @include arrow;
+
+  top: 50px;
+  left: 445px;
+  width: 300px;
+
+  @include media-1200 {
+    top: 45px;
+    left: 360px;
+    width: 250px;
+  }
+
+  @include media-992 {
+    left: 270px;
+    width: 190px;
+  }
+}
+
+.arrow_2 {
+  @include arrow;
+
+  top: 290px;
+  left: 860px;
+  width: 140px;
+  transform: rotate(95deg);
+
+  @include media-1200 {
+    top: 250px;
+    left: 740px;
+    width: 130px;
+    transform: rotate(100deg);
+  }
+
+  @include media-992 {
+    top: 230px;
+    left: 565px;
+    width: 120px;
+  }
+}
+
+.arrow_3 {
+  @include arrow;
+
+  top: 470px;
+  left: 430px;
+  width: 300px;
+  transform: rotate(180deg);
+
+  @include media-1200 {
+    top: 375px;
+    left: 360px;
+    width: 250px;
+  }
+
+  @include media-992 {
+    top: 350px;
+    left: 270px;
+    width: 190px;
   }
 }

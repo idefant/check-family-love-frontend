@@ -3,6 +3,7 @@ import Image from 'next/image';
 import { FC } from 'react';
 
 import Container from '../../components/Container';
+import Icon from '../../components/Icons';
 import uploadImg from '../../public/img/guide/1.png';
 import answerImg from '../../public/img/guide/2.png';
 import paymentImg from '../../public/img/guide/3.png';
@@ -45,6 +46,10 @@ const MainGuide: FC = () => (
             Заплатите 199 руб.
           </div>
         </div>
+
+        <Icon.Arrow className={style.arrow_1} />
+        <Icon.ArrowSmall className={style.arrow_2} />
+        <Icon.Arrow className={style.arrow_3} />
       </div>
     </Container>
   </section>
