@@ -9,4 +9,3 @@ const Quiz = {
 };
 
 export default Quiz;
-export { QuizCard, QuizInput };

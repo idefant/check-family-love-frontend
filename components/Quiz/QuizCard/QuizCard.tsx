@@ -1,5 +1,5 @@
 import {
-  FC, ReactNode, useRef, useState,
+  FC, ReactNode, useEffect, useRef, useState,
 } from 'react';
 import { CSSTransition } from 'react-transition-group';
 
@@ -27,6 +27,12 @@ const QuizCard: FC<QuizCardProps> = ({
 
   const handleOpened = () => setWrapperHeight(undefined);
 
+  useEffect(() => {
+    if (actualQuestionNumber >= number) {
+      handleOpened();
+    }
+  }, [actualQuestionNumber, number]);
+
   return (
     <CSSTransition
       in={actualQuestionNumber >= number}
@@ -47,7 +53,7 @@ const QuizCard: FC<QuizCardProps> = ({
             Вопрос
             {' '}
             {number}
-            /12
+            /13
           </div>
           <div className={style.data}>
             <div className={style.dataQuestion}>{question}</div>

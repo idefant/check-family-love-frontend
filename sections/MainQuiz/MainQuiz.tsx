@@ -11,6 +11,7 @@ import Row from '../../components/Row';
 import SectionTitle from '../../components/SectionTitle';
 import TextInput from '../../components/TextInput';
 import { UploaderContext } from '../../components/Uploader';
+import economyBranches from '../../data/economyBranches';
 import { resolvePath } from '../../helpers/pathResolver';
 
 import style from './MainQuiz.module.scss';
@@ -27,6 +28,7 @@ const questionQueue = [
   ['housing'],
   ['explore_together'],
   ['exchange_ideas'],
+  ['economy_branch.male'],
 ];
 
 const MainQuiz: FC = () => {
@@ -60,6 +62,10 @@ const MainQuiz: FC = () => {
         is_need_send_mail: undefined,
         processing_personal_data: undefined,
         service_terms: undefined,
+        economy_branch: {
+          male: data.economy_branch.male.map((value: string) => +value),
+          female: data.economy_branch.female.map((value: string) => +value),
+        },
       },
       photos: {
         male: maleImages.map((image) => image.base64),
@@ -70,7 +76,7 @@ const MainQuiz: FC = () => {
 
   return (
     <section className={style.section}>
-      <SectionTitle>Ответьте на 12 вопросов:</SectionTitle>
+      <SectionTitle>Ответьте на 13 вопросов:</SectionTitle>
       <Container>
         <Row>
           <div className={style.content}>
@@ -272,27 +278,63 @@ const MainQuiz: FC = () => {
 
               <Quiz.Card
                 number={12}
-                question="Приоритетная для обоих отрасль экономики совпадает (строительство, туризм, медицина и т.д.)"
+                question="Приоритетная для отрасль экономики мужчины (3-5 элементов)"
                 actualQuestionNumber={actualQuestionNumber}
               >
-                <Quiz.Radio
-                  text="Да"
-                  value="yes"
-                  formData={register('economy_branch_coincide', { required: true })}
-                />
-                <Quiz.Radio
-                  text="Нет"
-                  value="no"
-                  formData={register('economy_branch_coincide', { required: true })}
-                />
+                <div>
+                  {(errors.economy_branch as any)?.male && (
+                    <div className={style.errorMessage}>
+                      Должно быть выбрано от 3 до 5 вариантов
+                    </div>
+                  )}
+
+                  {economyBranches.map((economyBranch, i) => (
+                    <Checkbox
+                      value={i + 1}
+                      formData={register('economy_branch.male', {
+                        required: true,
+                        validate: (value) => value.length >= 3 && value.length <= 5,
+                      })}
+                      key={i}
+                    >
+                      {economyBranch}
+                    </Checkbox>
+                  ))}
+                </div>
+              </Quiz.Card>
+
+              <Quiz.Card
+                number={13}
+                question="Приоритетная для отрасль экономики женщины (3-5 элементов)"
+                actualQuestionNumber={actualQuestionNumber}
+              >
+                <div>
+                  {(errors.economy_branch as any)?.female && (
+                    <div className={style.errorMessage}>
+                      Должно быть выбрано от 3 до 5 вариантов
+                    </div>
+                  )}
+                  {economyBranches.map((economyBranch, i) => (
+                    <Checkbox
+                      value={i + 1}
+                      formData={register('economy_branch.female', {
+                        required: true,
+                        validate: (value) => value.length >= 3 && value.length <= 5,
+                      })}
+                      key={i}
+                    >
+                      {economyBranch}
+                    </Checkbox>
+                  ))}
+                </div>
               </Quiz.Card>
 
               <div className={style.additionalForm}>
-                <Checkbox formData={register('processing_personal_data')}>
+                <Checkbox formData={register('processing_personal_data', { required: true })}>
                   Я даю согласие на обработку персональных данных
                 </Checkbox>
 
-                <Checkbox formData={register('service_terms')}>
+                <Checkbox formData={register('service_terms', { required: true })}>
                   Я согласен с условиями предоставления услуг
                 </Checkbox>
 

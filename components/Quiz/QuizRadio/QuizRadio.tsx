@@ -15,7 +15,7 @@ const QuizRadio: FC<QuizRadioProps> = ({ value, text, formData }) => {
   const idRef = useRef(genId());
 
   return (
-    <div>
+    <div className={style.wrapper}>
       <input type="radio" id={idRef.current} {...formData} value={value} className={style.input} />
       <label className={style.label} htmlFor={idRef.current}>{text}</label>
     </div>
