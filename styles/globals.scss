@@ -69,3 +69,14 @@
     --col-half-gap: 5px;
   }
 }
+
+a {
+  color: #005f82;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 3px;
+
+  @include media-768 {
+    text-decoration-thickness: auto;
+    text-underline-offset: 2px;
+  }
+}

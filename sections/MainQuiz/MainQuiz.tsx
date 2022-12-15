@@ -331,11 +331,15 @@ const MainQuiz: FC = () => {
 
               <div className={style.additionalForm}>
                 <Checkbox formData={register('processing_personal_data', { required: true })}>
-                  Я даю согласие на обработку персональных данных
+                  Я даю
+                  {' '}
+                  <a href="/personal_data_consent">согласие на обработку персональных данных</a>
                 </Checkbox>
 
                 <Checkbox formData={register('service_terms', { required: true })}>
-                  Я согласен с условиями предоставления услуг
+                  Я согласен с
+                  {' '}
+                  <a href="/service_terms">условиями предоставления услуг</a>
                 </Checkbox>
 
                 <Checkbox formData={register('is_need_send_mail')}>
