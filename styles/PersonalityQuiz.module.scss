@@ -1,0 +1,29 @@
+@import "/styles/grid";
+@import "/styles/media";
+
+.content {
+  @include col(8);
+
+  margin: 30px auto;
+
+  @include media-992 {
+    @include col(10);
+
+    margin: 24px auto;
+  }
+
+  @include media-576 {
+    @include col(11);
+  }
+
+  @include media-450 {
+    @include col(12);
+
+    margin: 20px auto;
+  }
+}
+
+.submitButton {
+  margin: 30px auto 0;
+  display: block;
+}
