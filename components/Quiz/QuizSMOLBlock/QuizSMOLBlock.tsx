@@ -15,12 +15,14 @@ const QuizSMOLBlock: FC<QuizSMOLBlockProps> = ({ register }) => (
     {smolQuestions.map((question, i) => (
       <div className={style.item} key={i}>
         <QuizRadio
+          id={`smol.${i}.true`}
           className={style.radioYes}
           text="Да"
           value="true"
           formData={register(`smol.${i}`, { required: true })}
         />
         <QuizRadio
+          id={`smol.${i}.false`}
           className={style.radioNo}
           text="Нет"
           value="false"

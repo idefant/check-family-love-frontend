@@ -1,6 +1,6 @@
-import { MBTIQuiz, MBTIQuizGroup } from '../../../types/mbti';
+import { TMBTIQuiz, TMBTIQuizGroup } from '../../../types/mbtiQuizType';
 
-const mbtiPracticalityFirst: MBTIQuiz[] = [
+const mbtiPracticalityFirst: TMBTIQuiz[] = [
   {
     question: 'В большинстве случаев Вы человек:',
     answers: [
@@ -52,7 +52,7 @@ const mbtiPracticalityFirst: MBTIQuiz[] = [
   },
 ];
 
-const mbtiPracticalitySecond: MBTIQuiz[] = [
+const mbtiPracticalitySecond: TMBTIQuiz[] = [
   {
     question: 'Выберите подходящее:',
     answers: [
@@ -104,6 +104,6 @@ const mbtiPracticalitySecond: MBTIQuiz[] = [
   },
 ];
 
-const mbtiPracticality: MBTIQuizGroup = [mbtiPracticalityFirst, mbtiPracticalitySecond];
+const mbtiPracticality: TMBTIQuizGroup = [mbtiPracticalityFirst, mbtiPracticalitySecond];
 
 export default mbtiPracticality;

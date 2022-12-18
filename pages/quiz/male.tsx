@@ -13,7 +13,7 @@ import mbtiOrganizing from '../../data/quiz/mbti/mbtiOrganizing';
 import mbtiPracticality from '../../data/quiz/mbti/mbtiPracticality';
 import style from '../../styles/PersonalityQuiz.module.scss';
 
-const QuizMan = () => {
+const QuizMale = () => {
   const { register, handleSubmit } = useForm();
 
   const onSubmit = (data: FieldValues) => {
@@ -52,4 +52,4 @@ const QuizMan = () => {
   );
 };
 
-export default QuizMan;
+export default QuizMale;

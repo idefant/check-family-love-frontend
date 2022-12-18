@@ -1,6 +1,6 @@
-import { MBTIQuiz, MBTIQuizGroup } from '../../../types/mbti';
+import { TMBTIQuiz, TMBTIQuizGroup } from '../../../types/mbtiQuizType';
 
-const mbtiLogicalityFirst: MBTIQuiz[] = [
+const mbtiLogicalityFirst: TMBTIQuiz[] = [
   {
     question: 'Выберите подходящее:',
     answers: [
@@ -52,7 +52,7 @@ const mbtiLogicalityFirst: MBTIQuiz[] = [
   },
 ];
 
-const mbtiLogicalitySecond: MBTIQuiz[] = [
+const mbtiLogicalitySecond: TMBTIQuiz[] = [
   {
     question: 'Окружающие больше ценят Вашу:',
     answers: [
@@ -104,6 +104,6 @@ const mbtiLogicalitySecond: MBTIQuiz[] = [
   },
 ];
 
-const mbtiLogicality: MBTIQuizGroup = [mbtiLogicalityFirst, mbtiLogicalitySecond];
+const mbtiLogicality: TMBTIQuizGroup = [mbtiLogicalityFirst, mbtiLogicalitySecond];
 
 export default mbtiLogicality;

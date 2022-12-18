@@ -1,13 +1,13 @@
 import { FC } from 'react';
 import { UseFormRegister } from 'react-hook-form';
 
-import { MBTIQuiz } from '../../../types/mbti';
+import { TMBTIQuiz } from '../../../types/mbtiQuizType';
 import Radio from '../../Radio';
 
 import style from './QuizMBTIBlock.module.scss';
 
 interface QuizMBTIBlockProps {
-  quizList: MBTIQuiz[];
+  quizList: TMBTIQuiz[];
   fieldPrefix: string;
   register: UseFormRegister<any>;
 }

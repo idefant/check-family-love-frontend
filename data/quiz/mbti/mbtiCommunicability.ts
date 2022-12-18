@@ -1,6 +1,6 @@
-import { MBTIQuiz, MBTIQuizGroup } from '../../../types/mbti';
+import { TMBTIQuiz, TMBTIQuizGroup } from '../../../types/mbtiQuizType';
 
-const mbtiCommunicabilityFirst: MBTIQuiz[] = [
+const mbtiCommunicabilityFirst: TMBTIQuiz[] = [
   {
     question: 'Вы можете охарактеризовать себя как человека:',
     answers: [
@@ -52,7 +52,7 @@ const mbtiCommunicabilityFirst: MBTIQuiz[] = [
   },
 ];
 
-const mbtiCommunicabilitySecond: MBTIQuiz[] = [
+const mbtiCommunicabilitySecond: TMBTIQuiz[] = [
   {
     question: 'Новое и необычное взаимодействие с людьми:',
     answers: [
@@ -104,7 +104,7 @@ const mbtiCommunicabilitySecond: MBTIQuiz[] = [
   },
 ];
 
-const mbtiCommunicability: MBTIQuizGroup = [
+const mbtiCommunicability: TMBTIQuizGroup = [
   mbtiCommunicabilityFirst, mbtiCommunicabilitySecond,
 ];
 

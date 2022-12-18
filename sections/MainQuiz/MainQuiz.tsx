@@ -122,11 +122,13 @@ const MainQuiz: FC = () => {
                 actualQuestionNumber={actualQuestionNumber}
               >
                 <Quiz.Radio
+                  id="alcoholism.yes"
                   text="Есть"
                   value="yes"
                   formData={register('alcoholism', { required: true })}
                 />
                 <Quiz.Radio
+                  id="alcoholism.no"
                   text="Нет"
                   value="no"
                   formData={register('alcoholism', { required: true })}
@@ -139,11 +141,13 @@ const MainQuiz: FC = () => {
                 actualQuestionNumber={actualQuestionNumber}
               >
                 <Quiz.Radio
+                  id="political_views_difference.yes"
                   text="Есть"
                   value="yes"
                   formData={register('political_views_difference', { required: true })}
                 />
                 <Quiz.Radio
+                  id="political_views_difference.no"
                   text="Нет"
                   value="no"
                   formData={register('political_views_difference', { required: true })}
@@ -156,16 +160,19 @@ const MainQuiz: FC = () => {
                 actualQuestionNumber={actualQuestionNumber}
               >
                 <Quiz.Radio
+                  id="leisure_preferences_coincide.match"
                   text="Совпадают"
                   value="match"
                   formData={register('leisure_preferences_coincide', { required: true })}
                 />
                 <Quiz.Radio
+                  id="leisure_preferences_coincide.medium"
                   text="50/50"
                   value="medium"
                   formData={register('leisure_preferences_coincide', { required: true })}
                 />
                 <Quiz.Radio
+                  id="leisure_preferences_coincide.no_match"
                   text="Не совпадают"
                   value="no_match"
                   formData={register('leisure_preferences_coincide', { required: true })}
@@ -178,11 +185,13 @@ const MainQuiz: FC = () => {
                 actualQuestionNumber={actualQuestionNumber}
               >
                 <Quiz.Radio
+                  id="education_level.match"
                   text="Совпадают"
                   value="match"
                   formData={register('education_level', { required: true })}
                 />
                 <Quiz.Radio
+                  id="education_level.no_match"
                   text="Не совпадают"
                   value="no_match"
                   formData={register('education_level', { required: true })}
@@ -216,16 +225,19 @@ const MainQuiz: FC = () => {
                 actualQuestionNumber={actualQuestionNumber}
               >
                 <Quiz.Radio
+                  id="housing.own"
                   text="Своя"
                   value="own"
                   formData={register('housing', { required: true })}
                 />
                 <Quiz.Radio
+                  id="housing.not_own"
                   text="Не своя"
                   value="not_own"
                   formData={register('housing', { required: true })}
                 />
                 <Quiz.Radio
+                  id="housing.mortgage"
                   text="Ипотека"
                   value="mortgage"
                   formData={register('housing', { required: true })}
@@ -238,16 +250,19 @@ const MainQuiz: FC = () => {
                 actualQuestionNumber={actualQuestionNumber}
               >
                 <Quiz.Radio
+                  id="explore_together.always"
                   text="Всегда"
                   value="always"
                   formData={register('explore_together', { required: true })}
                 />
                 <Quiz.Radio
+                  id="explore_together.sometimes"
                   text="Иногда"
                   value="sometimes"
                   formData={register('explore_together', { required: true })}
                 />
                 <Quiz.Radio
+                  id="explore_together.never"
                   text="Никогда"
                   value="never"
                   formData={register('explore_together', { required: true })}
@@ -260,16 +275,19 @@ const MainQuiz: FC = () => {
                 actualQuestionNumber={actualQuestionNumber}
               >
                 <Quiz.Radio
+                  id="exchange_ideas.always"
                   text="Всегда"
                   value="always"
                   formData={register('exchange_ideas', { required: true })}
                 />
                 <Quiz.Radio
+                  id="exchange_ideas.sometimes"
                   text="Иногда"
                   value="sometimes"
                   formData={register('exchange_ideas', { required: true })}
                 />
                 <Quiz.Radio
+                  id="exchange_ideas.never"
                   text="Никогда"
                   value="never"
                   formData={register('exchange_ideas', { required: true })}

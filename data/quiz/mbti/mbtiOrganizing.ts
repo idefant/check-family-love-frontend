@@ -1,6 +1,6 @@
-import { MBTIQuiz, MBTIQuizGroup } from '../../../types/mbti';
+import { TMBTIQuiz, TMBTIQuizGroup } from '../../../types/mbtiQuizType';
 
-const mbtiOrganizingFirst: MBTIQuiz[] = [
+const mbtiOrganizingFirst: TMBTIQuiz[] = [
   {
     question: 'Вас больше привлекают ситуации:',
     answers: [
@@ -52,7 +52,7 @@ const mbtiOrganizingFirst: MBTIQuiz[] = [
   },
 ];
 
-const mbtiOrganizingSecond: MBTIQuiz[] = [
+const mbtiOrganizingSecond: TMBTIQuiz[] = [
   {
     question: 'Когда Вы знаете, что в определенное время будете заниматься определенным делом:',
     answers: [
@@ -104,6 +104,6 @@ const mbtiOrganizingSecond: MBTIQuiz[] = [
   },
 ];
 
-const mbtiOrganizing: MBTIQuizGroup = [mbtiOrganizingFirst, mbtiOrganizingSecond];
+const mbtiOrganizing: TMBTIQuizGroup = [mbtiOrganizingFirst, mbtiOrganizingSecond];
 
 export default mbtiOrganizing;
