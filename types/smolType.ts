@@ -1,1 +1,1 @@
-export type TSMOLQuiz = string[];
+export type TSMOLQuiz = boolean[];

@@ -1,4 +1,3 @@
-import { useRouter } from 'next/router';
 import { FormProvider, useForm } from 'react-hook-form';
 
 import Button from '../../components/Button';
@@ -14,7 +13,7 @@ import mbtiOrganizing from '../../data/quiz/mbti/mbtiOrganizing';
 import mbtiPracticality from '../../data/quiz/mbti/mbtiPracticality';
 import { isTrue } from '../../helpers/bool';
 import { useAppDispatch } from '../../hooks/reduxHooks';
-import { setMaleQuiz } from '../../store/reducers/formSlice';
+import { setFemaleQuiz } from '../../store/reducers/formSlice';
 import style from '../../styles/PersonalityQuiz.module.scss';
 import { TMBTIQuizTest } from '../../types/mbtiQuizType';
 
@@ -30,9 +29,8 @@ type TForm = {
   smol: ('true' | 'false')[];
 };
 
-const QuizMale = () => {
+const QuizFemale = () => {
   const dispatch = useAppDispatch();
-  const router = useRouter();
   const form = useForm<TForm>({ shouldUnregister: true });
   const { handleSubmit } = form;
 
@@ -45,14 +43,13 @@ const QuizMale = () => {
       ) as unknown as TMBTIQuizTest,
       smol: data.smol.map(isTrue),
     };
-    dispatch(setMaleQuiz(formattedData));
-    router.push('/quiz/female');
+    dispatch(setFemaleQuiz(formattedData));
   };
 
   return (
     <Layout>
       <section>
-        <SectionTitle>Вопросы для мужчины</SectionTitle>
+        <SectionTitle>Вопросы для женщины</SectionTitle>
         <Container>
           <Row>
             <div className={style.content}>
@@ -72,7 +69,7 @@ const QuizMale = () => {
                 </FormProvider>
 
                 <Button theme="pink" className={style.submitButton} type="submit">
-                  Перейти к тестированию девушки
+                  Получить результат
                 </Button>
               </form>
             </div>
@@ -83,4 +80,4 @@ const QuizMale = () => {
   );
 };
 
-export default QuizMale;
+export default QuizFemale;
