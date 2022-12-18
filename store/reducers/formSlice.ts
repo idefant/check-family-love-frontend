@@ -1,0 +1,64 @@
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+
+import { TPhotosQuiz } from '../../types/imageType';
+import { TMainQuiz } from '../../types/mainQuizType';
+import { TMBTIQuizTest } from '../../types/mbtiQuizType';
+import { TSMOLQuiz } from '../../types/smolType';
+
+type FormState = {
+  quiz: {
+    main?: TMainQuiz;
+    personality: {
+      mbti: {
+        male?: TMBTIQuizTest;
+        female?: TMBTIQuizTest;
+      };
+      smol: {
+        male?: TSMOLQuiz;
+        female?: TSMOLQuiz;
+      };
+    };
+  };
+  photos: Partial<TPhotosQuiz>;
+  email?: string;
+};
+
+const initialState: FormState = {
+  quiz: {
+    personality: {
+      mbti: {},
+      smol: {},
+    },
+  },
+  photos: {},
+};
+
+export const formSlice = createSlice({
+  name: 'form',
+  initialState,
+  reducers: {
+    setMainQuiz(
+      state,
+      { payload }: PayloadAction<{ quiz: TMainQuiz; photos: TPhotosQuiz; email?: string }>,
+    ) {
+      state.quiz.main = payload.quiz;
+      state.photos = payload.photos;
+      state.email = payload.email;
+    },
+    setMaleQuiz(state, { payload: quiz }: PayloadAction<{ mbti: TMBTIQuizTest; smol: TSMOLQuiz }>) {
+      state.quiz.personality.mbti.male = quiz.mbti;
+      state.quiz.personality.smol.male = quiz.smol;
+    },
+    setFemaleQuiz(
+      state,
+      { payload: quiz }: PayloadAction<{ mbti: TMBTIQuizTest; smol: TSMOLQuiz }>,
+    ) {
+      state.quiz.personality.mbti.female = quiz.mbti;
+      state.quiz.personality.smol.female = quiz.smol;
+    },
+  },
+});
+
+export const { setMainQuiz, setMaleQuiz, setFemaleQuiz } = formSlice.actions;
+
+export default formSlice.reducer;

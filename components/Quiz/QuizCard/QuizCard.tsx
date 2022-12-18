@@ -10,10 +10,11 @@ interface QuizCardProps {
   question: string;
   children: ReactNode;
   actualQuestionNumber?: number;
+  error?: ReactNode;
 }
 
 const QuizCard: FC<QuizCardProps> = ({
-  number, question, children, actualQuestionNumber = 1,
+  number, question, children, actualQuestionNumber = 1, error,
 }) => {
   const cardRef = useRef<HTMLDivElement>(null);
 
@@ -57,6 +58,7 @@ const QuizCard: FC<QuizCardProps> = ({
           </div>
           <div className={style.data}>
             <div className={style.dataQuestion}>{question}</div>
+            {error && <div className={style.dataError}>{error}</div>}
             <div className={style.dataControl}>{children}</div>
           </div>
         </div>

@@ -1,8 +1,8 @@
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 import { FC, ReactNode, useEffect } from 'react';
-import { scroller } from 'react-scroll';
 
+import { scrollTo } from '../../helpers/scroll';
 import Footer from '../Footer';
 import Header from '../Header';
 
@@ -22,15 +22,7 @@ const Layout: FC<LayoutProps> = ({
   useEffect(() => {
     const sectionName = router.asPath.split('#')[1];
     if (!sectionName) return;
-
-    const headerElement = document.getElementsByTagName('header')[0]?.clientHeight;
-
-    scroller.scrollTo(sectionName, {
-      duration: 0,
-      delay: 0,
-      smooth: true,
-      offset: headerElement ? -headerElement : 0,
-    });
+    scrollTo(sectionName, { duration: 0, delay: 0 });
   }, [router.asPath]);
 
   return (

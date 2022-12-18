@@ -1,8 +1,8 @@
-/* eslint-disable @next/next/no-html-link-for-pages, jsx-a11y/anchor-is-valid */
+/* eslint-disable @next/next/no-html-link-for-pages */
 import { useRouter } from 'next/router';
 import { FC } from 'react';
-import { scroller } from 'react-scroll';
 
+import { scrollTo } from '../../helpers/scroll';
 import Container from '../Container';
 
 import style from './Header.module.scss';
@@ -19,15 +19,7 @@ const Header: FC = () => {
       router.push(`/#${sectionName}`);
       return;
     }
-
-    const headerElement = document.getElementsByTagName('header')[0]?.clientHeight;
-
-    scroller.scrollTo(sectionName, {
-      duration: 1000,
-      delay: 100,
-      smooth: true,
-      offset: headerElement ? -headerElement : 0,
-    });
+    scrollTo(sectionName);
   };
 
   return (
