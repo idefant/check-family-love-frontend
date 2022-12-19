@@ -13,7 +13,8 @@ import mbtiLogicality from '../../data/quiz/mbti/mbtiLogicality';
 import mbtiOrganizing from '../../data/quiz/mbti/mbtiOrganizing';
 import mbtiPracticality from '../../data/quiz/mbti/mbtiPracticality';
 import { isTrue } from '../../helpers/bool';
-import { useAppDispatch } from '../../hooks/reduxHooks';
+import { useAppDispatch, useAppSelector } from '../../hooks/reduxHooks';
+import useEffectOnce from '../../hooks/useEffectOnce';
 import { setMaleQuiz } from '../../store/reducers/formSlice';
 import style from '../../styles/PersonalityQuiz.module.scss';
 import { TMBTIQuizTest } from '../../types/mbtiQuizType';
@@ -32,6 +33,7 @@ type TForm = {
 
 const QuizMale = () => {
   const dispatch = useAppDispatch();
+  const { step } = useAppSelector((state) => state.form);
   const router = useRouter();
   const form = useForm<TForm>({ shouldUnregister: true });
   const { handleSubmit } = form;
@@ -48,6 +50,14 @@ const QuizMale = () => {
     dispatch(setMaleQuiz(formattedData));
     router.push('/quiz/female');
   };
+
+  useEffectOnce(() => {
+    if (step !== 'male') {
+      router.push('/#start');
+    }
+  });
+
+  if (step !== 'male') return null;
 
   return (
     <Layout>

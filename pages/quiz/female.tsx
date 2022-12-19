@@ -1,3 +1,4 @@
+import { useRouter } from 'next/router';
 import { FormProvider, useForm } from 'react-hook-form';
 
 import Button from '../../components/Button';
@@ -12,7 +13,8 @@ import mbtiLogicality from '../../data/quiz/mbti/mbtiLogicality';
 import mbtiOrganizing from '../../data/quiz/mbti/mbtiOrganizing';
 import mbtiPracticality from '../../data/quiz/mbti/mbtiPracticality';
 import { isTrue } from '../../helpers/bool';
-import { useAppDispatch } from '../../hooks/reduxHooks';
+import { useAppDispatch, useAppSelector } from '../../hooks/reduxHooks';
+import useEffectOnce from '../../hooks/useEffectOnce';
 import { setFemaleQuiz } from '../../store/reducers/formSlice';
 import style from '../../styles/PersonalityQuiz.module.scss';
 import { TMBTIQuizTest } from '../../types/mbtiQuizType';
@@ -31,6 +33,8 @@ type TForm = {
 
 const QuizFemale = () => {
   const dispatch = useAppDispatch();
+  const { step } = useAppSelector((state) => state.form);
+  const router = useRouter();
   const form = useForm<TForm>({ shouldUnregister: true });
   const { handleSubmit } = form;
 
@@ -45,6 +49,14 @@ const QuizFemale = () => {
     };
     dispatch(setFemaleQuiz(formattedData));
   };
+
+  useEffectOnce(() => {
+    if (step !== 'female') {
+      router.push('/#start');
+    }
+  });
+
+  if (step !== 'female') return null;
 
   return (
     <Layout>
