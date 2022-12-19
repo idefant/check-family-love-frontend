@@ -8,22 +8,60 @@
   z-index: 1;
 
   &Inner {
-    gap: 270px;
-    display: flex;
-    justify-content: center;
-
     @include media-992 {
-      gap: 180px;
+      display: flex;
+      align-items: center;
+      gap: 30px;
     }
+  }
+}
 
-    @include media-768 {
-      gap: 100px;
-    }
+.logo {
+  width: auto;
+  height: 52px;
+  position: absolute;
+  margin-top: 5px;
 
-    @include media-576 {
-      justify-content: space-around;
-      gap: unset;
-    }
+  @include media-992 {
+    height: 48px;
+    position: static;
+    margin-top: 0;
+  }
+
+  @include media-768 {
+    height: 45px;
+  }
+
+  @include media-576 {
+    height: 43px;
+  }
+
+  @include media-450 {
+    margin: 5px 0;
+  }
+}
+
+.nav {
+  display: flex;
+  justify-content: center;
+  gap: 270px;
+  flex: 1;
+
+  @include media-992 {
+    gap: 180px;
+  }
+
+  @include media-768 {
+    gap: 100px;
+  }
+
+  @include media-576 {
+    justify-content: space-around;
+    gap: unset;
+  }
+
+  @include media-450 {
+    display: none;
   }
 }
 
