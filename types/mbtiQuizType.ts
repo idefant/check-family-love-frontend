@@ -1,6 +1,6 @@
 export type TMBTIQuiz = {
   question: string;
-  answers: [number, number];
+  answers: [string, string];
 };
 
 export type TMBTIQuizGroup = [TMBTIQuiz[], TMBTIQuiz[]];
