@@ -60,7 +60,7 @@ const QuizMale = () => {
   if (step !== 'male') return null;
 
   return (
-    <Layout>
+    <Layout title="Психологический тест для мужчины">
       <section>
         <SectionTitle>Вопросы для мужчины</SectionTitle>
         <Container>

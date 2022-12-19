@@ -26,7 +26,7 @@ const Result = () => {
   };
 
   return (
-    <Layout>
+    <Layout title="Результат анализа">
       <SectionTitle>Результат анализа</SectionTitle>
       <section className={style.section}>
         <Container>

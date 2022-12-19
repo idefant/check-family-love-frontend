@@ -18,7 +18,7 @@ const Problem = () => {
   const [femaleImageUrls, setFemaleImageUrls] = useState<TAttachedImage[]>([]);
 
   return (
-    <Layout>
+    <Layout title="Замена проблемных фотографий">
       <section className={style.section}>
         <SectionTitle>Замена противоречивых фото</SectionTitle>
         <Container>

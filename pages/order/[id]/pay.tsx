@@ -10,7 +10,7 @@ import qiwiImg from '../../../public/img/payment/qiwi.png';
 import style from '../../../styles/Pay.module.scss';
 
 const Pay = () => (
-  <Layout>
+  <Layout title="Оплата заказа">
     <section className={style.top}>
       <Container>
         <h1 className={style.topTitle}>Оплатите заказ на анализ фотографий</h1>
