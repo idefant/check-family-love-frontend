@@ -114,6 +114,8 @@ const MainQuiz: FC = () => {
                   units="см"
                   formData={register('height_difference', {
                     required: true,
+                    min: -60,
+                    max: 60,
                     validate: { vdNum, vdInt },
                     setValueAs: strToNum(),
                   })}
@@ -132,6 +134,8 @@ const MainQuiz: FC = () => {
                   units="кг"
                   formData={register('weight_difference', {
                     required: true,
+                    min: -585,
+                    max: 585,
                     validate: { vdNum, vdInt },
                     setValueAs: strToNum(),
                   })}
@@ -150,6 +154,8 @@ const MainQuiz: FC = () => {
                   units="лет"
                   formData={register('age_difference', {
                     required: true,
+                    min: -83,
+                    max: 83,
                     validate: { vdNum, vdInt },
                     setValueAs: strToNum(),
                   })}
@@ -223,6 +229,8 @@ const MainQuiz: FC = () => {
                   units="₽"
                   formData={register('salary.male', {
                     required: true,
+                    min: 0,
+                    max: 10_000_000,
                     validate: { vdNum, vdInt },
                     setValueAs: strToNum(),
                   })}
@@ -234,6 +242,8 @@ const MainQuiz: FC = () => {
                   units="₽"
                   formData={register('salary.female', {
                     required: true,
+                    min: 0,
+                    max: 10_000_000,
                     validate: { vdNum, vdInt },
                     setValueAs: strToNum(),
                   })}
