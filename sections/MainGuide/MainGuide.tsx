@@ -16,10 +16,10 @@ const MainGuide: FC = () => (
     <Container>
       <div className={style.grid}>
         <div className={style.item}>
-          <Image src={uploadImg} alt="Загрузите по 3 фото в фас парня и девушки" />
+          <Image src={uploadImg} alt="Загрузите по 3 фото в фас мужчины и женщины" />
           <div className={classNames(style.itemText, style.itemTextPink)}>
             <span className={style.itemTextStep}>Шаг 1. </span>
-            Загрузите по 3 фото в фас парня и девушки
+            Загрузите по 3 фото в фас мужчины и женщины
           </div>
         </div>
 

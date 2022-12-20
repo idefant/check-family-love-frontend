@@ -82,7 +82,7 @@ const QuizMale = () => {
                 </FormProvider>
 
                 <Button theme="pink" className={style.submitButton} type="submit">
-                  Перейти к тестированию девушки
+                  Перейти к тестированию женщины
                 </Button>
               </form>
             </div>
