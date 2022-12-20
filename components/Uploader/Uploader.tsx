@@ -68,7 +68,13 @@ const Uploader: FC<UploaderProps> = ({ theme, imageUrls, setImageUrls }) => {
       <div className={style.photos}>
         {imageUrls.map((imageUrl) => (
           <div className={style.photoContainer} key={imageUrl.id}>
-            <Image className={style.photoImage} width={0} height={0} src={imageUrl.url} alt="" />
+            <Image
+              className={style.photoImage}
+              width={0}
+              height={0}
+              src={imageUrl.url}
+              alt="Прикрепленное фото"
+            />
             <button
               type="button"
               className={style.photoRemoveButton}
@@ -89,7 +95,7 @@ const Uploader: FC<UploaderProps> = ({ theme, imageUrls, setImageUrls }) => {
         onClick={clickToInput}
         disabled={imageUrls.length >= 3}
       >
-        <Image src={uploadImg} alt="" />
+        <Image src={uploadImg} alt="Добавить фото" />
       </button>
 
       <input

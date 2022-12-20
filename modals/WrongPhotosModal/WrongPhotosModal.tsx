@@ -33,12 +33,12 @@ const WrongPhotosModal: FC<ModalProps> = ({ modal }) => (
       </div>
 
       <div className={style.photos}>
-        <Image src={wrongImg1} alt="" />
-        <Image src={wrongImg2} alt="" />
-        <Image src={wrongImg3} alt="" />
-        <Image src={wrongImg4} alt="" />
-        <Image src={wrongImg5} alt="" />
-        <Image src={wrongImg6} alt="" />
+        <Image src={wrongImg1} alt="Фото в очках" />
+        <Image src={wrongImg2} alt="Фото с частично закрытым лицом" />
+        <Image src={wrongImg3} alt="Фото с группой людей" />
+        <Image src={wrongImg4} alt="Фото с искажением эмоций" />
+        <Image src={wrongImg5} alt="Фото с частично закрытым лицом" />
+        <Image src={wrongImg6} alt="Фото с сильным поворотом головы" />
       </div>
     </div>
   </Modal>

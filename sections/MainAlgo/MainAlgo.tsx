@@ -16,7 +16,7 @@ const MainAlgo: FC = () => (
       <Container>
         <Row>
           <div className={style.content}>
-            <Image src={networkImg} alt="" className={style.networkImg} />
+            <Image src={networkImg} alt="Сеть" className={style.networkImg} />
             <div className={style.text}>
               <p>
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque ea

@@ -16,7 +16,7 @@ const MainGuide: FC = () => (
     <Container>
       <div className={style.grid}>
         <div className={style.item}>
-          <Image src={uploadImg} alt="" />
+          <Image src={uploadImg} alt="Загрузите по 3 фото в фас парня и девушки" />
           <div className={classNames(style.itemText, style.itemTextPink)}>
             <span className={style.itemTextStep}>Шаг 1. </span>
             Загрузите по 3 фото в фас парня и девушки
@@ -24,7 +24,7 @@ const MainGuide: FC = () => (
         </div>
 
         <div className={style.item}>
-          <Image src={answerImg} alt="" />
+          <Image src={answerImg} alt="Ответьте на несколько вопросов" />
           <div className={classNames(style.itemText, style.itemTextBlue)}>
             <span className={style.itemTextStep}>Шаг 2. </span>
             Ответьте на несколько вопросов
@@ -32,7 +32,7 @@ const MainGuide: FC = () => (
         </div>
 
         <div className={style.item}>
-          <Image src={resultImg} alt="" />
+          <Image src={resultImg} alt="Получите результат" />
           <div className={classNames(style.itemText, style.itemTextBlue)}>
             <span className={style.itemTextStep}>Шаг 4. </span>
             Получите результат
@@ -40,7 +40,7 @@ const MainGuide: FC = () => (
         </div>
 
         <div className={style.item}>
-          <Image src={paymentImg} alt="" />
+          <Image src={paymentImg} alt="Заплатите 199 руб." />
           <div className={classNames(style.itemText, style.itemTextPink)}>
             <span className={style.itemTextStep}>Шаг 3. </span>
             Заплатите 199 руб.
