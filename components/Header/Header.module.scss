@@ -20,16 +20,24 @@
   }
 }
 
+.logoLink {
+  padding: 0 20px;
+  margin: 0 -20px;
+  line-height: 0;
+  position: absolute;
+
+  @include media-992 {
+    position: static;
+  }
+}
+
 .logo {
   width: auto;
   height: 52px;
-  position: absolute;
-  margin-top: 5px;
+  margin: 5px 0;
 
   @include media-992 {
     height: 48px;
-    position: static;
-    margin-top: 0;
   }
 
   @include media-768 {
@@ -38,6 +46,7 @@
 
   @include media-576 {
     height: 43px;
+    margin: 4.7px 0;
   }
 
   @include media-450 {

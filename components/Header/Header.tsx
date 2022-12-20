@@ -1,5 +1,6 @@
 /* eslint-disable @next/next/no-html-link-for-pages */
 import Image from 'next/image';
+import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { FC } from 'react';
 
@@ -32,7 +33,9 @@ const Header: FC = () => {
     <header className={style.header}>
       <Container>
         <div className={style.headerInner}>
-          <Image src={logoImg} alt="Logo" className={style.logo} />
+          <Link href="/" onClick={isMobileMenuOpened.setFalse} className={style.logoLink}>
+            <Image src={logoImg} alt="Logo" className={style.logo} />
+          </Link>
           <nav className={style.nav}>
             <a className={style.link} onClick={(e) => scroll(e, 'algo')} href="/#algo">
               Как это работает
