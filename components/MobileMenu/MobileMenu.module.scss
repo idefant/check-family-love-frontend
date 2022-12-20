@@ -1,0 +1,46 @@
+$header-height: 53px;
+
+.filter {
+  position: fixed;
+  inset: 0;
+  background: #000;
+  opacity: 0;
+  transition: 0.35s;
+
+  &Opening {
+    opacity: 0.6 !important;
+  }
+
+  &Opened {
+    opacity: 0.6 !important;
+  }
+
+  &Exiting {
+    opacity: 0 !important;
+  }
+}
+
+.menu {
+  position: fixed;
+  top: 0;
+  width: 75%;
+  height: calc(100% - $header-height);
+  right: 100%;
+  background-color: #f4f4f4;
+  transition: 0.35s;
+  margin-top: $header-height;
+  padding: 18px 0;
+  box-sizing: border-box;
+}
+
+.opened {
+  right: 25%;
+}
+
+.link {
+  display: block;
+  font-size: 21px;
+  padding: 12px 22px;
+  text-decoration: none;
+  font-weight: 500;
+}

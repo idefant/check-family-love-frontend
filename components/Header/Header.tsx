@@ -4,13 +4,17 @@ import { useRouter } from 'next/router';
 import { FC } from 'react';
 
 import { scrollTo } from '../../helpers/scroll';
+import useBoolean from '../../hooks/useBoolean';
 import logoImg from '../../public/img/logo.png';
 import Container from '../Container';
+import Hamburger from '../Hamburger';
+import MobileMenu from '../MobileMenu';
 
 import style from './Header.module.scss';
 
 const Header: FC = () => {
   const router = useRouter();
+  const isMobileMenuOpened = useBoolean();
 
   const scroll = (
     e: React.FormEvent<HTMLFormElement> | React.MouseEvent<HTMLAnchorElement, MouseEvent>,
@@ -30,11 +34,18 @@ const Header: FC = () => {
         <div className={style.headerInner}>
           <Image src={logoImg} alt="Logo" className={style.logo} />
           <nav className={style.nav}>
-            <a className={style.link} onClick={(e) => scroll(e, 'algo')} href="/#algo">Как это работает</a>
-            <a className={style.link} onClick={(e) => scroll(e, 'start')} href="/#start">Начать работу</a>
+            <a className={style.link} onClick={(e) => scroll(e, 'algo')} href="/#algo">
+              Как это работает
+            </a>
+            <a className={style.link} onClick={(e) => scroll(e, 'start')} href="/#start">
+              Начать работу
+            </a>
           </nav>
+          <Hamburger isOpen={isMobileMenuOpened.value} toggle={isMobileMenuOpened.toggle} />
         </div>
       </Container>
+
+      <MobileMenu isOpen={isMobileMenuOpened.value} close={isMobileMenuOpened.setFalse} />
     </header>
   );
 };

@@ -13,6 +13,10 @@
       align-items: center;
       gap: 30px;
     }
+
+    @include media-450 {
+      justify-content: space-between;
+    }
   }
 }
 
