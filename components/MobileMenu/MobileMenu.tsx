@@ -44,6 +44,8 @@ const MobileMenu: FC<MobileMenuProps> = ({ isOpen, close }) => {
       <CSSTransition
         in={isOpen}
         timeout={300}
+        mountOnEnter
+        unmountOnExit
         classNames={{
           enterActive: style.filterOpening,
           enterDone: style.filterOpened,
