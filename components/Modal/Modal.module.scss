@@ -7,19 +7,31 @@
   overflow: auto;
   transition: 0.15s ease-in-out;
   opacity: 0;
+  display: none;
   z-index: 2;
 }
 
 .modal {
+  &OpenStart {
+    display: block;
+  }
+
   &Opening {
     opacity: 1 !important;
+    display: block;
   }
 
   &Opened {
     opacity: 1 !important;
+    display: block;
+  }
+
+  &ExitStart {
+    display: block;
   }
 
   &Exiting {
+    display: block;
     opacity: 0 !important;
   }
 }
