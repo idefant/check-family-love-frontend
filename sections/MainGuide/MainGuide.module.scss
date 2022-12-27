@@ -97,6 +97,7 @@
   img {
     margin-bottom: 20px;
     width: auto;
+    transition: 0.5s;
 
     @include media-1200 {
       margin-bottom: 18px;
@@ -119,6 +120,12 @@
 
     @include media-450 {
       width: 85px;
+    }
+  }
+
+  &:hover {
+    img {
+      transform: scale(1.05);
     }
   }
 }

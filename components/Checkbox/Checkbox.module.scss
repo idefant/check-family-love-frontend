@@ -28,6 +28,7 @@
   border: 2px solid #adb5bd;
   border-radius: 5px;
   position: relative;
+  cursor: pointer;
 
   @include media-1200 {
     width: 20px;

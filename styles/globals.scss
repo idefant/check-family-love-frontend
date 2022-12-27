@@ -73,11 +73,22 @@
 a {
   color: #005f82;
   text-decoration-thickness: 2px;
-  text-underline-offset: 3px;
+  text-decoration-color: transparent;
+  transition: 0.15s;
+  text-underline-offset: 2px;
+
+  &:hover {
+    text-underline-offset: 3px;
+    text-decoration-color: #005f82;
+  }
 
   @include media-768 {
     text-decoration-thickness: auto;
     text-underline-offset: 2px;
+
+    &:hover {
+      text-underline-offset: 2px;
+    }
   }
 }
 

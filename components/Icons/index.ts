@@ -5,6 +5,9 @@ const Icon = {
   X: Icons.XIcon,
   Arrow: Icons.ArrowIcon,
   ArrowSmall: Icons.ArrowSmallIcon,
+  VK: Icons.VkIcon,
+  Telegram: Icons.TelegramIcon,
+  WhatsApp: Icons.WhatsAppIcon,
 };
 
 export default Icon;

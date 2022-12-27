@@ -385,6 +385,7 @@ const MainQuiz: FC = () => {
                 className={style.submitButton}
                 onClick={(e) => e.currentTarget.blur()}
                 type="submit"
+                disabled={actualQuestionNumber < 13}
               >
                 Продолжить заполнение
               </Button>

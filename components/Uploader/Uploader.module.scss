@@ -22,6 +22,7 @@
 
   &Placeholder {
     border-style: dashed;
+    cursor: pointer;
 
     @include photo;
   }
