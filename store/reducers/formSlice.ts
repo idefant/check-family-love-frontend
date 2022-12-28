@@ -1,9 +1,7 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 import { TPhotosQuiz } from '../../types/imageType';
-import { TMainQuiz } from '../../types/mainQuizType';
-import { TMBTIQuizTest } from '../../types/mbtiQuizType';
-import { TSMOLQuiz } from '../../types/smolType';
+import { TMainQuiz, TMBTIQuizTest, TSMOLQuiz } from '../../types/quizType';
 
 type FormState = {
   quiz: {

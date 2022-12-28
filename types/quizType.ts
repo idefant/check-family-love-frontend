@@ -18,3 +18,33 @@ export type TMainQuiz = {
     female: number[];
   };
 };
+
+export type TMBTIQuiz = {
+  question: string;
+  answers: [string, string];
+};
+
+export type TMBTIQuizGroup = [TMBTIQuiz[], TMBTIQuiz[]];
+
+export type TMBTIQuizTest = {
+  organizing: TMBTIQuizGroup;
+  communicability: TMBTIQuizGroup;
+  practicality: TMBTIQuizGroup;
+  logicality: TMBTIQuizGroup;
+};
+
+export type TSMOLQuiz = boolean[];
+
+export type TQuiz = {
+  main: TMainQuiz;
+  personality: {
+    mbti: {
+      male: TMBTIQuizTest;
+      female: TMBTIQuizTest;
+    };
+    smol: {
+      male: TSMOLQuiz;
+      female: TSMOLQuiz;
+    };
+  };
+};

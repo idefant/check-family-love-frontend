@@ -13,11 +13,14 @@ import mbtiLogicality from '../../data/quiz/mbti/mbtiLogicality';
 import mbtiOrganizing from '../../data/quiz/mbti/mbtiOrganizing';
 import mbtiPracticality from '../../data/quiz/mbti/mbtiPracticality';
 import { isTrue } from '../../helpers/bool';
+import popup from '../../helpers/popup';
+import { createOrderRequest } from '../../helpers/request';
 import { useAppDispatch, useAppSelector } from '../../hooks/reduxHooks';
 import useEffectOnce from '../../hooks/useEffectOnce';
 import { setFemaleQuiz } from '../../store/reducers/formSlice';
 import style from '../../styles/PersonalityQuiz.module.scss';
-import { TMBTIQuizTest } from '../../types/mbtiQuizType';
+import { TPhotosQuiz } from '../../types/imageType';
+import { TMBTIQuizTest } from '../../types/quizType';
 
 type TMBTIGroupNames = 'organizing' | 'communicability' | 'practicality' | 'logicality';
 
@@ -33,12 +36,14 @@ type TForm = {
 
 const QuizFemale = () => {
   const dispatch = useAppDispatch();
-  const { step } = useAppSelector((state) => state.form);
+  const {
+    step, photos, quiz, email,
+  } = useAppSelector((state) => state.form);
   const router = useRouter();
   const form = useForm<TForm>({ shouldUnregister: true });
   const { handleSubmit } = form;
 
-  const onSubmit = (data: TForm) => {
+  const onSubmit = async (data: TForm) => {
     const formattedData = {
       mbti: Object.fromEntries(
         Object.entries(data.mbti).map(([category, groups]) => (
@@ -48,6 +53,26 @@ const QuizFemale = () => {
       smol: data.smol.map(isTrue),
     };
     dispatch(setFemaleQuiz(formattedData));
+
+    if (!quiz.main || !quiz.personality.mbti.male || !quiz.personality.smol.male) return;
+
+    try {
+      const res = await createOrderRequest({
+        quiz: {
+          main: quiz.main,
+          personality: {
+            mbti: { male: quiz.personality.mbti.male, female: formattedData.mbti },
+            smol: { male: quiz.personality.smol.male, female: formattedData.smol },
+          },
+        },
+        photos: photos as TPhotosQuiz,
+        email,
+      });
+
+      router.push(`/order/${res.data.id}/result`);
+    } catch {
+      popup.fire({ title: 'Произошла ошибка при отправке запроса', text: 'Попробуйте еще раз', icon: 'error' });
+    }
   };
 
   useEffectOnce(() => {

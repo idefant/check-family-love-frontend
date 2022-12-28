@@ -1,4 +1,4 @@
-import { TMBTIQuiz, TMBTIQuizGroup } from '../../../types/mbtiQuizType';
+import { TMBTIQuiz, TMBTIQuizGroup } from '../../../types/quizType';
 
 const mbtiOrganizingFirst: TMBTIQuiz[] = [
   {

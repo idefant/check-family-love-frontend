@@ -17,7 +17,7 @@ import { useAppDispatch, useAppSelector } from '../../hooks/reduxHooks';
 import useEffectOnce from '../../hooks/useEffectOnce';
 import { setMaleQuiz } from '../../store/reducers/formSlice';
 import style from '../../styles/PersonalityQuiz.module.scss';
-import { TMBTIQuizTest } from '../../types/mbtiQuizType';
+import { TMBTIQuizTest } from '../../types/quizType';
 
 type TMBTIGroupNames = 'organizing' | 'communicability' | 'practicality' | 'logicality';
 

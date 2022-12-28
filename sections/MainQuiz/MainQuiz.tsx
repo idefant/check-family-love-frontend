@@ -20,7 +20,7 @@ import popup from '../../helpers/popup';
 import { scrollTo } from '../../helpers/scroll';
 import { useAppDispatch } from '../../hooks/reduxHooks';
 import { setMainQuiz } from '../../store/reducers/formSlice';
-import { TMainQuiz } from '../../types/mainQuizType';
+import { TMainQuiz } from '../../types/quizType';
 
 import style from './MainQuiz.module.scss';
 

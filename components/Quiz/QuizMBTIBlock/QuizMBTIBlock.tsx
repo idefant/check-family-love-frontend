@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import { useFormContext } from 'react-hook-form';
 
-import { TMBTIQuiz } from '../../../types/mbtiQuizType';
+import { TMBTIQuiz } from '../../../types/quizType';
 import Radio from '../../Radio';
 
 import style from './QuizMBTIBlock.module.scss';
