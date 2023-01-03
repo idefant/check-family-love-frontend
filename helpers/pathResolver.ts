@@ -1,4 +1,6 @@
-export const resolvePath = (object: any, path: string, defaultValue?: any) => path
-  .split(/[/./[\]/'/"]/)
-  .filter((p) => p)
-  .reduce((o, p) => (o ? o[p] : defaultValue), object);
+export const resolvePath = (obj: any, path: string, defaultValue?: any) => (
+  path
+    .split(/[/./[\]/'/"]/)
+    .filter((prop) => prop)
+    .reduce((innerObj, prop) => (innerObj ? innerObj[prop] : defaultValue), obj)
+);

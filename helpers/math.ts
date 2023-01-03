@@ -1,6 +1,7 @@
-export const strToNum = () => (str: string) => (
-  str ? +str.replaceAll(',', '.').replaceAll(' ', '') : str
-);
+export const strToNum = () => (str: string) => {
+  const formattedStr = str.replaceAll(' ', '');
+  return formattedStr ? +formattedStr.replaceAll(',', '.') : '';
+};
 
 class Num {
   num: number;

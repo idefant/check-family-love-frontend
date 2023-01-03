@@ -59,7 +59,16 @@ const MainQuiz: FC = () => {
   useEffect(() => {
     const subscription = watch((value) => {
       const paths = questionQueue[actualQuestionNumber - 1];
-      if (paths?.every((field) => resolvePath(value, field))) {
+
+      const isValid = paths?.every((path) => {
+        const fieldValue = resolvePath(value, path);
+        if (typeof fieldValue === 'number') {
+          return !Number.isNaN(fieldValue);
+        }
+        return !!fieldValue;
+      });
+
+      if (isValid) {
         setActualQuestionNumber((state) => state + 1);
       }
     });
