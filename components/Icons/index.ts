@@ -8,6 +8,8 @@ const Icon = {
   VK: Icons.VkIcon,
   Telegram: Icons.TelegramIcon,
   WhatsApp: Icons.WhatsAppIcon,
+  ChevronLeft: Icons.ChevronLeftIcon,
+  ChevronRight: Icons.ChevronRightIcon,
 };
 
 export default Icon;

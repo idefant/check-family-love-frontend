@@ -1,3 +1,4 @@
+import classNames from 'classnames';
 import { FC } from 'react';
 import { useFormContext } from 'react-hook-form';
 
@@ -6,7 +7,11 @@ import QuizRadio from '../QuizRadio';
 
 import style from './QuizSMOLBlock.module.scss';
 
-const QuizSMOLBlock: FC = () => {
+interface QuizSMOLBlockProps {
+  visible?: boolean;
+}
+
+const QuizSMOLBlock: FC<QuizSMOLBlockProps> = ({ visible = true }) => {
   const form = useFormContext();
   if (!form) return null;
   const { register } = form;
@@ -14,7 +19,7 @@ const QuizSMOLBlock: FC = () => {
   return (
     <>
       {smolQuestions.map((question, i) => (
-        <div className={style.item} key={i}>
+        <div className={classNames(style.item, !visible && style.itemHidden)} key={i}>
           <QuizRadio
             id={`smol.${i}.true`}
             className={style.radioYes}

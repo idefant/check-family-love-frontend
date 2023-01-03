@@ -6,6 +6,10 @@
   @include media-768 {
     margin-bottom: 20px;
   }
+
+  &Hidden {
+    display: none;
+  }
 }
 
 .question {

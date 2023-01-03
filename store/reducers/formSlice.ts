@@ -19,7 +19,7 @@ type FormState = {
   };
   photos: Partial<TPhotosQuiz>;
   email?: string;
-  step: 'main' | 'male' | 'female';
+  pageName: 'main' | 'male' | 'female';
 };
 
 const initialState: FormState = {
@@ -30,7 +30,7 @@ const initialState: FormState = {
     },
   },
   photos: {},
-  step: 'main',
+  pageName: 'main',
 };
 
 export const formSlice = createSlice({
@@ -44,12 +44,12 @@ export const formSlice = createSlice({
       state.quiz.main = payload.quiz;
       state.photos = payload.photos;
       state.email = payload.email;
-      state.step = 'male';
+      state.pageName = 'male';
     },
     setMaleQuiz(state, { payload: quiz }: PayloadAction<{ mbti: TMBTIQuizTest; smol: TSMOLQuiz }>) {
       state.quiz.personality.mbti.male = quiz.mbti;
       state.quiz.personality.smol.male = quiz.smol;
-      state.step = 'female';
+      state.pageName = 'female';
     },
     setFemaleQuiz(
       state,

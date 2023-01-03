@@ -19,6 +19,10 @@ $red-border: #a31818;
   @include media-450 {
     gap: 6px;
   }
+
+  &Hidden {
+    display: none;
+  }
 }
 
 .question {

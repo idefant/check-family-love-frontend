@@ -1,0 +1,115 @@
+@import "/styles/media";
+
+.container {
+  display: flex;
+  justify-content: center;
+  padding: 30px 0;
+  gap: 40px;
+  align-items: center;
+
+  @include media-1200 {
+    padding: 24px 0;
+  }
+
+  @include media-768 {
+    gap: 30px;
+    padding: 20px 0;
+  }
+
+  @include media-576 {
+    gap: 24px;
+    padding: 16px 0;
+  }
+
+  @include media-450 {
+    gap: 18px;
+  }
+}
+
+.title {
+  font-size: 30px;
+
+  @include media-1200 {
+    font-size: 28px;
+  }
+
+  @include media-768 {
+    font-size: 22px;
+  }
+
+  @include media-576 {
+    font-size: 20px;
+  }
+
+  @include media-450 {
+    font-size: 18px;
+  }
+}
+
+.nav {
+  font-size: 18px;
+  background-color: #eee;
+  border: none;
+  border-radius: 10px;
+  padding: 10px 16px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  transition: 0.3s;
+
+  &:disabled {
+    cursor: not-allowed;
+  }
+
+  &:hover:not(:disabled) {
+    background-color: #dadada;
+  }
+
+  @include media-1200 {
+    font-size: 17px;
+  }
+
+  @include media-992 {
+    border-radius: 9px;
+    padding: 9px 14px;
+  }
+
+  @include media-768 {
+    font-size: 16px;
+    padding: 9px 12px;
+  }
+
+  @include media-576 {
+    font-size: 15px;
+    padding: 8px 11px;
+    gap: 7px;
+  }
+
+  @include media-450 {
+    border-radius: 7px;
+    font-size: 14px;
+    padding: 7px 10px;
+  }
+
+  svg {
+    width: 16px;
+    fill: #444;
+
+    @include media-1200 {
+      width: 14px;
+    }
+
+    @include media-768 {
+      width: 13px;
+    }
+
+    @include media-576 {
+      width: 12px;
+    }
+
+    @include media-450 {
+      width: 11px;
+    }
+  }
+}
