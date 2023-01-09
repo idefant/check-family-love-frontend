@@ -33,6 +33,13 @@ export type TMBTIQuizTest = {
   logicality: TMBTIQuizGroup;
 };
 
+export type TMBTIQuizAnswers = {
+  organizing: [(1 | 2)[], (1 | 2)[]];
+  communicability: [(1 | 2)[], (1 | 2)[]];
+  practicality: [(1 | 2)[], (1 | 2)[]];
+  logicality: [(1 | 2)[], (1 | 2)[]];
+};
+
 export type TSMOLQuiz = boolean[];
 
 export type TQuiz = {

@@ -22,9 +22,8 @@ import useCounter from '../../hooks/useCounter';
 import useEffectOnce from '../../hooks/useEffectOnce';
 import { setFemaleQuiz } from '../../store/reducers/formSlice';
 import style from '../../styles/PersonalityQuiz.module.scss';
-import { TPhotosQuiz } from '../../types/imageType';
 import { IntRange } from '../../types/numberType';
-import { TMBTIQuizTest } from '../../types/quizType';
+import { TMBTIQuizAnswers } from '../../types/quizType';
 
 type TMBTIGroupNames = 'organizing' | 'communicability' | 'practicality' | 'logicality';
 
@@ -56,7 +55,7 @@ const QuizFemale = () => {
         Object.entries(data.mbti).map(([category, groups]) => (
           [category as TMBTIGroupNames, groups.map((group) => group.map((item) => +item))]
         )),
-      ) as unknown as TMBTIQuizTest,
+      ) as unknown as TMBTIQuizAnswers,
       smol: data.smol.map(isTrue),
     };
     dispatch(setFemaleQuiz(formattedData));
@@ -65,18 +64,48 @@ const QuizFemale = () => {
 
     try {
       const res = await createOrderRequest({
-        quiz: {
-          main: quiz.main,
-          personality: {
-            mbti: { male: quiz.personality.mbti.male, female: formattedData.mbti },
-            smol: { male: quiz.personality.smol.male, female: formattedData.smol },
-          },
+        famaly_love_quiz: {
+          ...quiz.main,
+          salary_male: quiz.main.salary.male,
+          salary_female: quiz.main.salary.female,
+          economy_sector_male: quiz.main.economy_sector.male,
+          economy_sector_female: quiz.main.economy_sector.female,
         },
-        photos: photos as TPhotosQuiz,
+        mbti_quiz_male: {
+          first_organizing: quiz.personality.mbti.male.organizing[0],
+          first_communicability: quiz.personality.mbti.male.communicability[0],
+          first_practicality: quiz.personality.mbti.male.practicality[0],
+          first_logicality: quiz.personality.mbti.male.logicality[0],
+          second_organizing: quiz.personality.mbti.male.organizing[1],
+          second_communicability: quiz.personality.mbti.male.communicability[1],
+          second_practicality: quiz.personality.mbti.male.practicality[1],
+          second_logicality: quiz.personality.mbti.male.logicality[1],
+        },
+        mbti_quiz_female: {
+          first_organizing: formattedData.mbti.organizing[0],
+          first_communicability: formattedData.mbti.communicability[0],
+          first_practicality: formattedData.mbti.practicality[0],
+          first_logicality: formattedData.mbti.logicality[0],
+          second_organizing: formattedData.mbti.organizing[1],
+          second_communicability: formattedData.mbti.communicability[1],
+          second_practicality: formattedData.mbti.practicality[1],
+          second_logicality: formattedData.mbti.logicality[1],
+        },
+        smol_quiz_male: {
+          quiz: quiz.personality.smol.male,
+        },
+        smol_quiz_female: {
+          quiz: formattedData.smol,
+        },
+        images: {
+          male_images: photos.male as [string, string, string],
+          female_images: photos.female as [string, string, string],
+        },
+        is_send_to_email: !!email,
         email,
       });
 
-      router.push(`/order/${res.data.id}/result`);
+      router.push(`/order/${res.data}/result`);
     } catch {
       popup.fire({ title: 'Произошла ошибка при отправке запроса', text: 'Попробуйте еще раз', icon: 'error' });
     }

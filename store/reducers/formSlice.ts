@@ -1,15 +1,15 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 import { TPhotosQuiz } from '../../types/imageType';
-import { TMainQuiz, TMBTIQuizTest, TSMOLQuiz } from '../../types/quizType';
+import { TMainQuiz, TMBTIQuizAnswers, TSMOLQuiz } from '../../types/quizType';
 
 type FormState = {
   quiz: {
     main?: TMainQuiz;
     personality: {
       mbti: {
-        male?: TMBTIQuizTest;
-        female?: TMBTIQuizTest;
+        male?: TMBTIQuizAnswers;
+        female?: TMBTIQuizAnswers;
       };
       smol: {
         male?: TSMOLQuiz;
@@ -46,14 +46,17 @@ export const formSlice = createSlice({
       state.email = payload.email;
       state.pageName = 'male';
     },
-    setMaleQuiz(state, { payload: quiz }: PayloadAction<{ mbti: TMBTIQuizTest; smol: TSMOLQuiz }>) {
+    setMaleQuiz(
+      state,
+      { payload: quiz }: PayloadAction<{ mbti: TMBTIQuizAnswers; smol: TSMOLQuiz }>,
+    ) {
       state.quiz.personality.mbti.male = quiz.mbti;
       state.quiz.personality.smol.male = quiz.smol;
       state.pageName = 'female';
     },
     setFemaleQuiz(
       state,
-      { payload: quiz }: PayloadAction<{ mbti: TMBTIQuizTest; smol: TSMOLQuiz }>,
+      { payload: quiz }: PayloadAction<{ mbti: TMBTIQuizAnswers; smol: TSMOLQuiz }>,
     ) {
       state.quiz.personality.mbti.female = quiz.mbti;
       state.quiz.personality.smol.female = quiz.smol;

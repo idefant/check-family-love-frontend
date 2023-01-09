@@ -203,9 +203,9 @@ const MainQuiz: FC = () => {
               >
                 <Quiz.RadioGroup
                   dataList={[
-                    { text: 'Совпадают', value: 'match' },
-                    { text: '50/50', value: 'medium' },
-                    { text: 'Не совпадают', value: 'no_match' },
+                    { text: 'Совпадают', value: 'Совпадают' },
+                    { text: '50/50', value: '50/50' },
+                    { text: 'Не совпадают', value: 'Не совпадают' },
                   ]}
                   fieldName="leisure_preferences_coincide"
                   formData={register('leisure_preferences_coincide', { required: true })}
@@ -219,8 +219,8 @@ const MainQuiz: FC = () => {
               >
                 <Quiz.RadioGroup
                   dataList={[
-                    { text: 'Совпадают', value: 'match' },
-                    { text: 'Не совпадают', value: 'no_match' },
+                    { text: 'Совпадают', value: 'Совпадают' },
+                    { text: 'Не совпадают', value: 'Не совпадают' },
                   ]}
                   fieldName="education_level"
                   formData={register('education_level', { required: true })}
@@ -268,9 +268,9 @@ const MainQuiz: FC = () => {
               >
                 <Quiz.RadioGroup
                   dataList={[
-                    { text: 'Своя', value: 'own' },
-                    { text: 'Не своя', value: 'not_own' },
-                    { text: 'Ипотека', value: 'mortgage' },
+                    { text: 'Своя', value: 'Своя' },
+                    { text: 'Не своя', value: 'Не своя' },
+                    { text: 'Ипотека', value: 'Ипотека' },
                   ]}
                   fieldName="housing"
                   formData={register('housing', { required: true })}
@@ -284,9 +284,9 @@ const MainQuiz: FC = () => {
               >
                 <Quiz.RadioGroup
                   dataList={[
-                    { text: 'Всегда', value: 'always' },
-                    { text: 'Иногда', value: 'sometimes' },
-                    { text: 'Никогда', value: 'never' },
+                    { text: 'Всегда', value: 'Всегда' },
+                    { text: 'Иногда', value: 'Иногда' },
+                    { text: 'Никогда', value: 'Нет' },
                   ]}
                   fieldName="explore_together"
                   formData={register('explore_together', { required: true })}
@@ -300,9 +300,9 @@ const MainQuiz: FC = () => {
               >
                 <Quiz.RadioGroup
                   dataList={[
-                    { text: 'Всегда', value: 'always' },
-                    { text: 'Иногда', value: 'sometimes' },
-                    { text: 'Никогда', value: 'never' },
+                    { text: 'Всегда', value: 'Всегда' },
+                    { text: 'Иногда', value: 'Иногда' },
+                    { text: 'Никогда', value: 'Нет' },
                   ]}
                   fieldName="exchange_ideas"
                   formData={register('exchange_ideas', { required: true })}

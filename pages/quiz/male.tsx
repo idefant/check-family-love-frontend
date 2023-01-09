@@ -21,7 +21,7 @@ import useEffectOnce from '../../hooks/useEffectOnce';
 import { setMaleQuiz } from '../../store/reducers/formSlice';
 import style from '../../styles/PersonalityQuiz.module.scss';
 import { IntRange } from '../../types/numberType';
-import { TMBTIQuizTest } from '../../types/quizType';
+import { TMBTIQuizAnswers } from '../../types/quizType';
 
 type TMBTIGroupNames = 'organizing' | 'communicability' | 'practicality' | 'logicality';
 
@@ -51,7 +51,7 @@ const QuizMale = () => {
         Object.entries(data.mbti).map(([category, groups]) => (
           [category as TMBTIGroupNames, groups.map((group) => group.map((item) => +item))]
         )),
-      ) as unknown as TMBTIQuizTest,
+      ) as unknown as TMBTIQuizAnswers,
       smol: data.smol.map(isTrue),
     };
     dispatch(setMaleQuiz(formattedData));
