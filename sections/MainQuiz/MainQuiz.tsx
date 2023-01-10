@@ -115,7 +115,8 @@ const MainQuiz: FC = () => {
             <form onSubmit={handleSubmit(onSubmit)}>
               <Quiz.Card
                 number={1}
-                question="Разница в росте (Рм-Рж)"
+                question="Разница в росте"
+                description="(Рост мужчины) – (Рост женщины)"
                 error={errors.height_difference?.message}
               >
                 <Quiz.Input
@@ -134,7 +135,8 @@ const MainQuiz: FC = () => {
 
               <Quiz.Card
                 number={2}
-                question="Разница в весе (Вм-Вж)"
+                question="Разница в весе"
+                description="(Вес мужчины) – (Вес женщины)"
                 actualQuestionNumber={actualQuestionNumber}
                 error={errors.weight_difference?.message}
               >
@@ -154,7 +156,8 @@ const MainQuiz: FC = () => {
 
               <Quiz.Card
                 number={3}
-                question="Разница в возрасте (Вм-Вж)"
+                question="Разница в возрасте"
+                description="(Возраст мужчины) – ​(Возраст женщины)"
                 actualQuestionNumber={actualQuestionNumber}
                 error={errors.age_difference?.message}
               >

@@ -8,13 +8,14 @@ import style from './QuizCard.module.scss';
 interface QuizCardProps {
   number: number;
   question: string;
+  description?: string;
   children: ReactNode;
   actualQuestionNumber?: number;
   error?: ReactNode;
 }
 
 const QuizCard: FC<QuizCardProps> = ({
-  number, question, children, actualQuestionNumber = 1, error,
+  number, question, children, actualQuestionNumber = 1, error, description,
 }) => {
   const cardRef = useRef<HTMLDivElement>(null);
 
@@ -57,7 +58,12 @@ const QuizCard: FC<QuizCardProps> = ({
             /13
           </div>
           <div className={style.data}>
-            <div className={style.dataQuestion}>{question}</div>
+            <div className={style.dataQuestion}>
+              <div className={style.dataQuestionMain}>{question}</div>
+              {description && (
+                <div className={style.dataQuestionDescription}>{description}</div>
+              )}
+            </div>
             {error && <div className={style.dataError}>{error}</div>}
             <div className={style.dataControl}>{children}</div>
           </div>
