@@ -10,9 +10,7 @@ interface RadioProps {
   value?: string | number;
 }
 
-const Radio: FC<RadioProps> = ({
-  children, name, formData, value,
-}) => (
+const Radio: FC<RadioProps> = ({ children, name, formData, value }) => (
   <label className={style.radio}>
     <input type="radio" value={value} name={name} {...formData} />
     <div className={style.pseudoRadio}>

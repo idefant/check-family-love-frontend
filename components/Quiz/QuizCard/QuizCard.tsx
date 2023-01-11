@@ -1,6 +1,4 @@
-import {
-  FC, ReactNode, useEffect, useRef, useState,
-} from 'react';
+import { FC, ReactNode, useEffect, useRef, useState } from 'react';
 import { CSSTransition } from 'react-transition-group';
 
 import style from './QuizCard.module.scss';
@@ -15,7 +13,12 @@ interface QuizCardProps {
 }
 
 const QuizCard: FC<QuizCardProps> = ({
-  number, question, children, actualQuestionNumber = 1, error, description,
+  number,
+  question,
+  children,
+  actualQuestionNumber = 1,
+  error,
+  description,
 }) => {
   const cardRef = useRef<HTMLDivElement>(null);
 
@@ -51,18 +54,11 @@ const QuizCard: FC<QuizCardProps> = ({
     >
       <div className={style.wrapper} style={{ height: wrapperHeight }}>
         <div className={style.card} ref={cardRef}>
-          <div className={style.number}>
-            Вопрос
-            {' '}
-            {number}
-            /13
-          </div>
+          <div className={style.number}>Вопрос {number}/13</div>
           <div className={style.data}>
             <div className={style.dataQuestion}>
               <div className={style.dataQuestionMain}>{question}</div>
-              {description && (
-                <div className={style.dataQuestionDescription}>{description}</div>
-              )}
+              {description && <div className={style.dataQuestionDescription}>{description}</div>}
             </div>
             {error && <div className={style.dataError}>{error}</div>}
             <div className={style.dataControl}>{children}</div>

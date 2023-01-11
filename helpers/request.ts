@@ -45,10 +45,8 @@ interface createOrderRequestDataType {
   email?: string;
 }
 
-export const createOrderRequest = (data: createOrderRequestDataType) => (
-  server.post('/v1/compatibility_quiz/', data)
-);
+export const createOrderRequest = (data: createOrderRequestDataType) =>
+  server.post('/v1/compatibility_quiz/', data);
 
-export const getOrderResultRequest = (orderId: number | string) => (
-  server.get(`/v1/compatibility_quiz/${orderId}/result`)
-);
+export const getOrderResultRequest = (orderId: number | string) =>
+  server.get(`/v1/compatibility_quiz/${orderId}/result`);

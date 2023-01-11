@@ -26,10 +26,19 @@ const Problem = () => {
             <div className={style.content}>
               <div className={style.grid}>
                 <Uploader theme="blue" imageUrls={maleImageUrls} setImageUrls={setMaleImageUrls} />
-                <Uploader theme="pink" imageUrls={femaleImageUrls} setImageUrls={setFemaleImageUrls} />
+                <Uploader
+                  theme="pink"
+                  imageUrls={femaleImageUrls}
+                  setImageUrls={setFemaleImageUrls}
+                />
               </div>
 
-              <Button className={style.wrongPhotosButton} theme="pink" outline onClick={helpModal.open}>
+              <Button
+                className={style.wrongPhotosButton}
+                theme="pink"
+                outline
+                onClick={helpModal.open}
+              >
                 Какие фотографии не подойдут
               </Button>
             </div>

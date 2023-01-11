@@ -13,9 +13,7 @@ import style from './MainUpload.module.scss';
 
 const MainUpload: FC = () => {
   const helpModal = useModal();
-  const {
-    maleImages, femaleImages, setMaleImages, setFemaleImages,
-  } = useContext(UploaderContext);
+  const { maleImages, femaleImages, setMaleImages, setFemaleImages } = useContext(UploaderContext);
 
   return (
     <Element name="start">
@@ -29,7 +27,12 @@ const MainUpload: FC = () => {
                 <Uploader theme="pink" imageUrls={femaleImages} setImageUrls={setFemaleImages} />
               </div>
 
-              <Button className={style.wrongPhotosButton} theme="pink" outline onClick={helpModal.open}>
+              <Button
+                className={style.wrongPhotosButton}
+                theme="pink"
+                outline
+                onClick={helpModal.open}
+              >
                 Какие фотографии не подойдут
               </Button>
             </div>

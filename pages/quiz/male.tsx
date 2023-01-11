@@ -48,9 +48,10 @@ const QuizMale = () => {
   const onSubmit = (data: TForm) => {
     const formattedData = {
       mbti: Object.fromEntries(
-        Object.entries(data.mbti).map(([category, groups]) => (
-          [category as TMBTIGroupNames, groups.map((group) => group.map((item) => +item))]
-        )),
+        Object.entries(data.mbti).map(([category, groups]) => [
+          category as TMBTIGroupNames,
+          groups.map((group) => group.map((item) => +item)),
+        ]),
       ) as unknown as TMBTIQuizAnswers,
       smol: data.smol.map(isTrue),
     };
@@ -97,15 +98,47 @@ const QuizMale = () => {
             <Row>
               <div className={style.content}>
                 <FormProvider {...form}>
-                  <QuizMBTIBlock fieldPrefix="organizing.0" quizList={mbtiOrganizing[0]} visible={step.value === 1} />
-                  <QuizMBTIBlock fieldPrefix="communicability.0" quizList={mbtiCommunicability[0]} visible={step.value === 2} />
-                  <QuizMBTIBlock fieldPrefix="practicality.0" quizList={mbtiPracticality[0]} visible={step.value === 3} />
-                  <QuizMBTIBlock fieldPrefix="logicality.0" quizList={mbtiLogicality[0]} visible={step.value === 4} />
+                  <QuizMBTIBlock
+                    fieldPrefix="organizing.0"
+                    quizList={mbtiOrganizing[0]}
+                    visible={step.value === 1}
+                  />
+                  <QuizMBTIBlock
+                    fieldPrefix="communicability.0"
+                    quizList={mbtiCommunicability[0]}
+                    visible={step.value === 2}
+                  />
+                  <QuizMBTIBlock
+                    fieldPrefix="practicality.0"
+                    quizList={mbtiPracticality[0]}
+                    visible={step.value === 3}
+                  />
+                  <QuizMBTIBlock
+                    fieldPrefix="logicality.0"
+                    quizList={mbtiLogicality[0]}
+                    visible={step.value === 4}
+                  />
 
-                  <QuizMBTIBlock fieldPrefix="organizing.1" quizList={mbtiOrganizing[1]} visible={step.value === 5} />
-                  <QuizMBTIBlock fieldPrefix="communicability.1" quizList={mbtiCommunicability[1]} visible={step.value === 6} />
-                  <QuizMBTIBlock fieldPrefix="practicality.1" quizList={mbtiPracticality[1]} visible={step.value === 7} />
-                  <QuizMBTIBlock fieldPrefix="logicality.1" quizList={mbtiLogicality[1]} visible={step.value === 8} />
+                  <QuizMBTIBlock
+                    fieldPrefix="organizing.1"
+                    quizList={mbtiOrganizing[1]}
+                    visible={step.value === 5}
+                  />
+                  <QuizMBTIBlock
+                    fieldPrefix="communicability.1"
+                    quizList={mbtiCommunicability[1]}
+                    visible={step.value === 6}
+                  />
+                  <QuizMBTIBlock
+                    fieldPrefix="practicality.1"
+                    quizList={mbtiPracticality[1]}
+                    visible={step.value === 7}
+                  />
+                  <QuizMBTIBlock
+                    fieldPrefix="logicality.1"
+                    quizList={mbtiLogicality[1]}
+                    visible={step.value === 8}
+                  />
 
                   <QuizSMOLBlock visible={step.value === 9} />
                 </FormProvider>

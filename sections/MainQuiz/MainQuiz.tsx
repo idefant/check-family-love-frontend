@@ -1,7 +1,5 @@
 import { useRouter } from 'next/router';
-import {
-  FC, useContext, useEffect, useState,
-} from 'react';
+import { FC, useContext, useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 
 import Button from '../../components/Button';
@@ -49,7 +47,10 @@ type TForm = TMainQuiz & {
 const MainQuiz: FC = () => {
   const router = useRouter();
   const {
-    register, handleSubmit, watch, formState: { errors },
+    register,
+    handleSubmit,
+    watch,
+    formState: { errors },
   } = useForm<TForm>({ shouldUnregister: true });
 
   const [actualQuestionNumber, setActualQuestionNumber] = useState(1);
@@ -181,7 +182,10 @@ const MainQuiz: FC = () => {
                 actualQuestionNumber={actualQuestionNumber}
               >
                 <Quiz.RadioGroup
-                  dataList={[{ text: 'Есть', value: 'yes' }, { text: 'Нет', value: 'no' }]}
+                  dataList={[
+                    { text: 'Есть', value: 'yes' },
+                    { text: 'Нет', value: 'no' },
+                  ]}
                   fieldName="alcoholism"
                   formData={register('alcoholism', { required: true })}
                 />
@@ -193,7 +197,10 @@ const MainQuiz: FC = () => {
                 actualQuestionNumber={actualQuestionNumber}
               >
                 <Quiz.RadioGroup
-                  dataList={[{ text: 'Есть', value: 'yes' }, { text: 'Нет', value: 'no' }]}
+                  dataList={[
+                    { text: 'Есть', value: 'yes' },
+                    { text: 'Нет', value: 'no' },
+                  ]}
                   fieldName="political_views_difference"
                   formData={register('political_views_difference', { required: true })}
                 />
@@ -264,11 +271,7 @@ const MainQuiz: FC = () => {
                 />
               </Quiz.Card>
 
-              <Quiz.Card
-                number={9}
-                question="Квартира"
-                actualQuestionNumber={actualQuestionNumber}
-              >
+              <Quiz.Card number={9} question="Квартира" actualQuestionNumber={actualQuestionNumber}>
                 <Quiz.RadioGroup
                   dataList={[
                     { text: 'Своя', value: 'Своя' },
@@ -323,10 +326,9 @@ const MainQuiz: FC = () => {
                     <Checkbox
                       value={i + 1}
                       formData={register('economy_sector.male', {
-                        validate: (value) => (
-                          num(value?.length).between(3, 5)
-                            || 'Должно быть выбрано от 3 до 5 вариантов'
-                        ),
+                        validate: (value) =>
+                          num(value?.length).between(3, 5) ||
+                          'Должно быть выбрано от 3 до 5 вариантов',
                       })}
                       key={i}
                     >
@@ -347,10 +349,9 @@ const MainQuiz: FC = () => {
                     <Checkbox
                       value={i + 1}
                       formData={register('economy_sector.female', {
-                        validate: (value) => (
-                          num(value?.length).between(3, 5)
-                            || 'Должно быть выбрано от 3 до 5 вариантов'
-                        ),
+                        validate: (value) =>
+                          num(value?.length).between(3, 5) ||
+                          'Должно быть выбрано от 3 до 5 вариантов',
                       })}
                       key={i}
                     >
@@ -361,18 +362,22 @@ const MainQuiz: FC = () => {
               </Quiz.Card>
 
               <div className={style.additionalForm}>
-                <Checkbox formData={register('processing_personal_data', { required: true })}>
-                  Я даю
-                  {' '}
+                <Checkbox
+                  formData={register('processing_personal_data', {
+                    required: true,
+                  })}
+                >
+                  Я даю{' '}
                   <a href="/personal_data_consent" target="_blank">
                     согласие на обработку персональных данных
                   </a>
                 </Checkbox>
 
                 <Checkbox formData={register('service_terms', { required: true })}>
-                  Я согласен с
-                  {' '}
-                  <a href="/service_terms" target="_blank">условиями предоставления услуг</a>
+                  Я согласен с{' '}
+                  <a href="/service_terms" target="_blank">
+                    условиями предоставления услуг
+                  </a>
                 </Checkbox>
 
                 <Checkbox formData={register('is_need_send_mail')}>

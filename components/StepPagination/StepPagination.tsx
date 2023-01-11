@@ -22,13 +22,7 @@ const StepPagination: FC<StepPaginationProps> = ({ step, availableStepValue }) =
       <Icon.ChevronLeft />
       <div className={style.navText}>Назад</div>
     </button>
-    <div className={style.title}>
-      Шаг
-      {' '}
-      {step.value}
-      {' '}
-      / 9
-    </div>
+    <div className={style.title}>Шаг {step.value} / 9</div>
     <button
       type="button"
       onClick={step.value < availableStepValue ? step.increment : undefined}

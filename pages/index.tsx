@@ -13,9 +13,10 @@ const Home = () => {
   const [maleImages, setMaleImages] = useState<TAttachedImage[]>([]);
   const [femaleImages, setFemaleImages] = useState<TAttachedImage[]>([]);
 
-  const uploaderContextValue = useMemo(() => ({
-    maleImages, femaleImages, setMaleImages, setFemaleImages,
-  }), [femaleImages, maleImages]);
+  const uploaderContextValue = useMemo(
+    () => ({ maleImages, femaleImages, setMaleImages, setFemaleImages }),
+    [femaleImages, maleImages],
+  );
 
   return (
     <Layout>

@@ -13,17 +13,13 @@ interface QuizRadioGroupProps {
   fieldName: string;
 }
 
-const QuizRadioGroup: FC<QuizRadioGroupProps> = ({
-  dataList, formData, className, fieldName,
-}) => (
+const QuizRadioGroup: FC<QuizRadioGroupProps> = ({ dataList, formData, className, fieldName }) => (
   <>
     {dataList.map(({ text, value }) => (
       <QuizRadio
         id={`${fieldName}.${value}`}
         key={value}
-        {...{
-          text, value, formData, className,
-        }}
+        {...{ text, value, formData, className }}
       />
     ))}
   </>

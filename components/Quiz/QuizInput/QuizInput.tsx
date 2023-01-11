@@ -13,7 +13,11 @@ interface QuizInputProps {
 }
 
 const QuizInput: FC<QuizInputProps> = ({
-  units, withError, formData, placeholder, description,
+  units,
+  withError,
+  formData,
+  placeholder,
+  description,
 }) => (
   <label className={classNames(style.label, withError && style.labelWithError)}>
     {description && <div className={style.description}>{description}</div>}

@@ -10,9 +10,7 @@ interface CheckboxProps {
   formData?: UseFormRegisterReturn<string>;
 }
 
-const Checkbox: FC<CheckboxProps> = ({
-  name, value, children, formData,
-}) => (
+const Checkbox: FC<CheckboxProps> = ({ name, value, children, formData }) => (
   <label className={style.container}>
     <input type="checkbox" name={name} className={style.input} value={value} {...formData} />
     <div className={style.pseudoCheckbox} />

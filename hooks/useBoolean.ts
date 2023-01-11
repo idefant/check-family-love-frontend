@@ -1,6 +1,4 @@
-import {
-  Dispatch, SetStateAction, useCallback, useState,
-} from 'react';
+import { Dispatch, SetStateAction, useCallback, useState } from 'react';
 
 interface UseBooleanOutput {
   value: boolean;
@@ -17,9 +15,7 @@ function useBoolean(defaultValue?: boolean): UseBooleanOutput {
   const setFalse = useCallback(() => setValue(false), []);
   const toggle = useCallback(() => setValue((x) => !x), []);
 
-  return {
-    value, setValue, setTrue, setFalse, toggle,
-  };
+  return { value, setValue, setTrue, setFalse, toggle };
 }
 
 export default useBoolean;

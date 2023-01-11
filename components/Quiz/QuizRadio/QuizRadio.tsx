@@ -14,12 +14,12 @@ interface QuizRadioProps {
   id?: string;
 }
 
-const QuizRadio: FC<QuizRadioProps> = ({
-  value, text, formData, className, id = genId(),
-}) => (
+const QuizRadio: FC<QuizRadioProps> = ({ value, text, formData, className, id = genId() }) => (
   <div className={classNames(style.wrapper, className)}>
     <input type="radio" id={id} {...formData} value={value} className={style.input} />
-    <label htmlFor={id} className={style.label}>{text}</label>
+    <label htmlFor={id} className={style.label}>
+      {text}
+    </label>
   </div>
 );
 

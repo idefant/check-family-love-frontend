@@ -8,12 +8,7 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   outline?: boolean;
 }
 
-const Button: FC<ButtonProps> = ({
-  theme = 'blue',
-  outline = false,
-  className,
-  ...props
-}) => (
+const Button: FC<ButtonProps> = ({ theme = 'blue', outline = false, className, ...props }) => (
   <button
     className={classNames(
       style.button,

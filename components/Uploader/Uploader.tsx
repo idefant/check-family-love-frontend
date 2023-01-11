@@ -1,8 +1,6 @@
 import classNames from 'classnames';
 import Image from 'next/image';
-import {
-  ChangeEvent, Dispatch, FC, SetStateAction, useEffect, useRef, useState,
-} from 'react';
+import { ChangeEvent, Dispatch, FC, SetStateAction, useEffect, useRef, useState } from 'react';
 
 import toBase64 from '../../helpers/imageConverter';
 import { genId } from '../../helpers/random';
@@ -36,12 +34,14 @@ const Uploader: FC<UploaderProps> = ({ theme, imageUrls, setImageUrls }) => {
         .slice(0, needImagesCount);
 
       const newImageUrls = await Promise.all(
-        filteredFiles.map(async (file) => (
-          { id: genId(), url: URL.createObjectURL(file), base64: await toBase64(file) }
-        )),
+        filteredFiles.map(async (file) => ({
+          id: genId(),
+          url: URL.createObjectURL(file),
+          base64: await toBase64(file),
+        })),
       );
 
-      setImageUrls([...imageUrls, ...newImageUrls as TAttachedImage[]]);
+      setImageUrls([...imageUrls, ...(newImageUrls as TAttachedImage[])]);
       setFiles([]);
     })();
   }, [imageUrls, files, needImagesCount, setImageUrls]);

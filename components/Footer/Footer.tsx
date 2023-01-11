@@ -32,7 +32,13 @@ const Footer: FC = () => (
           <div className={style.navTitle}>Обратная связь:</div>
           <div className={style.socialIcons}>
             {social.map((link, i) => (
-              <Link href={link.url} className={style.socialLink} target="_blank" rel="noopener" key={i}>
+              <Link
+                href={link.url}
+                className={style.socialLink}
+                target="_blank"
+                rel="noopener"
+                key={i}
+              >
                 {link.icon}
               </Link>
             ))}

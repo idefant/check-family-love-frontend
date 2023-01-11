@@ -15,11 +15,18 @@ interface TextInputProps {
   disabled?: boolean;
 }
 
-const TextInput: FC<TextInputProps> = (({
-  id = genId(), label, formData, withError, placeholder, disabled,
+const TextInput: FC<TextInputProps> = ({
+  id = genId(),
+  label,
+  formData,
+  withError,
+  placeholder,
+  disabled,
 }) => (
   <div className={style.container}>
-    <label htmlFor={id} className={style.label}>{label}</label>
+    <label htmlFor={id} className={style.label}>
+      {label}
+    </label>
     <input
       type="text"
       id={id}
@@ -29,6 +36,6 @@ const TextInput: FC<TextInputProps> = (({
       {...formData}
     />
   </div>
-));
+);
 
 export default TextInput;

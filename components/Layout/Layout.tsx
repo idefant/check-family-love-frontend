@@ -29,7 +29,10 @@ const Layout: FC<LayoutProps> = ({
     <div className={style.content}>
       <Head>
         <title>{title}</title>
-        <meta name="description" content="Сервис оценки продолжительности совместной жизни. Автоматическое определение нейронной сетью типа личности, характера Вас и вашего партнера, социометрических данных и оценка на основе статистики браков/разводов" />
+        <meta
+          name="description"
+          content="Сервис оценки продолжительности совместной жизни. Автоматическое определение нейронной сетью типа личности, характера Вас и вашего партнера, социометрических данных и оценка на основе статистики браков/разводов"
+        />
         <link rel="icon" href="/favicon.ico" />
         <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
@@ -41,9 +44,7 @@ const Layout: FC<LayoutProps> = ({
       </Head>
 
       <Header />
-      <main>
-        {children}
-      </main>
+      <main>{children}</main>
       <Footer />
     </div>
   );

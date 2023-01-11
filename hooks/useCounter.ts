@@ -23,9 +23,7 @@ const useCounter = ({ value = 0, min = -Infinity, max = Infinity }: useCounterPa
     }
   }, [count, min]);
 
-  return {
-    value: count, setValue: setCount, increment, decrement,
-  };
+  return { value: count, setValue: setCount, increment, decrement };
 };
 
 export default useCounter;

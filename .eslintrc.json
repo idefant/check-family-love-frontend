@@ -12,17 +12,15 @@
     "plugin:import/recommended",
     "plugin:react/jsx-runtime",
     "airbnb",
-    "next/core-web-vitals"
+    "next/core-web-vitals",
+    "plugin:prettier/recommended"
   ],
   "parser": "@typescript-eslint/parser",
-  "plugins": [
-    "react",
-    "@typescript-eslint"
-  ],
+  "plugins": ["react", "@typescript-eslint", "prettier"],
   "rules": {
     "no-useless-return": "off",
     "react/jsx-indent-props": "warn",
-    "object-curly-newline": "warn",
+    "object-curly-newline": "off",
     "arrow-body-style": "warn",
     "space-infix-ops": "warn",
     "no-unused-vars": "warn",
@@ -44,9 +42,7 @@
       "warn",
       {
         "props": true,
-        "ignorePropertyModificationsFor": [
-          "state"
-        ]
+        "ignorePropertyModificationsFor": ["state"]
       }
     ],
     "react/no-array-index-key": "off",
@@ -66,12 +62,7 @@
     "react/jsx-filename-extension": [
       1,
       {
-        "extensions": [
-          ".tsx",
-          ".ts",
-          ".js",
-          ".jsx"
-        ]
+        "extensions": [".tsx", ".ts", ".js", ".jsx"]
       }
     ],
     "react-hooks/exhaustive-deps": [
@@ -115,10 +106,7 @@
         "tsx": "never"
       }
     ],
-    "@typescript-eslint/object-curly-spacing": [
-      "warn",
-      "always"
-    ],
+    "@typescript-eslint/object-curly-spacing": ["warn", "always"],
     "@typescript-eslint/no-explicit-any": "off",
     "@typescript-eslint/semi": "warn",
     "@typescript-eslint/space-infix-ops": [

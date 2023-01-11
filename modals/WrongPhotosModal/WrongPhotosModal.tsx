@@ -17,10 +17,7 @@ interface ModalProps {
 }
 
 const WrongPhotosModal: FC<ModalProps> = ({ modal }) => (
-  <Modal
-    title="Какие фотографии не подойдут?"
-    modal={modal}
-  >
+  <Modal title="Какие фотографии не подойдут?" modal={modal}>
     <div className={style.content}>
       <div className={style.text}>
         <ul>
