@@ -3,6 +3,7 @@ import Image from 'next/image';
 import { ChangeEvent, Dispatch, FC, SetStateAction, useEffect, useRef, useState } from 'react';
 
 import toBase64 from '../../helpers/imageConverter';
+import popup from '../../helpers/popup';
 import { genId } from '../../helpers/random';
 import convertSize from '../../helpers/sizeConverter';
 import uploadImg from '../../public/img/upload.png';
@@ -29,9 +30,17 @@ const Uploader: FC<UploaderProps> = ({ theme, imageUrls, setImageUrls }) => {
       const filteredFiles = files
         .filter((file) => {
           const size = convertSize(file.size);
-          return size.to('kb') > 50 && size.to('mb') < 5;
+          return size.to('kb') >= 10 && size.to('mb') <= 5;
         })
         .slice(0, needImagesCount);
+
+      if (filteredFiles.length < files.length) {
+        popup.fire({
+          title: 'Ограничение по размеру',
+          text: 'Размер изображений должен должен быть в пределах от 10 килобайт до 5 мегабайт',
+          icon: 'warning',
+        });
+      }
 
       const newImageUrls = await Promise.all(
         filteredFiles.map(async (file) => ({
