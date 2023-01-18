@@ -140,8 +140,6 @@ const QuizFemale = () => {
     return () => subscription.unsubscribe();
   }, [availableStep, formWatch]);
 
-  if (pageName !== 'female') return null;
-
   return (
     <Layout title="Психологический тест для женщины">
       <section>

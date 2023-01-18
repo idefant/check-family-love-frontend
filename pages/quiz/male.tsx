@@ -85,8 +85,6 @@ const QuizMale = () => {
     return () => subscription.unsubscribe();
   }, [availableStep, formWatch]);
 
-  if (pageName !== 'male') return null;
-
   return (
     <Layout title="Психологический тест для мужчины">
       <section>
