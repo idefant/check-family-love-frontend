@@ -10,6 +10,8 @@ import Icon from '../../../components/Icons';
 import Layout from '../../../components/Layout';
 import Row from '../../../components/Row';
 import SectionTitle from '../../../components/SectionTitle';
+import Spinner from '../../../components/Spinner/Spinner';
+import popup from '../../../helpers/popup';
 import { getOrderResultRequest } from '../../../helpers/request';
 import useLoading from '../../../hooks/useLoading';
 import useResettableState from '../../../hooks/useResettableState';
@@ -24,6 +26,9 @@ const Result = () => {
 
   const [resultData, setResultData] = useState<TResult>();
   const loading = useLoading();
+
+  const isSpinnerShown = ['before', 'loading'].includes(loading.status);
+  const isContentShown = loading.status === 'ok';
 
   useEffect(() => {
     if (!router.isReady) return;
@@ -45,6 +50,24 @@ const Result = () => {
         loading.stopOk();
       } catch {
         loading.stopFailed();
+        popup
+          .fire({
+            title: 'Не удалось получить результаты тестирования',
+            icon: 'error',
+            confirmButtonText: 'Попробовать еще раз',
+            denyButtonText: 'Вернуться на главную',
+            showDenyButton: true,
+            allowOutsideClick: false,
+          })
+          .then((result) => {
+            if (result.isConfirmed) {
+              loading.reset();
+            }
+
+            if (result.isDenied) {
+              router.push('/');
+            }
+          });
       }
     })();
   }, [loading, orderId, router]);
@@ -62,22 +85,24 @@ const Result = () => {
       <SectionTitle>Результат анализа</SectionTitle>
       <section className={style.section}>
         <Container>
+          <div className={style.spinnerWrapper}>
+            <div className={classNames(style.spinner, !isSpinnerShown && style.spinnerHidden)}>
+              <Spinner />
+            </div>
+          </div>
+
           <Row>
-            <div className={style.content}>
+            <div className={classNames(style.content, !isContentShown && style.contentHidden)}>
               <h2 className={style.title}>Совместимость пары:</h2>
 
-              <div className={style.compatibility}>
+              <div className={style.compatibilityList}>
                 <span className={style.compatibilityLabel}>в деловых отношениях</span>
-                <span className={style.compatibilityDash}>–</span>
-                <span className={style.compatibilityPercent}>
-                  {resultData?.years_compatibility_str}
-                </span>
-              </div>
+                <span className={style.compatibilityDash}>—</span>
+                <span className={style.compatibilityPeriod}>{resultData?.years_business_str}</span>
 
-              <div className={style.compatibility}>
                 <span className={style.compatibilityLabel}>в семейных отношениях</span>
-                <span className={style.compatibilityDash}>–</span>
-                <span className={style.compatibilityPercent}>
+                <span className={style.compatibilityDash}>—</span>
+                <span className={style.compatibilityPeriod}>
                   {resultData?.years_compatibility_str}
                 </span>
               </div>
@@ -86,8 +111,23 @@ const Result = () => {
                 <div className={classNames(style.card, style.cardMale)}>
                   <div className={style.cardTitle}>Характеристика мужчины:</div>
                   <div className={style.cardBody}>
-                    <div>{`Тип личности: ${resultData?.male_personality_type}`}</div>
-                    <div>{`Тип характера: ${resultData?.male_character_type}`}</div>
+                    <div className={style.characterType}>
+                      <div className={style.characterTypeName}>
+                        Тип личности: {resultData?.male_personality_type}
+                      </div>
+                      <div className={style.characterTypeDescription}>
+                        <b>Описание типа личности:</b> {resultData?.male_personality_desc}
+                      </div>
+                    </div>
+
+                    <div className={style.characterType}>
+                      <div className={style.characterTypeName}>
+                        Тип характера: {resultData?.male_character_type}
+                      </div>
+                      <div className={style.characterTypeDescription}>
+                        <b>Описание типа характера:</b> {resultData?.male_character_desc}
+                      </div>
+                    </div>
                   </div>
                 </div>
 
@@ -96,8 +136,22 @@ const Result = () => {
                 <div className={classNames(style.card, style.cardFemale)}>
                   <div className={style.cardTitle}>Характеристика женщины:</div>
                   <div className={style.cardBody}>
-                    <div>{`Тип личности: ${resultData?.female_personality_type}`}</div>
-                    <div>{`Тип характера: ${resultData?.female_character_type}`}</div>
+                    <div className={style.characterType}>
+                      <div className={style.characterTypeName}>
+                        Тип личности: {resultData?.female_personality_type}
+                      </div>
+                      <div className={style.characterTypeDescription}>
+                        <b>Описание типа личности:</b> {resultData?.female_personality_desc}
+                      </div>
+                    </div>
+                    <div className={style.characterType}>
+                      <div className={style.characterTypeName}>
+                        Тип характера: {resultData?.female_character_type}
+                      </div>
+                      <div className={style.characterTypeDescription}>
+                        <b>Описание типа характера:</b> {resultData?.female_character_desc}
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>

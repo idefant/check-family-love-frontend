@@ -92,7 +92,16 @@ a {
   }
 }
 
-.swal2-confirm {
-  background-color: #005f82 !important;
-  color: #fff;
+.swal2 {
+  &-confirm {
+    background-color: #005f82 !important;
+    box-shadow: 0 0 0 3px #005f8280 !important;
+    color: #fff;
+  }
+
+  &-deny {
+    background-color: #e61f6f !important;
+    box-shadow: 0 0 0 3px #e61f6f80 !important;
+    color: #fff;
+  }
 }

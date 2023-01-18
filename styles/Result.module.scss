@@ -5,17 +5,49 @@
   padding: 5px 0 40px;
 }
 
-.content {
-  @include col(11);
+.spinner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  position: absolute;
+  transition: opacity 0.5s;
+  top: 100px;
+  pointer-events: none;
 
-  margin: 0 auto;
-
-  @include media-1200 {
-    @include col(12);
+  @include media-992 {
+    top: 80px;
   }
 
   @include media-768 {
+    top: 70px;
+  }
+
+  @include media-450 {
+    top: 60px;
+  }
+
+  &Hidden {
+    opacity: 0;
+  }
+
+  &Wrapper {
+    position: relative;
+  }
+}
+
+.content {
+  @include col(12);
+
+  margin: 0 auto;
+  transition: opacity 0.5s;
+
+  @include media-992 {
     @include col(10);
+  }
+
+  @include media-768 {
+    @include col(12);
   }
 
   @include media-576 {
@@ -24,6 +56,10 @@
 
   @include media-450 {
     @include col(12);
+  }
+
+  &Hidden {
+    opacity: 0;
   }
 }
 
@@ -50,77 +86,85 @@
 }
 
 .compatibility {
-  display: flex;
-  font-size: 26px;
-  font-weight: 700;
-  align-items: center;
-  gap: 60px;
-  justify-content: center;
-  margin-bottom: 14px;
+  &List {
+    width: 540px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr minmax(40px, 100px) auto;
+    font-size: 25px;
+    font-weight: 700;
+    align-items: center;
+    gap: 14px 10px;
 
-  @include media-1200 {
-    gap: 45px;
-  }
+    @include media-1200 {
+      width: 510px;
+      gap: 13px 10px;
+    }
 
-  @include media-992 {
-    font-size: 22px;
-    gap: 40px;
-    margin-bottom: 11px;
-  }
+    @include media-992 {
+      width: 435px;
+      font-size: 21px;
+      gap: 10px;
+    }
 
-  @include media-768 {
-    font-size: 20px;
-    gap: 30px;
-    margin-bottom: 8px;
-  }
+    @include media-768 {
+      font-size: 20px;
+      width: 410px;
+    }
 
-  @include media-576 {
-    font-size: 18px;
-    gap: 20px;
+    @include media-576 {
+      font-size: 18px;
+      gap: 9px 10px;
+      width: 360px;
+    }
+
+    @include media-450 {
+      font-size: 16px;
+      width: unset;
+      gap: 7px 6px;
+      max-width: 300px;
+    }
   }
 
   &Label {
     color: #f2297b;
-    width: 320px;
-
-    @include media-992 {
-      width: 270px;
-    }
-
-    @include media-768 {
-      width: 240px;
-    }
-
-    @include media-576 {
-      width: 215px;
-    }
+    white-space: nowrap;
   }
 
   &Dash {
     color: #f2297b;
+    text-align: center;
   }
 
-  &Percent {
+  &Period {
     color: #005f82;
-    padding: 9px 10px;
+    padding: 8px 11px;
     border: 2px solid #f2297b;
-    border-radius: 15px;
-    width: 80px;
+    border-radius: 13px;
     text-align: center;
+    font-size: 23px;
+    white-space: nowrap;
 
     @include media-992 {
-      width: 68px;
+      font-size: 20px;
       border-radius: 12px;
+      padding: 7px 11px;
     }
 
     @include media-768 {
+      font-size: 18px;
       padding: 7px 8px;
-      border-radius: 12px;
-      width: 60px;
+      border-radius: 10px;
     }
 
     @include media-576 {
-      width: 54px;
+      font-size: 17px;
+      padding: 6px 8px;
+    }
+
+    @include media-450 {
+      font-size: 15px;
+      padding: 5px 6px;
     }
   }
 }
@@ -130,32 +174,80 @@
   align-items: center;
   margin: 40px 0 38px;
   gap: 40px;
+  position: relative;
+
+  @include media-1200 {
+    gap: 30px;
+  }
 
   @include media-992 {
-    gap: 30px;
     margin: 35px 0 32px;
+    flex-direction: column;
+    align-items: unset;
+    gap: 32px;
   }
 
   @include media-768 {
-    flex-direction: column;
-    align-items: unset;
-    gap: 20px;
+    gap: 25px;
     margin: 30px 0;
+  }
+
+  @include media-450 {
+    gap: 20px;
+  }
+}
+
+.characterType {
+  &:not(:last-child) {
+    margin-bottom: 26px;
+
+    @include media-450 {
+      margin-bottom: 20px;
+    }
+  }
+
+  &Name {
+    font-size: 21px;
+    font-weight: 500;
+    margin-bottom: 7px;
+
+    @include media-1200 {
+      font-size: 20px;
+    }
+
+    @include media-768 {
+      font-size: 19px;
+    }
+
+    @include media-450 {
+      font-size: 18px;
+    }
+  }
+
+  &Description {
+    @include media-992 {
+      margin-left: 12px;
+    }
+
+    @include media-576 {
+      margin-left: 0;
+    }
+
+    @include media-450 {
+      font-size: 15px;
+    }
   }
 }
 
 .card {
-  padding: 29px 60px 70px;
+  padding: 32px 30px;
   flex: 1;
   border-radius: 30px;
+  align-self: start;
 
   @include media-1200 {
-    padding: 24px 35px 40px;
+    padding: 24px 28px 26px;
     border-radius: 28px;
-  }
-
-  @include media-992 {
-    padding: 24px 25px 30px;
   }
 
   @include media-768 {
@@ -163,50 +255,30 @@
   }
 
   @include media-576 {
-    padding: 20px 20px 30px;
+    padding: 23px 20px;
+  }
+
+  @include media-450 {
+    border-radius: 20px;
   }
 
   &Title {
     font-weight: 700;
     font-size: 22px;
     text-align: center;
-    margin-bottom: 39px;
+    margin-bottom: 26px;
 
     @include media-1200 {
-      margin-bottom: 30px;
-    }
-
-    @include media-992 {
-      font-size: 20px;
+      margin-bottom: 24px;
+      font-size: 21px;
     }
 
     @include media-576 {
       margin-bottom: 18px;
     }
-  }
 
-  &Body {
-    font-size: 22px;
-    font-weight: 500;
-
-    @include media-992 {
-      font-size: 19px;
-    }
-
-    @include media-768 {
-      font-size: 18px;
-    }
-
-    @include media-576 {
-      font-size: 17px;
-    }
-
-    div {
-      margin-bottom: 16px;
-
-      @include media-992 {
-        margin-bottom: 12px;
-      }
+    @include media-450 {
+      font-size: 20px;
     }
   }
 
@@ -215,7 +287,7 @@
     border: 1px solid #154bd5;
 
     .cardBody {
-      color: #e22671;
+      color: #c31f5e;
     }
   }
 
@@ -232,7 +304,14 @@
     height: auto;
 
     @include media-1200 {
-      width: 90px;
+      width: 80px;
+      position: absolute;
+      top: -26px;
+      left: calc(50% - 50px);
+      padding: 10px;
+      background-color: #fff;
+      border-radius: 50%;
+      border: 1px solid #888;
     }
 
     @include media-992 {
