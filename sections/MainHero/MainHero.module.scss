@@ -1,0 +1,138 @@
+@import "/styles/media";
+
+.section {
+  background-color: #005f82;
+  color: #fff;
+  padding: 90px 0 85px;
+  text-align: center;
+
+  @include media-992 {
+    padding: 65px 0 55px;
+  }
+
+  @include media-576 {
+    padding: 45px 0 40px;
+  }
+
+  @include media-450 {
+    padding: 40px 0 35px;
+  }
+}
+
+.heroInner {
+  position: relative;
+}
+
+.title {
+  font-size: 45px;
+  font-weight: 700;
+  max-width: 900px;
+  margin: 0 auto 65px;
+
+  @include media-1200 {
+    font-size: 40px;
+    max-width: unset;
+    margin: 0 45px 55px;
+  }
+
+  @include media-992 {
+    font-size: 36px;
+    margin: 0 30px 45px;
+  }
+
+  @include media-768 {
+    font-size: 32px;
+    margin: 0 20px 35px;
+  }
+
+  @include media-576 {
+    font-size: 28px;
+    margin: 0 16px 28px;
+  }
+
+  @include media-450 {
+    font-size: 25px;
+    margin: 0 8px 22px;
+  }
+}
+
+.subtitle {
+  font-size: 23px;
+  font-weight: 300;
+  opacity: 0.92;
+  max-width: 900px;
+  margin: 0 auto;
+
+  @include media-1200 {
+    font-size: 22px;
+    max-width: unset;
+    margin: 0 40px;
+  }
+
+  @include media-992 {
+    font-size: 20px;
+    margin: 0 30px;
+  }
+
+  @include media-768 {
+    font-size: 18px;
+    margin: 0 26px;
+  }
+
+  @include media-576 {
+    font-size: 17px;
+    margin: 0 16px;
+  }
+
+  @include media-450 {
+    font-size: 16px;
+    margin: 0 8px;
+  }
+}
+
+.femaleIcon {
+  position: absolute;
+  top: -30px;
+  left: 40px;
+  height: auto;
+
+  @include media-1200 {
+    top: -35px;
+    left: 20px;
+  }
+
+  @include media-768 {
+    width: 64px;
+    left: -10px;
+  }
+
+  @include media-576 {
+    display: none;
+  }
+}
+
+.maleIcon {
+  position: absolute;
+  top: 60px;
+  right: 100px;
+  height: auto;
+
+  @include media-1200 {
+    right: 40px;
+    top: 40px;
+  }
+
+  @include media-992 {
+    top: 60px;
+  }
+
+  @include media-768 {
+    width: 64px;
+    top: 70px;
+    right: 20px;
+  }
+
+  @include media-576 {
+    display: none;
+  }
+}

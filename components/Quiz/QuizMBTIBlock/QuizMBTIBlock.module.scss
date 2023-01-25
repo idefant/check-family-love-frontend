@@ -1,0 +1,24 @@
+@import "/styles/media";
+
+.item {
+  margin-bottom: 24px;
+
+  @include media-768 {
+    margin-bottom: 20px;
+  }
+
+  &Hidden {
+    display: none;
+  }
+}
+
+.question {
+  margin-bottom: 10px;
+  font-size: 18px;
+  font-weight: bold;
+
+  @include media-768 {
+    margin-bottom: 8px;
+    font-size: 17px;
+  }
+}

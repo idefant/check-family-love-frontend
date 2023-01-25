@@ -1,0 +1,177 @@
+@import "/styles/media";
+
+@mixin photo {
+  width: 100%;
+  aspect-ratio: 12 / 14;
+  height: auto;
+  border-width: 4px;
+
+  @include media-992 {
+    border-width: 3px;
+  }
+}
+
+.photo {
+  &Container {
+    position: relative;
+    line-height: 0;
+    border-style: solid;
+
+    @include photo;
+  }
+
+  &Placeholder {
+    border-style: dashed;
+    cursor: pointer;
+
+    @include photo;
+  }
+
+  &Image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  &RemoveButton {
+    position: absolute;
+    top: -15px;
+    right: -15px;
+    line-height: 0;
+    margin: 0;
+    padding: 2px;
+    background-color: #fff;
+    border-radius: 50%;
+    border: 1px solid #777;
+    color: #777;
+    cursor: pointer;
+    transition: 0.2s;
+
+    @include media-1200 {
+      top: -14px;
+      right: -14px;
+    }
+
+    @include media-992 {
+      top: -12px;
+      right: -12px;
+    }
+
+    &:hover {
+      border: 1px solid #000;
+      color: #000;
+      box-shadow: 0 0 1px #555;
+    }
+
+    svg {
+      height: auto;
+
+      @include media-1200 {
+        width: 22px;
+      }
+
+      @include media-992 {
+        width: 19px;
+      }
+    }
+  }
+}
+
+.uploader {
+  border-radius: 35px;
+  padding: 36px 35px 16px;
+
+  @include media-1200 {
+    padding: 32px 30px 16px;
+  }
+
+  @include media-992 {
+    border-radius: 30px;
+    padding: 25px 22px 12px;
+  }
+
+  @include media-768 {
+    padding: 25px 25px 12px;
+  }
+
+  &Blue {
+    background-color: #c8e4ff;
+    border: 1px solid #154bd5;
+
+    .photo {
+      &Container,
+      &Placeholder {
+        border-color: #154bd5;
+      }
+    }
+  }
+
+  &Pink {
+    background-color: #ffd3e5;
+    border: 1px solid #d61cb8;
+
+    .photo {
+      &Container,
+      &Placeholder {
+        border-color: #d61cb8;
+      }
+    }
+  }
+}
+
+.photos {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  gap: 20px;
+
+  @include media-1200 {
+    gap: 16px;
+  }
+
+  @include media-992 {
+    margin-bottom: 16px;
+    gap: 14px;
+  }
+
+  @include media-576 {
+    gap: 12px;
+  }
+
+  @include media-450 {
+    gap: 10px;
+  }
+}
+
+.uploadButton {
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  display: block;
+  margin: 0 auto;
+  cursor: pointer;
+
+  img {
+    width: 60px;
+    height: auto;
+    padding: 0 30px;
+
+    @include media-1200 {
+      width: 55px;
+    }
+
+    @include media-1200 {
+      width: 50px;
+    }
+  }
+
+  &:disabled {
+    img {
+      opacity: 0.5;
+    }
+  }
+}
+
+.hiddenFileInput {
+  display: none;
+}

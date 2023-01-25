@@ -1,0 +1,155 @@
+@import "/styles/media";
+
+.wrapper {
+  position: fixed;
+  inset: 0;
+  background-color: #000b;
+  overflow: auto;
+  transition: 0.15s ease-in-out;
+  opacity: 0;
+  display: none;
+  z-index: 2;
+}
+
+.modal {
+  &OpenStart {
+    display: block;
+  }
+
+  &Opening {
+    opacity: 1 !important;
+    display: block;
+  }
+
+  &Opened {
+    opacity: 1 !important;
+    display: block;
+  }
+
+  &ExitStart {
+    display: block;
+  }
+
+  &Exiting {
+    display: block;
+    opacity: 0 !important;
+  }
+}
+
+.body {
+  width: 925px;
+  margin: 50px auto;
+  background-color: #fff;
+  border-radius: 16px;
+  overflow: hidden;
+
+  @include media-1200 {
+    width: 800px;
+  }
+
+  @include media-992 {
+    width: 700px;
+  }
+
+  @include media-768 {
+    width: 536px;
+  }
+
+  @include media-576 {
+    width: unset;
+    margin: 30px 12px;
+  }
+
+  @include media-450 {
+    margin: 18px 12px;
+  }
+}
+
+.title {
+  font-size: 33px;
+  font-weight: 700;
+  text-align: center;
+  padding: 18px 80px;
+  background-color: #005f82;
+  color: #fff;
+  position: relative;
+
+  @include media-1200 {
+    font-size: 30px;
+    padding: 18px 76px;
+  }
+
+  @include media-992 {
+    font-size: 26px;
+    padding: 18px 72px;
+  }
+
+  @include media-768 {
+    font-size: 24px;
+    padding: 18px 66px;
+  }
+
+  @include media-576 {
+    font-size: 20px;
+    padding: 18px 58px;
+  }
+
+  @include media-450 {
+    font-size: 18px;
+    padding: 16px 50px;
+  }
+}
+
+.closeButton {
+  background-color: transparent;
+  border: none;
+  line-height: 0;
+  margin: 0;
+  position: absolute;
+  padding: 17px 20px;
+  top: 0;
+  right: 0;
+  cursor: pointer;
+
+  @include media-768 {
+    padding: 16px 18px;
+  }
+
+  @include media-576 {
+    padding: 17px 16px 16px;
+  }
+
+  @include media-450 {
+    padding: 12px;
+  }
+
+  svg {
+    stroke: #fff;
+    width: 40px;
+    height: auto;
+
+    @include media-1200 {
+      width: 36px;
+    }
+
+    @include media-992 {
+      width: 32px;
+    }
+
+    @include media-768 {
+      width: 30px;
+    }
+
+    @include media-576 {
+      width: 26px;
+    }
+  }
+}
+
+.content {
+  padding: 25px;
+
+  @include media-576 {
+    padding: 18px;
+  }
+}

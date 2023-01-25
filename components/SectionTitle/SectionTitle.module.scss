@@ -1,0 +1,35 @@
+@import "/styles/media";
+
+.title {
+  color: #fff;
+  font-weight: 700;
+  font-size: 34px;
+  background-color: #005f82;
+  text-align: center;
+  padding: 27px calc((100% - 1140px) / 2);
+
+  @include media-1200 {
+    font-size: 30px;
+    padding: 24px calc((100% - 960px) / 2);
+  }
+
+  @include media-992 {
+    font-size: 27px;
+    padding: 22px calc((100% - 720px) / 2);
+  }
+
+  @include media-768 {
+    font-size: 25px;
+    padding: 20px calc((100% - 540px) / 2);
+  }
+
+  @include media-576 {
+    font-size: 22px;
+    padding: 18px 12px;
+  }
+
+  @include media-450 {
+    font-size: 20px;
+    padding: 16px 12px;
+  }
+}

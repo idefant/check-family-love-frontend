@@ -1,0 +1,131 @@
+@import "/styles/media";
+
+.footer {
+  text-align: center;
+  border-top: 1px solid #005f82;
+  padding: 40px 0 42px;
+  background-color: #013548;
+
+  @include media-576 {
+    padding: 30px 0;
+  }
+
+  @include media-450 {
+    padding: 24px 0;
+  }
+
+  &Inner {
+    display: flex;
+    justify-content: center;
+    gap: 90px;
+
+    @include media-768 {
+      gap: 50px;
+    }
+
+    @include media-576 {
+      flex-direction: column;
+      gap: 20px;
+      max-width: 360px;
+      margin: 0 auto;
+      padding: 0 10px;
+    }
+  }
+}
+
+.nav {
+  &Title {
+    font-size: 22px;
+    font-weight: 500;
+    margin-bottom: 18px;
+    text-align: left;
+    color: #ddd;
+
+    @include media-992 {
+      font-size: 21px;
+    }
+
+    @include media-768 {
+      font-size: 19px;
+    }
+
+    @include media-576 {
+      font-size: 18px;
+      margin-bottom: 16px;
+    }
+
+    @include media-450 {
+      font-size: 17px;
+      margin-bottom: 14px;
+    }
+  }
+
+  &Link {
+    display: block;
+    text-align: left;
+    font-size: 17px;
+    margin-bottom: 12px;
+    color: #80b4c5;
+
+    @include media-768 {
+      font-size: 16px;
+    }
+
+    @include media-450 {
+      font-size: 15px;
+    }
+
+    &:hover {
+      color: #94ccdf;
+      text-decoration-color: #80b4c5;
+      text-underline-offset: 4px;
+    }
+  }
+}
+
+.social {
+  &Icons {
+    display: flex;
+    gap: 40px;
+    margin: 0 auto;
+
+    @include media-992 {
+      gap: 30px;
+    }
+
+    @include media-768 {
+      gap: 24px;
+    }
+  }
+
+  &Link {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    @include media-450 {
+      width: 45px;
+      height: 45px;
+    }
+
+    svg {
+      max-height: 40px;
+      max-width: 40px;
+
+      @include media-450 {
+        max-height: 37px;
+        max-width: 37px;
+      }
+    }
+  }
+}
+
+.docsColumn {
+  max-width: 430px;
+
+  @include media-992 {
+    max-width: 400px;
+  }
+}

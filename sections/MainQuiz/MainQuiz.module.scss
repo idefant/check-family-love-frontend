@@ -1,0 +1,67 @@
+@import "/styles/grid";
+@import "/styles/media";
+
+.section {
+  padding-bottom: 70px;
+
+  @include media-992 {
+    padding-bottom: 55px;
+  }
+
+  @include media-768 {
+    padding-bottom: 45px;
+  }
+
+  @include media-576 {
+    padding-bottom: 40px;
+  }
+}
+
+.content {
+  @include col(8);
+
+  margin: 0 auto;
+
+  @include media-992 {
+    @include col(10);
+  }
+
+  @include media-576 {
+    @include col(11);
+  }
+
+  @include media-450 {
+    @include col(12);
+  }
+}
+
+.additionalForm {
+  width: 500px;
+  margin: 0 auto;
+
+  @include media-1200 {
+    width: 450px;
+  }
+
+  @include media-992 {
+    width: 400px;
+  }
+
+  @include media-768 {
+    width: unset;
+    margin: 0 30px;
+  }
+
+  @include media-576 {
+    margin: 0 16px;
+  }
+
+  @include media-450 {
+    margin: 0 8px;
+  }
+}
+
+.submitButton {
+  margin: 0 auto;
+  display: block;
+}

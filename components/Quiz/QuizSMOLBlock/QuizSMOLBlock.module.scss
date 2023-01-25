@@ -1,0 +1,87 @@
+/* stylelint-disable no-descending-specificity */
+@import "/styles/media";
+
+$green: #3eb41b;
+$red: #d02c2c;
+$green-border: #318d15;
+$red-border: #a31818;
+
+.item {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 9px;
+  align-items: center;
+
+  @include media-576 {
+    gap: 7px;
+  }
+
+  @include media-450 {
+    gap: 6px;
+  }
+
+  &Hidden {
+    display: none;
+  }
+}
+
+.question {
+  flex: 1;
+  margin-left: 15px;
+  font-size: 17px;
+
+  @include media-768 {
+    font-size: 16px;
+    margin-left: 12px;
+  }
+
+  @include media-576 {
+    margin-left: 8px;
+  }
+
+  @include media-450 {
+    margin-left: 6px;
+  }
+}
+
+@mixin label {
+  padding: 5px 8px;
+  min-width: 52px;
+  border-radius: 10px;
+  font-size: 17px;
+
+  @include media-768 {
+    padding: 4px 6px;
+    min-width: 47px;
+    border-radius: 8px;
+    font-size: 16px;
+  }
+}
+
+.radio {
+  &Yes {
+    label {
+      border-color: $green-border;
+      color: $green;
+
+      @include label;
+    }
+
+    input:checked ~ label {
+      background-color: $green !important;
+    }
+  }
+
+  &No {
+    label {
+      border-color: $red-border;
+      color: $red;
+
+      @include label;
+    }
+
+    input:checked ~ label {
+      background-color: $red !important;
+    }
+  }
+}

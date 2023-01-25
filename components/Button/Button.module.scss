@@ -1,0 +1,107 @@
+@import "/styles/media";
+
+.button {
+  padding: 18px 26px;
+  text-align: center;
+  border-radius: 22px;
+  font-size: 22px;
+  font-weight: 500;
+  transition: ease-in 0.15s;
+  cursor: pointer;
+  border-width: 4px;
+  border-style: solid;
+
+  @include media-1200 {
+    border-radius: 20px;
+    border-width: 3px;
+    font-size: 21px;
+    padding: 18px 22px;
+  }
+
+  @include media-992 {
+    border-radius: 18px;
+    font-size: 19px;
+    padding: 14px 18px;
+  }
+
+  @include media-768 {
+    font-size: 18px;
+    padding: 13px 16px;
+  }
+
+  @include media-576 {
+    font-size: 17px;
+    padding: 12px 15px;
+    border-radius: 15px;
+  }
+
+  @include media-450 {
+    font-size: 16px;
+    padding: 11px 14px;
+  }
+
+  &:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+  }
+}
+
+.blue {
+  border-color: #005f82;
+}
+
+.pink {
+  border-color: #f2297b;
+}
+
+.outline {
+  background-color: transparent;
+
+  &.blue {
+    color: #005f82;
+
+    &:hover {
+      background-color: #005f82;
+      color: #fff;
+    }
+  }
+
+  &.pink {
+    color: #f2297b;
+
+    &:hover {
+      background-color: #f2297b;
+      color: #fff;
+    }
+  }
+}
+
+.fill {
+  &.blue {
+    background-color: #005f82;
+    color: #fff;
+
+    &:hover {
+      background-color: #00516e;
+      border-color: #00516e;
+    }
+  }
+
+  &.pink {
+    background-color: #f2297b;
+    color: #fff;
+
+    &:hover {
+      background-color: #e61f6f;
+      border-color: #e61f6f;
+    }
+
+    &:disabled {
+      background-color: #e61f6f;
+
+      &:hover {
+        background-color: #e61f6f;
+      }
+    }
+  }
+}

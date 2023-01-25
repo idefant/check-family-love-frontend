@@ -1,0 +1,68 @@
+@import "/styles/media";
+
+@mixin line {
+  height: 4px;
+  width: 30px;
+  transition-duration: 0.35s;
+  position: absolute;
+  background-color: #444;
+  border-radius: 4px;
+}
+
+.button {
+  background-color: transparent;
+  border: none;
+  position: relative;
+  padding: 0;
+  width: 53px;
+  height: 53px;
+  transition-duration: 0.35s;
+  display: none;
+
+  @include media-450 {
+    display: block;
+  }
+
+  .icon {
+    @include line;
+
+    top: 26px;
+    left: 11px;
+
+    &::before {
+      @include line;
+
+      content: "";
+      top: -10px;
+      left: 0;
+    }
+
+    &::after {
+      @include line;
+
+      content: "";
+      top: 10px;
+      left: 0;
+    }
+  }
+
+  &:hover {
+    background: #fff;
+    cursor: pointer;
+  }
+}
+
+.opened {
+  .icon {
+    transition-duration: 0.35s;
+    background: transparent;
+
+    &::before {
+      transform: rotateZ(45deg) scaleX(1.25) translate(6.5px, 6.5px);
+    }
+
+    &::after {
+      transform: rotateZ(-45deg) scaleX(1.25) translate(6px, -6px);
+    }
+  }
+}

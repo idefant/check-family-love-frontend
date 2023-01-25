@@ -1,0 +1,45 @@
+@import "/styles/grid";
+@import "/styles/media";
+
+.container {
+  padding-top: 6px;
+  padding-bottom: 18px;
+
+  @include media-768 {
+    padding-top: 4px;
+    padding-bottom: 12px;
+  }
+}
+
+.content {
+  @include col(8);
+
+  margin: 10px auto 0;
+
+  @include media-992 {
+    @include col(10);
+
+    margin: 8px auto 0;
+  }
+
+  @include media-768 {
+    margin: 8px auto 6px;
+  }
+
+  @include media-576 {
+    @include col(11);
+
+    margin: 8px auto 4px;
+  }
+
+  @include media-450 {
+    @include col(12);
+
+    margin: 4px auto 2px;
+  }
+}
+
+.submitButton {
+  margin: 10px auto 20px;
+  display: block;
+}

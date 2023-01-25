@@ -1,0 +1,412 @@
+@import "/styles/media";
+@import "/styles/grid";
+
+.section {
+  padding: 5px 0 40px;
+}
+
+.spinner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  position: absolute;
+  transition: opacity 0.5s;
+  top: 100px;
+  pointer-events: none;
+
+  @include media-992 {
+    top: 80px;
+  }
+
+  @include media-768 {
+    top: 70px;
+  }
+
+  @include media-450 {
+    top: 60px;
+  }
+
+  &Hidden {
+    opacity: 0;
+  }
+
+  &Wrapper {
+    position: relative;
+  }
+}
+
+.content {
+  @include col(12);
+
+  margin: 0 auto;
+  transition: opacity 0.5s;
+
+  @include media-992 {
+    @include col(10);
+  }
+
+  @include media-768 {
+    @include col(12);
+  }
+
+  @include media-576 {
+    @include col(11);
+  }
+
+  @include media-450 {
+    @include col(12);
+  }
+
+  &Hidden {
+    opacity: 0;
+  }
+}
+
+.title {
+  text-align: center;
+  font-weight: 900;
+  font-size: 32px;
+
+  @include media-1200 {
+    font-size: 30px;
+  }
+
+  @include media-992 {
+    font-size: 26px;
+  }
+
+  @include media-768 {
+    font-size: 23px;
+  }
+
+  @include media-576 {
+    font-size: 21px;
+  }
+}
+
+.compatibility {
+  &List {
+    width: 540px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr minmax(40px, 100px) auto;
+    font-size: 25px;
+    font-weight: 700;
+    align-items: center;
+    gap: 14px 10px;
+
+    @include media-1200 {
+      width: 510px;
+      gap: 13px 10px;
+    }
+
+    @include media-992 {
+      width: 435px;
+      font-size: 21px;
+      gap: 10px;
+    }
+
+    @include media-768 {
+      font-size: 20px;
+      width: 410px;
+    }
+
+    @include media-576 {
+      font-size: 18px;
+      gap: 9px 10px;
+      width: 360px;
+    }
+
+    @include media-450 {
+      font-size: 16px;
+      width: unset;
+      gap: 7px 6px;
+      max-width: 300px;
+    }
+  }
+
+  &Label {
+    color: #f2297b;
+    white-space: nowrap;
+  }
+
+  &Dash {
+    color: #f2297b;
+    text-align: center;
+  }
+
+  &Period {
+    color: #005f82;
+    padding: 8px 11px;
+    border: 2px solid #f2297b;
+    border-radius: 13px;
+    text-align: center;
+    font-size: 23px;
+    white-space: nowrap;
+
+    @include media-992 {
+      font-size: 20px;
+      border-radius: 12px;
+      padding: 7px 11px;
+    }
+
+    @include media-768 {
+      font-size: 18px;
+      padding: 7px 8px;
+      border-radius: 10px;
+    }
+
+    @include media-576 {
+      font-size: 17px;
+      padding: 6px 8px;
+    }
+
+    @include media-450 {
+      font-size: 15px;
+      padding: 5px 6px;
+    }
+  }
+}
+
+.characters {
+  display: flex;
+  align-items: center;
+  margin: 40px 0 38px;
+  gap: 40px;
+  position: relative;
+
+  @include media-1200 {
+    gap: 30px;
+  }
+
+  @include media-992 {
+    margin: 35px 0 32px;
+    flex-direction: column;
+    align-items: unset;
+    gap: 32px;
+  }
+
+  @include media-768 {
+    gap: 25px;
+    margin: 30px 0;
+  }
+
+  @include media-450 {
+    gap: 20px;
+  }
+}
+
+.characterType {
+  &:not(:last-child) {
+    margin-bottom: 26px;
+
+    @include media-450 {
+      margin-bottom: 20px;
+    }
+  }
+
+  &Name {
+    font-size: 21px;
+    font-weight: 500;
+    margin-bottom: 7px;
+
+    @include media-1200 {
+      font-size: 20px;
+    }
+
+    @include media-768 {
+      font-size: 19px;
+    }
+
+    @include media-450 {
+      font-size: 18px;
+    }
+  }
+
+  &Description {
+    @include media-992 {
+      margin-left: 12px;
+    }
+
+    @include media-576 {
+      margin-left: 0;
+    }
+
+    @include media-450 {
+      font-size: 15px;
+    }
+  }
+}
+
+.card {
+  padding: 32px 30px;
+  flex: 1;
+  border-radius: 30px;
+  align-self: start;
+
+  @include media-1200 {
+    padding: 24px 28px 26px;
+    border-radius: 28px;
+  }
+
+  @include media-768 {
+    border-radius: 24px;
+  }
+
+  @include media-576 {
+    padding: 23px 20px;
+  }
+
+  @include media-450 {
+    border-radius: 20px;
+  }
+
+  &Title {
+    font-weight: 700;
+    font-size: 22px;
+    text-align: center;
+    margin-bottom: 26px;
+
+    @include media-1200 {
+      margin-bottom: 24px;
+      font-size: 21px;
+    }
+
+    @include media-576 {
+      margin-bottom: 18px;
+    }
+
+    @include media-450 {
+      font-size: 20px;
+    }
+  }
+
+  &Male {
+    background-color: #c8e4ff;
+    border: 1px solid #154bd5;
+
+    .cardBody {
+      color: #c31f5e;
+    }
+  }
+
+  &Female {
+    background-color: #ffd3e5;
+    border: 1px solid #d61cb8;
+
+    .cardBody {
+      color: #005f82;
+    }
+  }
+
+  &HandsImg {
+    height: auto;
+
+    @include media-1200 {
+      width: 80px;
+      position: absolute;
+      top: -26px;
+      left: calc(50% - 50px);
+      padding: 10px;
+      background-color: #fff;
+      border-radius: 50%;
+      border: 1px solid #888;
+    }
+
+    @include media-992 {
+      display: none;
+    }
+  }
+}
+
+.copy {
+  &Button {
+    text-align: center;
+    font-size: 19px;
+    padding: 12px 15px;
+    border-radius: 20px;
+    font-weight: 500;
+    margin: 0 auto 14px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+
+    @include media-1200 {
+      font-size: 18px;
+      padding: 10px 13px;
+      border-radius: 18px;
+    }
+
+    @include media-992 {
+      font-size: 17px;
+      padding: 8px 11px;
+      border-radius: 16px;
+    }
+
+    @include media-768 {
+      font-size: 16px;
+      padding: 7px 10px;
+    }
+
+    @include media-576 {
+      font-size: 15px;
+      gap: 10px;
+      padding: 6px 10px;
+      border-radius: 14px;
+    }
+
+    svg {
+      @include media-1200 {
+        width: 28px;
+      }
+
+      @include media-992 {
+        width: 26px;
+      }
+
+      @include media-768 {
+        width: 24px;
+      }
+
+      @include media-576 {
+        width: 22px;
+      }
+
+      path {
+        transition: 0.2s;
+      }
+    }
+  }
+
+  &Explanation {
+    width: 370px;
+    font-size: 14px;
+    text-align: center;
+    margin: 0 auto 40px;
+    color: #4a4a4a;
+
+    @include media-992 {
+      font-size: 13px;
+      width: 340px;
+      margin-bottom: 35px;
+    }
+
+    @include media-576 {
+      font-size: 12px;
+      width: 300px;
+      margin-bottom: 30px;
+    }
+  }
+}
+
+.goMain {
+  &Link {
+    text-decoration: none;
+  }
+
+  &Button {
+    margin: 0 auto;
+    display: block;
+  }
+}
