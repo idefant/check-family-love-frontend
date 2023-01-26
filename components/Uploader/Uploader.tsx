@@ -37,7 +37,7 @@ const Uploader: FC<UploaderProps> = ({ theme, imageUrls, setImageUrls }) => {
       if (filteredFiles.length < files.length) {
         popup.fire({
           title: 'Ограничение по размеру',
-          text: 'Размер изображений должен должен быть в пределах от 10 килобайт до 5 мегабайт',
+          text: 'Размер изображений должен быть в пределах от 10 килобайт до 5 мегабайт',
           icon: 'warning',
         });
       }
